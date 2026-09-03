@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sagar_Website</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        /* ======== NAVBAR ======= */
+
+        header {
+            background: #111827;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .nav-links button:hover {
+            color: #60a5fa;
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* ====== PAGES ======= */
+
+        .page {
+            display: none;
+            min-height: 80vh;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* ================= HOME ================= */
+
+        .hero {
+            min-height: 75vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            padding: 50px 20px;
+
+            background: linear-gradient(
+                135deg,
+                #dbeafe,
+                #eff6ff
+            );
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #4b5563;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 12px 25px;
+
+            background: #2563eb;
+            color: white;
+
+            border: none;
+            border-radius: 7px;
+
+            cursor: pointer;
+
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        .features {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 20px;
+
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 35px;
+            margin-bottom: 40px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px 25px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .page-title {
+            text-align: center;
+            padding: 70px 20px;
+            background: #dbeafe;
+        }
+
+        .page-title h1 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .about-section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 20px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+
+            align-items: center;
+        }
+
+        .image-placeholder {
+            height: 350px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 100px;
+
+            background: #dbeafe;
+            border-radius: 15px;
+        }
+
+        .about-content h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .about-content h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+            color: #4b5563;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact-section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 20px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+        }
+
+        .contact-info h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: #4b5563;
+        }
+
+        .contact-item {
+            margin-top: 25px;
+        }
+
+        .contact-item strong {
+            font-size: 18px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+
+            padding: 12px;
+
+            margin-bottom: 20px;
+
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+
+            font-size: 16px;
+
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #111827;
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 768px) {
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+                top: 65px;
+                left: 0;
+
+                width: 100%;
+
+                background: #111827;
+
+                flex-direction: column;
+
+                padding: 20px;
+
+                text-align: center;
+
+                gap: 20px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .about-section,
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title h1 {
+                font-size: 38px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ========= NAVIGATION ========= -->
+
+<header>
+
+    <nav>
+
+        <div class="logo">
+            My_Website
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <button onclick="showPage('home')">
+                    Home
+                </button>
+            </li>
+
+            <li>
+                <button onclick="showPage('about')">
+                    About
+                </button>
+            </li>
+
+            <li>
+                <button onclick="showPage('contact')">
+                    Contact
+                </button>
+            </li>
+
+        </ul>
+
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- ================= HOME PAGE ================= -->
+
+<section id="home" class="page active">
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Welcome to Sagar_Website
+            </h1>
+
+            <p>
+                This is a modern and responsive website
+                created using HTML, CSS and JavaScript.
+            </p>
+
+            <div class="buttons">
+
+                <button
+                    class="btn"
+                    onclick="showPage('about')">
+                    Learn More
+                </button>
+
+                <button
+                    class="btn"
+                    onclick="showPage('contact')">
+                    Contact Me
+                </button>
+<a href="MOCKTEST.html" class="btn">IOE MOCK TEST</a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="features">
+
+        <h2>
+            What We Offer
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">
+                    💻
+                </div>
+
+                <h3>
+                    Web Development
+                </h3>
+
+                <p>
+                    Modern and responsive websites
+                    for different purposes.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    🎨
+                </div>
+
+                <h3>
+                    Modern Design
+                </h3>
+
+                <p>
+                    Clean, simple and attractive
+                    website designs.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Fast & Simple
+                </h3>
+
+                <p>
+                    Lightweight pages that are
+                    easy to use and maintain.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT PAGE ================= -->
+
+<section id="about" class="page">
+
+    <div class="page-title">
+
+        <h1>
+            About Us
+        </h1>
+
+        <p>
+            Learn more about this website.
+        </p>
+
+    </div>
+
+
+    <div class="about-section">
+
+        <div class="image-placeholder">
+            💻
+        </div>
+
+
+        <div class="about-content">
+
+            <h2>
+                Who We Are
+            </h2>
+
+            <p>
+                Welcome to MyWebsite.
+                This website is created as a simple
+                example of a modern multi-page website.
+            </p>
+
+            <p>
+                We believe websites should be simple,
+                attractive, responsive and easy to use.
+            </p>
+
+            <h3>
+                Our Goal
+            </h3>
+
+            <p>
+                Our goal is to create useful and
+                user-friendly digital experiences.
+            </p>
+
+            <button
+                class="btn"
+                onclick="showPage('contact')">
+                Get In Touch
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ====== CONTACT PAGE ===== -->
+
+<section id="contact" class="page">
+
+    <div class="page-title">
+
+        <h1>
+            Contact Us
+        </h1>
+
+        <p>
+            We would love to hear from you.
+        </p>
+
+    </div>
+
+
+    <div class="contact-section">
+
+        <div class="contact-info">
+
+            <h2>
+                Get In Touch
+            </h2>
+
+            <p>
+                If you have any questions,
+                feel free to contact us.
+            </p>
+
+
+            <div class="contact-item">
+
+                <strong>
+                    📧 Email
+                </strong>
+
+                <p>
+                    sagarsinghsaud77@gmail.com
+                </p>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <strong>
+                    📱 Phone
+                </strong>
+
+                <p>
+                    +977 9768566331
+                </p>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <strong>
+                    📍 Location
+                </strong>
+
+                <p>
+                    Nepal
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="contact-form">
+
+            <form id="contactForm">
+
+                <label>
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label>
+                    Message
+                </label>
+
+                <textarea
+                    id="message"
+                    rows="6"
+                    placeholder="Write your message..."
+                    required
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    class="btn">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        © 2026 MyWebsite. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    /* Show selected page */
+
+    function showPage(pageName) {
+
+        const pages =
+            document.querySelectorAll(".page");
+
+        pages.forEach(function(page) {
+            page.classList.remove("active");
+        });
+
+        document
+            .getElementById(pageName)
+            .classList.add("active");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+        /* Close mobile menu */
+
+        document
+            .querySelector(".nav-links")
+            .classList.remove("show");
+    }
+
+
+    /* Mobile menu */
+
+    function toggleMenu() {
+
+        document
+            .querySelector(".nav-links")
+            .classList.toggle("show");
+
+    }
+
+
+    /* Contact form */
+
+    document
+        .getElementById("contactForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById("name").value;
+
+            alert(
+                "Thank you, " +
+                name +
+                "! Your message has been received."
+            );
+
+            this.reset();
+
+        });
+
+</script>
+
+</body>
+</html>
