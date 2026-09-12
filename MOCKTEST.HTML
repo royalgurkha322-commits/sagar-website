@@ -41,6 +41,7 @@
             display: flex;
             flex-direction: column;
             box-shadow: 2px 0 5px rgba(0,0,0,0.02);
+            flex-shrink: 0;
         }
 
         .brand-container {
@@ -78,6 +79,7 @@
             flex: 1;
             padding: 30px;
             overflow-y: auto;
+            width: 100%;
         }
 
         .view-panel {
@@ -279,11 +281,13 @@
             margin-bottom: 20px;
             font-size: 1.1rem;
         }
+
         .status-banner.passed {
             background: rgba(16, 185, 129, 0.15);
             border: 1px solid var(--accent-success);
             color: var(--accent-success);
         }
+
         .status-banner.failed {
             background: rgba(239, 68, 68, 0.15);
             border: 1px solid var(--accent-red);
@@ -316,12 +320,12 @@
             color: var(--text-main);
         }
 
-        /* Review Section Options styling */
         .review-option-list {
             list-style: none;
             padding-left: 0;
             margin: 12px 0;
         }
+
         .review-option-item {
             padding: 8px 12px;
             margin-bottom: 6px;
@@ -330,12 +334,14 @@
             background: #fafafa;
             font-size: 0.95rem;
         }
+
         .review-option-item.correct-ans {
             background-color: rgba(16, 185, 129, 0.1);
             border-color: var(--accent-success);
             color: #065f46;
             font-weight: 500;
         }
+
         .review-option-item.wrong-ans {
             background-color: rgba(239, 68, 68, 0.1);
             border-color: var(--accent-red);
@@ -351,416 +357,425 @@
             font-size: 0.95rem;
             color: #243b53;
         }
+
+        /* Mobile Screen Media Query Fixes */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            aside {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-links {
+                display: flex;
+                overflow-x: auto;
+                padding: 10px;
+            }
+            .nav-links li {
+                white-space: nowrap;
+                margin-bottom: 0;
+                margin-right: 8px;
+            }
+            .exam-layout {
+                grid-template-columns: 1fr;
+            }
+            main {
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <aside>
-        <div class="brand-container">
-            <span>🌐 Free Mock Test</span>
-        </div>
-        <ul class="nav-links">
-            <li class="active" onclick="switchView('coder-panel')">👨‍💻 Coder Dashboard</li>
-            <li onclick="switchView('exams-panel')">📝 Available Exams</li>
-            <li onclick="switchView('results-panel')">📊 Results & Review</li>
-        </ul>
-    </aside>
+<aside>
+    <div class="brand-container">
+        <span>🌐 Free Mock Test</span>
+    </div>
+    <ul class="nav-links">
+        <li id="nav-exams" class="active" onclick="switchView('exams-panel')">📝 Available Exams</li>
+        <li id="nav-results" onclick="switchView('results-panel')">📊 Results &amp; Review</li>
+        <li id="nav-coder" onclick="switchView('coder-panel')" style="margin-top: auto; color: var(--accent-orange);">🔐 Admin Portal</li>
+    </ul>
+</aside>
 
-    <main>
-        
-        <!-- SECTION 1: CODER SETTINGS & BULK UPLOAD -->
-        <div id="coder-panel" class="view-panel active">
-            <h2>Exam Configurations & Rules</h2>
-            <div class="card accent-border">
-                <h3>1. Set Exam Grading Rules</h3>
-                <br>
-                <div class="inline-group">
-                    <div class="form-group">
-                        <label>Full Marks</label>
-                        <input type="number" id="cfg-full-marks" value="100">
-                    </div>
-                    <div class="form-group">
-                        <label>Pass Marks (%)</label>
-                        <input type="number" id="cfg-pass-marks" value="40">
-                    </div>
-                    <div class="form-group">
-                        <label>Positive Mark (+)</label>
-                        <input type="number" id="cfg-correct" value="1" step="0.1">
-                    </div>
-                    <div class="form-group">
-                        <label>Negative Mark (-)</label>
-                        <input type="number" id="cfg-negative" value="0.25" step="0.05">
-                    </div>
-                </div>
-            </div>
-
-            <!-- BULK IMPORT CARD WITH SOLUTION TEMPLATE -->
-            <div class="card" style="border-top: 4px solid var(--accent-orange);">
-                <h3>2. Paste Whole Question Set with Solutions (Bulk Upload)</h3>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin: 8px 0 15px 0;">
-                    Thala diyeko format jastai gari direct <strong>"solution"</strong> field ma aafno logical explanations haru halera load garna saknuhunchha.
-                </p>
+<main>
+    <div id="coder-panel" class="view-panel">
+        <h2>Exam Configurations &amp; Rules</h2>
+        <div class="card accent-border">
+            <h3>1. Set Exam Grading Rules</h3>
+            <br>
+            <div class="inline-group">
                 <div class="form-group">
-                    <label>JSON Data Input Box (Must include "solution")</label>
-                    <textarea id="bulk-json-input" rows="12" style="font-family: monospace; font-size: 0.9rem; background: #232936; color: #a6accd;"></textarea>
+                    <label>Full Marks</label>
+                    <input type="number" id="cfg-full-marks" value="100">
                 </div>
-                <button style="background-color: var(--accent-orange); color: white;" onclick="importBulkQuestions()">⚡ Import Full Question Set</button>
-                <button class="secondary" onclick="loadSampleTemplate()" style="margin-left: 10px;">Load Sample Template</button>
+                <div class="form-group">
+                    <label>Pass Marks (%)</label>
+                    <input type="number" id="cfg-pass-marks" value="40">
+                </div>
+                <div class="form-group">
+                    <label>Positive Mark (+)</label>
+                    <input type="number" id="cfg-correct" value="1" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label>Negative Mark (-)</label>
+                    <input type="number" id="cfg-negative" value="0.25" step="0.05">
+                </div>
             </div>
+        </div>
 
+        <div class="card" style="border-top: 4px solid var(--accent-orange);">
+            <h3>2. Paste Whole Question Set with Solutions (Bulk Upload)</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 8px 0 15px 0;">
+                Direct <strong>"solution"</strong> field ma aafno logical explanations load garna saknuhunchha.
+            </p>
+            <div class="form-group">
+                <label>JSON Data Input Box (Must include "solution")</label>
+                <textarea id="bulk-json-input" rows="12" style="font-family: monospace; font-size: 0.9rem; background: #232936; color: #a6accd;"></textarea>
+            </div>
+            <button style="background-color: var(--accent-orange); color: white;" onclick="importBulkQuestions()">⚡ Import Full Question Set</button>
+            <button class="secondary" onclick="loadSampleTemplate()" style="margin-left: 10px;">Load Sample Template</button>
+        </div>
+
+        <div class="card">
+            <h3>Question Bank Status</h3>
+            <p style="margin: 15px 0; color: var(--text-muted);">
+                Total Loaded Questions: <strong id="question-count-badge" style="color: var(--text-main);">0</strong>
+            </p>
+            <button class="secondary" onclick="clearConfiguredSet()">Reset / Delete Everything</button>
+        </div>
+    </div>
+
+    <div id="exams-panel" class="view-panel active">
+        <h2>Live Exams Available</h2>
+        <div id="empty-exam-fallback" style="color: var(--text-muted); margin-top: 20px;">
+            No questions available yet. Please contact the administrator.
+        </div>
+        <div id="exam-card-element" class="card accent-border" style="display: none; max-width: 500px;">
+            <span class="status-badge">● LIVE</span>
+            <h3 style="margin-top: 10px; font-size: 1.5rem;">MODEL MOCK ENTRANCE EXAM</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">Free Mock Test Portal</p>
+            <div class="exam-meta-grid">
+                <div class="meta-box">
+                    <span>QUESTIONS</span>
+                    <span id="card-q-count">0</span>
+                </div>
+                <div class="meta-box">
+                    <span>DURATION</span>
+                    <span>Flexible</span>
+                </div>
+            </div>
+            <button class="btn-action" onclick="startTestExecution()">▶ Start Exam</button>
+        </div>
+    </div>
+
+    <div id="live-test-panel" class="view-panel">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h2>Test Interface</h2>
+            <button style="background-color: var(--accent-orange); color: white;" onclick="terminateAndEvaluateTest()">Submit Exam</button>
+        </div>
+        <div class="exam-layout">
             <div class="card">
-                <h3>Question Bank Status</h3>
-                <p style="margin: 15px 0; color: var(--text-muted);">
-                    Total Loaded Questions: <strong id="question-count-badge" style="color: var(--text-main);">0</strong>
-                </p>
-                <button class="secondary" onclick="clearConfiguredSet()">Reset / Delete Everything</button>
+                <h3 id="display-q-index" style="color: var(--accent-blue); margin-bottom: 15px;">Question 1</h3>
+                <p id="display-q-text" style="font-size: 1.2rem; margin-bottom: 25px;">Sample Question Text?</p>
+                <div class="q-option" onclick="selectOption('A')"><strong>A.</strong> <span id="display-opt-a">Option A</span></div>
+                <div class="q-option" onclick="selectOption('B')"><strong>B.</strong> <span id="display-opt-b">Option B</span></div>
+                <div class="q-option" onclick="selectOption('C')"><strong>C.</strong> <span id="display-opt-c">Option C</span></div>
+                <div class="q-option" onclick="selectOption('D')"><strong>D.</strong> <span id="display-opt-d">Option D</span></div>
+            </div>
+            <div class="card">
+                <h4 style="margin-bottom: 15px;">Question Palette</h4>
+                <div id="navigation-grid-target" class="navigation-grid"></div>
             </div>
         </div>
+    </div>
 
-        <!-- SECTION 2: EXAM SELECTION PAGE -->
-        <div id="exams-panel" class="view-panel">
-            <h2>Live Exams Available</h2>
-            <div id="empty-exam-fallback" style="color: var(--text-muted); margin-top: 20px;">
-                No questions available yet. Please use the Coder Dashboard tab to add or import questions.
-            </div>
-            
-            <div id="exam-card-element" class="card accent-border" style="display: none; max-width: 500px;">
-                <span class="status-badge">● LIVE</span>
-                <h3 style="margin-top: 10px; font-size: 1.5rem;">MODEL MOCK ENTRANCE EXAM</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">Free Mock Test Portal</p>
-                
-                <div class="exam-meta-grid">
-                    <div class="meta-box">
-                        <span>QUESTIONS</span>
-                        <span id="card-q-count">0</span>
+    <div id="results-panel" class="view-panel">
+        <h2>Detailed Assessment Metrics</h2>
+        <div id="empty-results-fallback" style="color: var(--text-muted); margin-top: 20px;">
+            Finish an active exam session to view automatic scorecard insights here.
+        </div>
+        <div id="results-dashboard-data" style="display: none;">
+            <div id="pass-fail-banner" class="status-banner"></div>
+            <div class="card">
+                <h3>Exam Performance Metrics</h3>
+                <div class="metrics-circle-container">
+                    <div class="metric-ring">
+                        <div class="ring-value" style="border-color: var(--accent-success);" id="metric-score">0%</div>
+                        <span>Overall Score</span>
                     </div>
-                    <div class="meta-box">
-                        <span>DURATION</span>
-                        <span>Flexible</span>
+                    <div class="metric-ring">
+                        <div class="ring-value" style="border-color: var(--accent-blue);" id="metric-accuracy">0%</div>
+                        <span>Accuracy</span>
                     </div>
-                </div>
-                <button class="btn-action" onclick="startTestExecution()">▶ Start Exam</button>
-            </div>
-        </div>
-
-        <!-- SECTION 3: LIVE TEST PROCESSOR -->
-        <div id="live-test-panel" class="view-panel">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h2>Test Interface</h2>
-                <button style="background-color: var(--accent-orange); color: white;" onclick="terminateAndEvaluateTest()">Submit Exam</button>
-            </div>
-
-            <div class="exam-layout">
-                <div class="card">
-                    <h3 id="display-q-index" style="color: var(--accent-blue); margin-bottom: 15px;">Question 1</h3>
-                    <p id="display-q-text" style="font-size: 1.2rem; margin-bottom: 25px;">Sample Question Text?</p>
-                    
-                    <div class="q-option" onclick="selectOption('A')"><strong>A.</strong> <span id="display-opt-a">Option A</span></div>
-                    <div class="q-option" onclick="selectOption('B')"><strong>B.</strong> <span id="display-opt-b">Option B</span></div>
-                    <div class="q-option" onclick="selectOption('C')"><strong>C.</strong> <span id="display-opt-c">Option C</span></div>
-                    <div class="q-option" onclick="selectOption('D')"><strong>D.</strong> <span id="display-opt-d">Option D</span></div>
-                </div>
-
-                <div class="card">
-                    <h4 style="margin-bottom: 15px;">Question Palette</h4>
-                    <div id="navigation-grid-target" class="navigation-grid"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 4: LIVE ANALYTICS REPORT CARD & SOLUTIONS ANSWERS -->
-        <div id="results-panel" class="view-panel">
-            <h2>Detailed Assessment Metrics</h2>
-            <div id="empty-results-fallback" style="color: var(--text-muted); margin-top: 20px;">
-                Finish an active exam session to view automatic scorecard insights here.
-            </div>
-
-            <div id="results-dashboard-data" style="display: none;">
-                <div id="pass-fail-banner" class="status-banner"></div>
-
-                <div class="card">
-                    <h3>Exam Performance Metrics</h3>
-                    <div class="metrics-circle-container">
-                        <div class="metric-ring">
-                            <div class="ring-value" style="border-color: var(--accent-success);" id="metric-score">0%</div>
-                            <span>Overall Score</span>
-                        </div>
-                        <div class="metric-ring">
-                            <div class="ring-value" style="border-color: var(--accent-blue);" id="metric-accuracy">0%</div>
-                            <span>Accuracy</span>
-                        </div>
-                        <div class="metric-ring">
-                            <div class="ring-value" style="border-color: var(--accent-orange);" id="metric-raw">0/0</div>
-                            <span>Obtained Marks</span>
-                        </div>
+                    <div class="metric-ring">
+                        <div class="ring-value" style="border-color: var(--accent-orange);" id="metric-raw">0/0</div>
+                        <span>Obtained Marks</span>
                     </div>
                 </div>
-
-                <!-- DYNAMIC ANSWERS SHEET WITH SOLUTIONS AT THE END -->
-                <h2>Correct Answers Key & Detailed Solutions</h2>
-                <div id="solutions-sheet-target"></div>
             </div>
+            <h2>Correct Answers Key &amp; Detailed Solutions</h2>
+            <div id="solutions-sheet-target"></div>
         </div>
+    </div>
+</main>
 
-    </main>
+<script>
+const ADMIN_PIN = "1234"; // Setup your private Admin PIN code here
 
-    <script>
-        let state = {
-            questions: JSON.parse(localStorage.getItem('mock_questions')) || [],
-            config: JSON.parse(localStorage.getItem('mock_config')) || { fullMarks: 100, passMarks: 40, correct: 1, negative: 0.25 },
-            userAnswers: {},
-            currentQuestionIndex: 0
-        };
+let state = {
+    questions: JSON.parse(localStorage.getItem('mock_questions')) || [],
+    config: JSON.parse(localStorage.getItem('mock_config')) || { fullMarks: 100, passMarks: 40, correct: 1, negative: 0.25 },
+    userAnswers: {},
+    currentQuestionIndex: 0
+};
 
-        window.onload = function() {
-            updateDashboardCounters();
-            renderExamCards();
-            loadSampleTemplate();
-        };
+window.onload = function() {
+    updateDashboardCounters();
+    renderExamCards();
+    loadSampleTemplate();
+    switchView('exams-panel');
+};
 
-        function switchView(viewId) {
-            document.querySelectorAll('.view-panel').forEach(v => v.classList.remove('active'));
-            document.querySelectorAll('.nav-links li').forEach(l => l.classList.remove('active'));
-            document.getElementById(viewId).classList.add('active');
-            
-            if(viewId === 'coder-panel') document.querySelectorAll('.nav-links li')[0].classList.add('active');
-            if(viewId === 'exams-panel') { document.querySelectorAll('.nav-links li')[1].classList.add('active'); renderExamCards(); }
-            if(viewId === 'results-panel') document.querySelectorAll('.nav-links li')[2].classList.add('active');
+function switchView(viewId) {
+    if (viewId === 'coder-panel') {
+        const pin = prompt("Enter Admin PIN Code to open Coder Dashboard:");
+        if (pin !== ADMIN_PIN) {
+            alert("Access Denied! Incorrect Admin PIN.");
+            return;
         }
+    }
 
-        function loadSampleTemplate() {
-            const sampleData = [
-                {
-                    "text": "Which memory type is faster and integrated directly within the CPU?",
-                    "options": {
-                        "A": "RAM (Random Access Memory)",
-                        "B": "Cache Memory",
-                        "C": "SSD (Solid State Drive)",
-                        "D": "Hard Disk Drive"
-                    },
-                    "correct": "B",
-                    "solution": "Cache memory operates much faster than main RAM because it is located directly inside or extremely close to the microprocessor core chip."
-                },
-                {
-                    "text": "What is the function of the ALTER command in SQL?",
-                    "options": {
-                        "A": "To insert new records into an existing database grid structure.",
-                        "B": "To modify, drop, or add columns in an existing table structure.",
-                        "C": "To wipe out data records from a system completely.",
-                        "D": "To fetch filter properties out of relational systems."
-                    },
-                    "correct": "B",
-                    "solution": "The ALTER statement is a DDL command used exclusively to change table schemas (adding/modifying/dropping column definitions)."
-                }
-            ];
-            document.getElementById('bulk-json-input').value = JSON.stringify(sampleData, null, 4);
+    document.querySelectorAll('.view-panel').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.nav-links li').forEach(l => l.classList.remove('active'));
+
+    document.getElementById(viewId).classList.add('active');
+
+    if (viewId === 'coder-panel') document.getElementById('nav-coder').classList.add('active');
+    if (viewId === 'exams-panel') {
+        document.getElementById('nav-exams').classList.add('active');
+        renderExamCards();
+    }
+    if (viewId === 'results-panel') document.getElementById('nav-results').classList.add('active');
+}
+
+function loadSampleTemplate() {
+    const sampleData = [
+        {
+            "text": "Which memory type is faster and integrated directly within the CPU?",
+            "options": {
+                "A": "RAM (Random Access Memory)",
+                "B": "Cache Memory",
+                "C": "SSD (Solid State Drive)",
+                "D": "Hard Disk Drive"
+            },
+            "correct": "B",
+            "solution": "Cache memory operates much faster than main RAM because it is located directly inside or extremely close to the microprocessor core chip."
+        },
+        {
+            "text": "What is the function of the ALTER command in SQL?",
+            "options": {
+                "A": "To insert new records into an existing database grid structure.",
+                "B": "To modify, drop, or add columns in an existing table structure.",
+                "C": "To wipe out data records from a system completely.",
+                "D": "To fetch filter properties out of relational systems."
+            },
+            "correct": "B",
+            "solution": "The ALTER statement is a DDL command used exclusively to change table schemas (adding/modifying/dropping column definitions)."
         }
+    ];
+    document.getElementById('bulk-json-input').value = JSON.stringify(sampleData, null, 4);
+}
 
-        function importBulkQuestions() {
-            const rawText = document.getElementById('bulk-json-input').value;
-            try {
-                const parsedArray = JSON.parse(rawText);
-                
-                if(!Array.isArray(parsedArray)) {
-                    alert('Error: Data list array format ([...]) ma huna percha.');
-                    return;
-                }
-
-                state.questions = parsedArray;
-                
-                state.config.fullMarks = parseFloat(document.getElementById('cfg-full-marks').value) || 100;
-                state.config.passMarks = parseFloat(document.getElementById('cfg-pass-marks').value) || 40;
-                state.config.correct = parseFloat(document.getElementById('cfg-correct').value) || 1;
-                state.config.negative = parseFloat(document.getElementById('cfg-negative').value) || 0.25;
-
-                saveStateToLocalStorage();
-                updateDashboardCounters();
-                renderExamCards();
-                alert(`Success! ${parsedArray.length} questions loaded with keys and answers.`);
-            } catch(e) {
-                alert('JSON Syntax Error! Format check garnuhos (Brackets, commas ra inverted commas thik thau ma cha ki chaina).');
-            }
+function importBulkQuestions() {
+    const rawText = document.getElementById('bulk-json-input').value;
+    try {
+        const parsedArray = JSON.parse(rawText);
+        if (!Array.isArray(parsedArray)) {
+            alert('Error: Data format array ([...]) ma huna percha.');
+            return;
         }
+        state.questions = parsedArray;
+        state.config.fullMarks = parseFloat(document.getElementById('cfg-full-marks').value) || 100;
+        state.config.passMarks = parseFloat(document.getElementById('cfg-pass-marks').value) || 40;
+        state.config.correct = parseFloat(document.getElementById('cfg-correct').value) || 1;
+        state.config.negative = parseFloat(document.getElementById('cfg-negative').value) || 0.25;
+        saveStateToLocalStorage();
+        updateDashboardCounters();
+        renderExamCards();
+        alert(`Success! ${parsedArray.length} questions loaded successfully.`);
+    } catch(e) {
+        alert('JSON Syntax Error! Format checks garnuhos.');
+    }
+}
 
-        function updateDashboardCounters() {
-            document.getElementById('question-count-badge').innerText = state.questions.length;
-            document.getElementById('cfg-full-marks').value = state.config.fullMarks;
-            document.getElementById('cfg-pass-marks').value = state.config.passMarks;
-            document.getElementById('cfg-correct').value = state.config.correct;
-            document.getElementById('cfg-negative').value = state.config.negative;
-        }
+function updateDashboardCounters() {
+    document.getElementById('question-count-badge').innerText = state.questions.length;
+    document.getElementById('cfg-full-marks').value = state.config.fullMarks;
+    document.getElementById('cfg-pass-marks').value = state.config.passMarks;
+    document.getElementById('cfg-correct').value = state.config.correct;
+    document.getElementById('cfg-negative').value = state.config.negative;
+}
 
-        function clearConfiguredSet() {
-            if(confirm('Are you sure you want to clear the entire test database?')){
-                state.questions = [];
-                state.userAnswers = {};
-                saveStateToLocalStorage();
-                updateDashboardCounters();
-                renderExamCards();
-            }
-        }
+function clearConfiguredSet() {
+    if (confirm('Are you sure you want to clear the entire test database?')) {
+        state.questions = [];
+        state.userAnswers = {};
+        saveStateToLocalStorage();
+        updateDashboardCounters();
+        renderExamCards();
+    }
+}
 
-        function saveStateToLocalStorage() {
-            localStorage.setItem('mock_questions', JSON.stringify(state.questions));
-            localStorage.setItem('mock_config', JSON.stringify(state.config));
-        }
+function saveStateToLocalStorage() {
+    localStorage.setItem('mock_questions', JSON.stringify(state.questions));
+    localStorage.setItem('mock_config', JSON.stringify(state.config));
+}
 
-        function renderExamCards() {
-            const fallback = document.getElementById('empty-exam-fallback');
-            const card = document.getElementById('exam-card-element');
-            
-            if(state.questions.length > 0) {
-                fallback.style.display = 'none';
-                card.style.display = 'block';
-                document.getElementById('card-q-count').innerText = state.questions.length;
+function renderExamCards() {
+    const fallback = document.getElementById('empty-exam-fallback');
+    const card = document.getElementById('exam-card-element');
+    if (state.questions.length > 0) {
+        fallback.style.display = 'none';
+        card.style.display = 'block';
+        document.getElementById('card-q-count').innerText = state.questions.length;
+    } else {
+        fallback.style.display = 'block';
+        card.style.display = 'none';
+    }
+}
+
+function startTestExecution() {
+    if (state.questions.length === 0) return;
+    state.userAnswers = {};
+    state.currentQuestionIndex = 0;
+    switchView('live-test-panel');
+    buildNavigationGrid();
+    renderQuestionSlice();
+}
+
+function buildNavigationGrid() {
+    const container = document.getElementById('navigation-grid-target');
+    container.innerHTML = '';
+    state.questions.forEach((_, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'nav-btn';
+        btn.id = `nav-node-${idx}`;
+        btn.innerText = idx + 1;
+        btn.onclick = () => jumpToQuestion(idx);
+        container.appendChild(btn);
+    });
+}
+
+function renderQuestionSlice() {
+    const idx = state.currentQuestionIndex;
+    const q = state.questions[idx];
+    document.getElementById('display-q-index').innerText = `Question ${idx + 1} of ${state.questions.length}`;
+    document.getElementById('display-q-text').innerText = q.text;
+    document.getElementById('display-opt-a').innerText = q.options.A;
+    document.getElementById('display-opt-b').innerText = q.options.B;
+    document.getElementById('display-opt-c').innerText = q.options.C;
+    document.getElementById('display-opt-d').innerText = q.options.D;
+    document.querySelectorAll('.q-option').forEach(opt => opt.classList.remove('selected'));
+    document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+    
+    const activeNav = document.getElementById(`nav-node-${idx}`);
+    if (activeNav) activeNav.classList.add('active');
+
+    const previousAnswer = state.userAnswers[idx];
+    if (previousAnswer) {
+        const map = { 'A': 0, 'B': 1, 'C': 2, 'D': 3 };
+        document.querySelectorAll('.q-option')[map[previousAnswer]].classList.add('selected');
+    }
+}
+
+function selectOption(letter) {
+    const idx = state.currentQuestionIndex;
+    state.userAnswers[idx] = letter;
+    const targetNavNode = document.getElementById(`nav-node-${idx}`);
+    if (targetNavNode) targetNavNode.classList.add('answered');
+    renderQuestionSlice();
+}
+
+function jumpToQuestion(idx) {
+    state.currentQuestionIndex = idx;
+    renderQuestionSlice();
+}
+
+function terminateAndEvaluateTest() {
+    if (!confirm('Are you sure you want to end your test and show your scores?')) return;
+    let finalObtained = 0;
+    let correctCount = 0;
+    let incorrectCount = 0;
+    let totalAttempted = 0;
+    let markupSolutions = '';
+
+    state.questions.forEach((q, idx) => {
+        const userAns = state.userAnswers[idx];
+        let itemStatusHeader = '';
+        if (userAns) {
+            totalAttempted++;
+            if (userAns === q.correct) {
+                finalObtained += parseFloat(state.config.correct);
+                correctCount++;
+                itemStatusHeader = `<span style="color: var(--accent-success); font-weight: bold;">✔ Correct (+${state.config.correct})</span>`;
             } else {
-                fallback.style.display = 'block';
-                card.style.display = 'none';
+                finalObtained -= parseFloat(state.config.negative);
+                incorrectCount++;
+                itemStatusHeader = `<span style="color: var(--accent-red); font-weight: bold;">✘ Incorrect (-${state.config.negative})</span>`;
             }
+        } else {
+            itemStatusHeader = `<span style="color: var(--text-muted); font-weight: bold;">⚪ Not Attempted (0 Marks)</span>`;
         }
 
-        function startTestExecution() {
-            if(state.questions.length === 0) return;
-            state.userAnswers = {};
-            state.currentQuestionIndex = 0;
-            switchView('live-test-panel');
-            buildNavigationGrid();
-            renderQuestionSlice();
-        }
+        markupSolutions += `
+        <div class="card" style="border-left: 5px solid ${userAns === q.correct ? 'var(--accent-success)' : userAns ? 'var(--accent-red)' : 'var(--text-muted)'};">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h4 style="font-size:1.1rem; color: var(--text-main);">Q${idx+1}: ${q.text}</h4>
+                <div>${itemStatusHeader}</div>
+            </div>
+            <ul class="review-option-list">
+                <li class="review-option-item ${q.correct === 'A' ? 'correct-ans' : (userAns === 'A' && userAns !== q.correct ? 'wrong-ans' : '')}"><strong>A)</strong> ${q.options.A}</li>
+                <li class="review-option-item ${q.correct === 'B' ? 'correct-ans' : (userAns === 'B' && userAns !== q.correct ? 'wrong-ans' : '')}"><strong>B)</strong> ${q.options.B}</li>
+                <li class="review-option-item ${q.correct === 'C' ? 'correct-ans' : (userAns === 'C' && userAns !== q.correct ? 'wrong-ans' : '')}"><strong>C)</strong> ${q.options.C}</li>
+                <li class="review-option-item ${q.correct === 'D' ? 'correct-ans' : (userAns === 'D' && userAns !== q.correct ? 'wrong-ans' : '')}"><strong>D)</strong> ${q.options.D}</li>
+            </ul>
+            <div style="margin-top: 10px; font-size: 0.95rem;">
+                <p>👉 Your Selection: <strong style="color:${userAns === q.correct ? 'var(--accent-success)' : 'var(--accent-red)'}">${userAns || 'Not Answered'}</strong> | Correct Key: <strong style="color: var(--accent-success)">${q.correct}</strong></p>
+            </div>
+            <div class="solution-box">
+                <strong>💡 Answer Explanation:</strong>
+                <p style="margin-top: 5px; line-height: 1.4;">${q.solution || 'No manual solution provided.'}</p>
+            </div>
+        </div>`;
+    });
 
-        function buildNavigationGrid() {
-            const container = document.getElementById('navigation-grid-target');
-            container.innerHTML = '';
-            state.questions.forEach((_, idx) => {
-                const btn = document.createElement('button');
-                btn.className = 'nav-btn';
-                btn.id = `nav-node-${idx}`;
-                btn.innerText = idx + 1;
-                btn.onclick = () => jumpToQuestion(idx);
-                container.appendChild(btn);
-            });
-        }
+    const totalExamMaxPoints = state.questions.length * parseFloat(state.config.correct);
+    const relativePercentage = totalExamMaxPoints > 0 ? (finalObtained / totalExamMaxPoints) * 100 : 0;
+    const coderPassPercentage = parseFloat(state.config.passMarks);
+    const hasPassed = relativePercentage >= coderPassPercentage;
 
-        function renderQuestionSlice() {
-            const idx = state.currentQuestionIndex;
-            const q = state.questions[idx];
-            
-            document.getElementById('display-q-index').innerText = `Question ${idx + 1} of ${state.questions.length}`;
-            document.getElementById('display-q-text').innerText = q.text;
-            document.getElementById('display-opt-a').innerText = q.options.A;
-            document.getElementById('display-opt-b').innerText = q.options.B;
-            document.getElementById('display-opt-c').innerText = q.options.C;
-            document.getElementById('display-opt-d').innerText = q.options.D;
+    const banner = document.getElementById('pass-fail-banner');
+    if (hasPassed) {
+        banner.className = "status-banner passed";
+        banner.innerText = `STATUS: PASSED (Your Score: ${relativePercentage.toFixed(1)}% | Required to Pass: ${coderPassPercentage}%)`;
+    } else {
+        banner.className = "status-banner failed";
+        banner.innerText = `STATUS: FAILED (Your Score: ${relativePercentage.toFixed(1)}% | Required to Pass: ${coderPassPercentage}%)`;
+    }
 
-            document.querySelectorAll('.q-option').forEach(opt => opt.classList.remove('selected'));
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-            
-            const activeNav = document.getElementById(`nav-node-${idx}`);
-            if(activeNav) activeNav.classList.add('active');
+    document.getElementById('metric-score').innerText = `${relativePercentage.toFixed(1)}%`;
+    const accurateRatio = totalAttempted > 0 ? (correctCount / totalAttempted) * 100 : 0;
+    document.getElementById('metric-accuracy').innerText = `${accurateRatio.toFixed(1)}%`;
+    document.getElementById('metric-raw').innerText = `${finalObtained.toFixed(2)} / ${totalExamMaxPoints.toFixed(2)}`;
+    document.getElementById('solutions-sheet-target').innerHTML = markupSolutions;
+    document.getElementById('empty-results-fallback').style.display = 'none';
+    document.getElementById('results-dashboard-data').style.display = 'block';
 
-            const previousAnswer = state.userAnswers[idx];
-            if(previousAnswer) {
-                const map = { 'A': 0, 'B': 1, 'C': 2, 'D': 3 };
-                document.querySelectorAll('.q-option')[map[previousAnswer]].classList.add('selected');
-            }
-        }
-
-        function selectOption(letter) {
-            const idx = state.currentQuestionIndex;
-            state.userAnswers[idx] = letter;
-            
-            const targetNavNode = document.getElementById(`nav-node-${idx}`);
-            if(targetNavNode) targetNavNode.classList.add('answered');
-            
-            renderQuestionSlice();
-        }
-
-        function jumpToQuestion(idx) {
-            state.currentQuestionIndex = idx;
-            renderQuestionSlice();
-        }
-
-        function terminateAndEvaluateTest() {
-            if(!confirm('Are you sure you want to end your test and show your scores?')) return;
-
-            let finalObtained = 0;
-            let correctCount = 0;
-            let incorrectCount = 0;
-            let totalAttempted = 0;
-            let markupSolutions = '';
-
-            state.questions.forEach((q, idx) => {
-                const userAns = state.userAnswers[idx];
-                let itemStatusHeader = '';
-
-                if(userAns) {
-                    totalAttempted++;
-                    if(userAns === q.correct) {
-                        finalObtained += parseFloat(state.config.correct);
-                        correctCount++;
-                        itemStatusHeader = `<span style="color: var(--accent-success); font-weight: bold;">✔ Correct (+${state.config.correct})</span>`;
-                    } else {
-                        finalObtained -= parseFloat(state.config.negative);
-                        incorrectCount++;
-                        itemStatusHeader = `<span style="color: var(--accent-red); font-weight: bold;">✘ Incorrect (-${state.config.negative})</span>`;
-                    }
-                } else {
-                    itemStatusHeader = `<span style="color: var(--text-muted); font-weight: bold;">⚪ Not Attempted (0 Marks)</span>`;
-                }
-
-                // FIX: Generating explicit dynamic solution block listing all text and matching choices
-                markupSolutions += `
-                    <div class="card" style="border-left: 5px solid ${userAns === q.correct ? 'var(--accent-success)' : userAns ? 'var(--accent-red)' : 'var(--text-muted)'};">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                            <h4 style="font-size:1.1rem; color: var(--text-main);">Q${idx+1}: ${q.text}</h4>
-                            <div>${itemStatusHeader}</div>
-                        </div>
-                        
-                        <ul class="review-option-list">
-                            <li class="review-option-item ${q.correct === 'A' ? 'correct-ans' : (userAns === 'A' && userAns !== q.correct ? 'wrong-ans' : '')}"><strong>A)</strong> ${q.options.A}</li>
-                            <li class="review-option-item ${q.correct === 'B' ? 'correct-ans' : (userAns === 'B' && userAns !== q.correct ? 'wrong-ans' : '')}"><strong>B)</strong> ${q.options.B}</li>
-                            <li class="review-option-item ${q.correct === 'C' ? 'correct-ans' : (userAns === 'C' && userAns !== q.correct ? 'wrong-ans' : '')}"><strong>C)</strong> ${q.options.C}</li>
-                            <li class="review-option-item ${q.correct === 'D' ? 'correct-ans' : (userAns === 'D' && userAns !== q.correct ? 'wrong-ans' : '')}"><strong>D)</strong> ${q.options.D}</li>
-                        </ul>
-
-                        <div style="margin-top: 10px; font-size: 0.95rem;">
-                            <p>👉 Your Selection: <strong style="color:${userAns === q.correct ? 'var(--accent-success)' : 'var(--accent-red)'}">${userAns || 'Not Answered'}</strong> | Correct Key: <strong style="color: var(--accent-success)">${q.correct}</strong></p>
-                        </div>
-                        
-                        <!-- SOLUTION BOX DYNAMIC LOAD -->
-                        <div class="solution-box">
-                            <strong>💡 Answer Explanation:</strong> 
-                            <p style="margin-top: 5px; line-height: 1.4;">${q.solution || 'No manual solution/explanation provided for this question set.'}</p>
-                        </div>
-                    </div>
-                `;
-            });
-
-            const totalExamMaxPoints = state.questions.length * parseFloat(state.config.correct);
-            const relativePercentage = totalExamMaxPoints > 0 ? (finalObtained / totalExamMaxPoints) * 100 : 0;
-            const coderPassPercentage = parseFloat(state.config.passMarks);
-            const hasPassed = relativePercentage >= coderPassPercentage;
-
-            const banner = document.getElementById('pass-fail-banner');
-            if(hasPassed) {
-                banner.className = "status-banner passed";
-                banner.innerText = `STATUS: PASSED (Your Score: ${relativePercentage.toFixed(1)}% | Required to Pass: ${coderPassPercentage}%)`;
-            } else {
-                banner.className = "status-banner failed";
-                banner.innerText = `STATUS: FAILED (Your Score: ${relativePercentage.toFixed(1)}% | Required to Pass: ${coderPassPercentage}%)`;
-            }
-
-            document.getElementById('metric-score').innerText = `${relativePercentage.toFixed(1)}%`;
-            const accurateRatio = totalAttempted > 0 ? (correctCount / totalAttempted) * 100 : 0;
-            document.getElementById('metric-accuracy').innerText = `${accurateRatio.toFixed(1)}%`;
-            document.getElementById('metric-raw').innerText = `${finalObtained.toFixed(2)} / ${totalExamMaxPoints.toFixed(2)}`;
-
-            document.getElementById('solutions-sheet-target').innerHTML = markupSolutions;
-            document.getElementById('empty-results-fallback').style.display = 'none';
-            document.getElementById('results-dashboard-data').style.display = 'block';
-
-            switchView('results-panel');
-        }
-    </script>
+    switchView('results-panel');
+}
+</script>
 </body>
 </html>
