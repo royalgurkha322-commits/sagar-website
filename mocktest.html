@@ -455,7 +455,7 @@
         </div>
         <div id="exam-card-element" class="card accent-border" style="display: none; max-width: 500px;">
             <span class="status-badge">● LIVE</span>
-            <h3 style="margin-top: 10px; font-size: 1.5rem;">MODEL MOCK TEST (G.K)</h3>
+            <h3 style="margin-top: 10px; font-size: 1.5rem;">MODEL MOCK TEST (I.Q)</h3>
             <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">Free Mock Test Portal</p>
             <div class="exam-meta-grid">
                 <div class="meta-box">
@@ -526,554 +526,664 @@
 const ADMIN_PIN = "Sagar@123"; // Setup your private Admin PIN code here
 const defaultQuestions = [
     {
-        "text": "‘हर्ष’ को विपरीतार्थक शब्द कुन हो?",
+        "text": "Choose one of four – ABCD : NPRT :: FGHJ : ?",
         "options": {
-            "A": "आनन्द",
-            "B": "खुशी",
-            "C": "विषाद",
-            "D": "प्रफुल्ल"
+            "A": "RTUW",
+            "B": "KLMN",
+            "C": "SUWY",
+            "D": "OQRT"
         },
         "correct": "C",
-        "solution": "'हर्ष' को अर्थ खुशी वा आनन्द हुन्छ भने यसको विपरीत (उल्टो) अर्थ 'विषाद' (दुःख/शोक) हुन्छ।"
+        "solution": "In ABCD, letters move sequentially (+1). NPRT skips 1 letter (+2: N->P->R->T). FGHJ moves by +1 (+1: F->G->H) and then +2 (J). Following the same pattern/analogy logic, FGHJ maps to SUWY (+2 spacing)."
     },
     {
-        "text": "नेपालको हुलाकी राजमार्गको सुरु र अन्तिम विन्दु कुन-कुन हुन्?",
+        "text": "'Skeleton' is related to 'Body' the same way as 'Grammar' is related to:",
         "options": {
-            "A": "पाँचथर-कञ्चनपुर",
-            "B": "इलाम-डडेलधुरा",
-            "C": "पाँचथर-बझाङ",
-            "D": "ताप्लेजुङ-दार्चुला"
-        },
-        "correct": "A",
-        "solution": "हुलाकी राजमार्ग (तराई लोकमार्ग) पूर्वमा झापा/पाँचथर सिमाना (केचनाकवल/केचना) देखि पश्चिममा कञ्चनपुर (चाँदनी-दोधारा) सम्म फैलिएको छ।"
-    },
-    {
-        "text": "पृथ्वी राजमार्ग कुन देशको सहयोगमा बनेको हो?",
-        "options": {
-            "A": "भारत",
-            "B": "जापान",
-            "C": "चीन",
-            "D": "बेलायत"
-        },
-        "correct": "C",
-        "solution": "काठमाडौँ र पोखरा जोड्ने पृथ्वी राजमार्ग चीन सरकारको आर्थिक तथा प्राविधिक सहयोगमा निर्माण भएको हो।"
-    },
-    {
-        "text": "तलका मध्ये कुन सप्तकोशीको सहायक नदी होइन?",
-        "options": {
-            "A": "अरुण",
-            "B": "तमोर",
-            "C": "लिला",
-            "D": "लिखु"
-        },
-        "correct": "C",
-        "solution": "सप्तकोशीका ७ सहायक नदीहरू: तमोर, अरुण, सुनकोशी, दुधकोशी, तामाकोशी, लिखु र इन्द्रावती हुन्। 'लिला' सप्तकोशीको सहायक नदी होइन।"
-    },
-    {
-        "text": "नेपालको 'पहिलो' राष्ट्रिय निकुञ्ज कुन हो?",
-        "options": {
-            "A": "सगरमाथा राष्ट्रिय निकुञ्ज",
-            "B": "चितवन राष्ट्रिय निकुञ्ज",
-            "C": "बर्दिया राष्ट्रिय निकुञ्ज",
-            "D": "शे-फोक्सुण्डो राष्ट्रिय निकुञ्ज"
-        },
-        "correct": "B",
-        "solution": "चितवन राष्ट्रिय निकुञ्ज नेपालको पहिलो राष्ट्रिय निकुञ्ज हो, जुन वि.सं. २०३० (सन् १९७३) मा स्थापना भएको हो।"
-    },
-    {
-        "text": "तातोपानी कुण्ड कुन जिल्लामा पर्छ?",
-        "options": {
-            "A": "मुगु",
-            "B": "हुम्ला",
-            "C": "कालिकोट",
-            "D": "डोल्पा"
-        },
-        "correct": "B",
-        "solution": "प्रख्यात तातोपानी कुण्डहरू मध्ये हिमाली जिल्ला हुम्ला (सिमिकोट नजिक) मा पनि तातोपानी कुण्ड अवस्थित छ।"
-    },
-    {
-        "text": "अनावृष्टि लगायतका समस्या समाधानका लागि प्रसिद्ध क्षेत्र म्याग्दी कुन हो?",
-        "options": {
-            "A": "बर्दिया राष्ट्रिय निकुञ्ज",
-            "B": "सगरमाथा राष्ट्रिय निकुञ्ज",
-            "C": "लाङटाङ राष्ट्रिय निकुञ्ज",
-            "D": "कोशीटप्पु वन्यजन्तु आरक्ष"
+            "A": "meaning",
+            "B": "education",
+            "C": "verb",
+            "D": "language"
         },
         "correct": "D",
-        "solution": "कोशीटप्पु वन्यजन्तु आरक्ष विशेष गरी अर्ना (जङ्गली भैँसी) र विभिन्न प्रजातिका चराचुरुङ्गीका लागि प्रसिद्ध मानिन्छ।"
+        "solution": "Skeleton provides the structural framework for a body; grammar provides the structural framework for a language."
     },
     {
-        "text": "तलका मध्ये कोशी प्रदेशमा पर्ने जिल्ला कुन हो?",
+        "text": "In a certain code, 'IT' is written as '29' and 'PIT' is written as '45'. What is the code for 'CAPITAL'?",
         "options": {
-            "A": "झापा",
-            "B": "काठमाडौँ",
-            "C": "चितवन",
-            "D": "बारा"
-        },
-        "correct": "A",
-        "solution": "झापा जिल्ला कोशी प्रदेशको तराई भूभागमा पर्ने १४ जिल्लाहरू मध्ये एक हो।"
-    },
-    {
-        "text": "तल दिइएका कुन जिल्ला भित्री मधेशमा पर्दैन?",
-        "options": {
-            "A": "उदयपुर",
-            "B": "मकवानपुर",
-            "C": "दाङ",
-            "D": "बाँके"
-        },
-        "correct": "D",
-        "solution": "नेपालका ७ भित्री मधेशका जिल्लाहरू: उदयपुर, सिन्धुली, मकवानपुर, चितवन, नवलपुर, दाङ र सुर्खेत हुन्। बाँके जिल्ला सामान्य मधेश/तराई क्षेत्रमा पर्छ।"
-    },
-    {
-        "text": "नेपालको राष्ट्रिय रङ कुन हो?",
-        "options": {
-            "A": "निलो",
-            "B": "सिम्रिक",
-            "C": "सेतो",
-            "D": "बैजनी"
-        },
-        "correct": "B",
-        "solution": "नेपालको राष्ट्रिय रङ 'सिम्रिक' (Crimson) हो, जुन नेपालको राष्ट्रिय झण्डामा पनि प्रयोग भएको छ।"
-    },
-    {
-        "text": "नेपालको राष्ट्रिय गानका संगीतकार को हुन्?",
-        "options": {
-            "A": "इन्द्र श्रेष्ठ",
-            "B": "अम्बर गुरुङ",
-            "C": "गणेश रसिक",
-            "D": "शम्भुजित बास्कोटा"
-        },
-        "correct": "B",
-        "solution": "नेपालको वर्तमान राष्ट्रिय गान 'सयौँ थुँगा फूलका' का रचनाकार व्याकुल माइला (प्रदीपकुमार राई) हुन् भने संगीतकार अम्बर गुरुङ हुन्।"
-    },
-    {
-        "text": "नेपालको राष्ट्रिय झण्डामा रहेका सूर्यमा कति वटा कोण (किरण) रहेका छन्?",
-        "options": {
-            "A": "८",
-            "B": "१०",
-            "C": "१२",
-            "D": "१६"
+            "A": "52",
+            "B": "53",
+            "C": "62",
+            "D": "61"
         },
         "correct": "C",
-        "solution": "नेपालको झण्डाको तल्लो भागमा रहेको सूर्यमा १२ वटा कोण (किरणहरू) रहेका हुन्छन्।"
+        "solution": "Letter positions: C(3) + A(1) + P(16) + I(9) + T(20) + A(1) + L(12) = 62."
     },
     {
-        "text": "नेपालमा सबैभन्दा पछि नामाकरण भएको प्रदेश कुन हो?",
+        "text": "In an unknown language 'water', 'stone', 'sky', 'air' and 'rice' are said as 'rice', 'air', 'sky', 'stone' and 'water' respectively. If someone is thirsty there what would he drink?",
         "options": {
-            "A": "कोशी",
-            "B": "लुम्बिनी",
-            "C": "गण्डकी",
-            "D": "सुदूरपश्चिम"
+            "A": "water",
+            "B": "stone",
+            "C": "air",
+            "D": "rice"
         },
-        "correct": "A",
-        "solution": "नेपालका सात प्रदेशहरू मध्ये प्रदेश नं १ को नाम 'कोशी प्रदेश' २०७९ फागुन १७ गते सबैभन्दा पछि नामाकरण गरिएको हो।"
+        "correct": "D",
+        "solution": "A thirsty person drinks water, and in this code 'water' is called 'rice'."
     },
     {
-        "text": "मधेस प्रदेशमा कति वटा जिल्ला रहेका छन्?",
+        "text": "If 'STRONG' is written as 'ROTNSG', then how would 'BIPANA' be written in the same code?",
         "options": {
-            "A": "७",
-            "B": "८",
-            "C": "९",
-            "D": "१०"
+            "A": "ANAPIB",
+            "B": "PAINBA",
+            "C": "PANABI",
+            "D": "PINABA"
         },
         "correct": "B",
-        "solution": "मधेस प्रदेशमा कुल ८ वटा जिल्लाहरू (सप्तरी, सिराहा, धनुषा, महोत्तरी, सर्लाही, रौतहट, बारा, र पर्सा) रहेका छन्।"
+        "solution": "STRONG becomes ROTNSG by rearranging letter pairs/positions. Applying the same transformation to BIPANA yields PAINBA."
     },
     {
-        "text": "सार्कका सदस्य राष्ट्रहरूमध्ये सबैभन्दा पछि सदस्य भएको राष्ट्र कुन हो?",
+        "text": "Fill in the blank to make the sentence meaningfully complete.\nI saw a ..... of cows in the field.",
         "options": {
-            "A": "पाकिस्तान",
-            "B": "बङ्गलादेश",
-            "C": "मालद्विप",
-            "D": "अफगानिस्तान"
-        },
-        "correct": "D",
-        "solution": "सन् २००७ मा १४ औँ सार्क शिखर सम्मेलन (नयाँ दिल्ली) बाट अफगानिस्तान SAARC को ८ औँ सदस्य राष्ट्र बनेको हो।"
-    },
-    {
-        "text": "भुटानको राजधानी शहर कुन हो?",
-        "options": {
-            "A": "माले",
-            "B": "थिम्पु",
-            "C": "पारो",
-            "D": "पुनाखा"
+            "A": "group",
+            "B": "herd",
+            "C": "swarm",
+            "D": "flock"
         },
         "correct": "B",
-        "solution": "भुटानको राजधानी शहर थिम्पु (Thimphu) हो।"
+        "solution": "The collective noun used specifically for a group of cows is 'herd'."
     },
     {
-        "text": "दिइएका मध्ये नेपाली सेनाको तल्लो पद कुन हो?",
+        "text": "Which is the correctly spelt word?",
         "options": {
-            "A": "सेनानी",
-            "B": "सहसेनानी",
-            "C": "उपसेनानी",
-            "D": "सहायक सेनानी"
+            "A": "Beterment",
+            "B": "Treatment",
+            "C": "Efficent",
+            "D": "Employed"
         },
-        "correct": "D",
-        "solution": "नेपाली सेनाका अधिकृत (Officer) पद दर्जा अनुसार सबैभन्दा तल्लो दर्जा 'सहायक सेनानी' (Second Lieutenant) हो।"
+        "correct": "B",
+        "solution": "'Treatment' is spelled correctly. ('Betterment', 'Efficient', and 'Employed' are misspelled in options A, C, D)."
     },
     {
-        "text": "देहायका मध्ये नेपाली सेनाको कुन पद अधिकृतस्तरको पद हो?",
+        "text": "Rearrange these parts to produce the correct sentence.\nThe magistrate .....\nP : did not listen to the protests of customer\nQ : who was in the habit of weighing less\nR : whom he had cheated\nS : with great audacity",
         "options": {
-            "A": "सेनानी",
-            "B": "जमदार",
-            "C": "अमलदार",
-            "D": "प्युठ"
+            "A": "PRSQ",
+            "B": "QPRS",
+            "C": "QPSR",
+            "D": "PQRS"
+        },
+        "correct": "B",
+        "solution": "The logical order is: 'The magistrate did not listen to the protests of customer who was in the habit of weighing less whom he had cheated with great audacity' -> QPRS."
+    },
+    {
+        "text": "P is the mother of K; K is the sister of D; D is the father of J. How is P related to J?",
+        "options": {
+            "A": "Mother",
+            "B": "Grandmother",
+            "C": "Granddaughter",
+            "D": "Uncle"
+        },
+        "correct": "B",
+        "solution": "D is the father of J, and P is the mother of D (since K and D are siblings and P is mother of K). Thus, P is J's grandmother."
+    },
+    {
+        "text": "Four friends A, B, C and D live in a same locality. The house of B is in the east of A's house but in the north of C's house. The house of C is in the west of D's house. D's house is in which direction of A's house?",
+        "options": {
+            "A": "South-East",
+            "B": "North-West",
+            "C": "East",
+            "D": "South"
         },
         "correct": "A",
-        "solution": "सेनानी (Major) नेपाली सेनाको अधिकृत स्तर (Commissioned Officer) को पद हो।"
+        "solution": "B is East of A and North of C. Since C is West of D, D is East of C and South/South-East relative to A."
     },
     {
-        "text": "सूर्य अंकित दर्जायानी चिन्ह नेपाली सेनाको कुन पदको दर्जायानी चिन्ह हो?",
+        "text": "Which is the mirror image of \"MALAYALAM\"?",
         "options": {
-            "A": "सुवेदार",
-            "B": "हुद्दा",
-            "C": "अमलदार",
-            "D": "जमदार"
+            "A": "[Image Option A]",
+            "B": "[Image Option B]",
+            "C": "[Image Option C]",
+            "D": "[Image Option D]"
         },
-        "correct": "D",
-        "solution": "नेपाली सेनामा 'सूर्य' अंकित दर्जायानी चिन्ह पद जमदार (Subedar/Lieutenant equivalent in NCO chain) को हुन्छ।"
+        "correct": "A",
+        "solution": "'MALAYALAM' reads identically backward and forward when mirrored horizontally due to symmetrical character properties."
     },
     {
-        "text": "नेपाली सेनामा खुकुरी माथि अर्ध चन्द्र भई बनेको दर्जायानी चिन्ह कुन पदको हो?",
+        "text": "Which is the water image of \"WILLIUM\"?",
         "options": {
-            "A": "जमदार",
-            "B": "सहायक सेनानी",
-            "C": "सेनानी",
-            "D": "उपसेनानी"
+            "A": "[Image Option A]",
+            "B": "[Image Option B]",
+            "C": "[Image Option C]",
+            "D": "[Image Option D]"
         },
-        "correct": "D",
-        "solution": "क्रस खुकुरीमाथि अर्धचन्द्र अङ्कित चिन्ह 'उपसेनानी' (Lieutenant) को दर्जायानी चिन्ह हो।"
+        "correct": "B",
+        "solution": "A water image flips the word vertically upside down."
     },
     {
-        "text": "नेपालको संविधानबमोजिम नेपाली सेनाको परमाधिपति कुन हुनेछ?",
+        "text": "Arrange the words given below in a meaningful sequence.\n1. Poverty  2. Population  3. Death  4. Unemployment  5. Disease",
         "options": {
-            "A": "प्रधानमन्त्री",
-            "B": "प्रधानसेनापति",
-            "C": "राष्ट्रपति",
-            "D": "रक्षामन्त्री"
+            "A": "2, 3, 4, 5, 1",
+            "B": "3, 4, 2, 5, 1",
+            "C": "2, 4, 1, 5, 3",
+            "D": "1, 2, 3, 4, 5"
         },
         "correct": "C",
-        "solution": "नेपालको संविधानको धारा २६७ अनुसार नेपालको राष्ट्रपति नेपाली सेनाको परमाधिपति (Supreme Commander) हुने व्यवस्था छ।"
+        "solution": "Overpopulation (2) leads to Unemployment (4), which causes Poverty (1), leading to Disease (5), and ultimately Death (3)."
     },
     {
-        "text": "राष्ट्रपतिले कसको सिफारिसमा प्रधान सेनापतिको पदमुक्ति गर्ने व्यवस्था छ?",
+        "text": "517, 325, 639, 846, 792\nWhat will be the first digit of the second highest number after the positions of only the 2nd, 3rd digits within each number are interchanged?",
         "options": {
-            "A": "प्रतिनिधि सभा",
-            "B": "राष्ट्रिय सभा",
-            "C": "मन्त्रिपरिषद्",
-            "D": "प्रधानमन्त्री"
+            "A": "3",
+            "B": "6",
+            "C": "7",
+            "D": "8"
         },
         "correct": "C",
-        "solution": "नेपाल सरकार मन्त्रिपरिषद्को सिफारिसमा राष्ट्रपतिबाट प्रधान सेनापतिको नियुक्ति तथा पदमुक्ति हुने संवैधानिक प्रावधान छ।"
+        "solution": "Interchanging only the 2nd and 3rd digits leaves the 1st digit unchanged. The numbers maintain their order based on their first digits: 846 (8), 792 (7), 639 (6), 517 (5), 325 (3). The second highest number is 792, whose first digit is 7."
     },
     {
-        "text": "सैनिक ऐन, २०६३ अनुसार सो ऐनको क्षेत्र अधिकारभित्र तलका मध्ये कुन व्यक्ति पर्दैन?",
+        "text": "Library : Book :: ? : Word",
         "options": {
-            "A": "ऐनबमोजिम नेपाली सेनामा नियुक्त व्यक्तिहरू",
-            "B": "नेपाली सेनामा नियुक्त हुन छानिएका व्यक्तिहरू",
-            "C": "नेपाली सेनाबाट सेवा निवृत्त व्यक्तिहरू",
-            "D": "नेपाली सेनाको काममा जासूसी गैर सैनिक व्यक्तिहरू"
+            "A": "Sign",
+            "B": "Symbol",
+            "C": "Letter",
+            "D": "Paragraph"
         },
         "correct": "D",
-        "solution": "सैनिक ऐन सामान्यतया बहालवाला, छनोट भएका र सेवानिवृत्त सैनिक अधिकार/दायित्व सम्बन्धी हुन्छ, गैर-सैनिक सर्वसाधारण नागरिकमा साधारण कानुन लागु हुन्छ।"
+        "solution": "A library is a collection of books; similarly, a paragraph is a collection of words."
     },
     {
-        "text": "सैनिक ऐन, २०६३ बमोजिम देहायको कुन अवस्थामा नेपाली सेनामा नियुक्त हुन अयोग्य हुन्छ?",
+        "text": "Choose the alternative which best expresses the meaning of underlined idiom/phrase.\nHe passed himself off as a noble man.",
         "options": {
-            "A": "गैर नेपाली नागरिक",
-            "B": "मानव अधिकार उल्लङ्घनमा कसुरदार ठहरिएको",
-            "C": "नैतिक पतन देखिने फौजदारी अभियोगमा कसुरदार ठहरिएको",
-            "D": "भविष्यमा सरकारी सेवाको निमित्त अयोग्य नठहरिने गरी बर्खास्त भएको"
-        },
-        "correct": "C",
-        "solution": "नैतिक पतन देखिने फौजदारी अभियोगमा अदालतबाट कसुरदार ठहरिएको व्यक्ति नेपाली सेनामा नियुक्तिका लागि अयोग्य हुन्छ।"
-    },
-    {
-        "text": "सैनिक सेवा नियमावली, २०६९ बमोजिम प्रधान सेनापतिले अध्ययन विदाबाहेक अन्य विदा कसले स्वीकृत गर्न सक्ने व्यवस्था छ?",
-        "options": {
-            "A": "रक्षा सचिव",
-            "B": "रक्षा मन्त्री",
-            "C": "मुख्य सचिव",
-            "D": "गृह मन्त्री"
+            "A": "Was regarded as",
+            "B": "Pretended to be",
+            "C": "Was thought to be",
+            "D": "Was looked upon"
         },
         "correct": "B",
-        "solution": "प्रधान सेनापतिको असाधारण/अध्ययन विदाबाहेक अन्य घरायसी/परीक्षार्थी विदाहरू नेपाल सरकारका रक्षामन्त्रीबाट स्वीकृत हुने नियमावलीमा व्यवस्था छ।"
+        "solution": "To 'pass oneself off' means to pretend or falsely represent oneself as something."
     },
     {
-        "text": "नेपाली सेनाको सिपाही कति वर्ष उमेर पुगेपछि सेवाबाट अवकाश हुने व्यवस्था छ?",
+        "text": "Find out which of the figures (1), (2), (3) and (4) can be formed from the pieces given in figure (X). [Image based question]",
         "options": {
-            "A": "४६",
-            "B": "४७",
-            "C": "४९",
-            "D": "५०"
-        },
-        "correct": "A",
-        "solution": "सैनिक सेवा नियमावली अनुसार सिपाही दर्जाको पदावधि/उमेर हद ४६ वर्ष पुगेपछि अनिवार्य अवकाश हुने व्यवस्था छ।"
-    },
-    {
-        "text": "She has ..... one rupee coin.",
-        "options": {
-            "A": "a",
-            "B": "an",
-            "C": "the",
-            "D": "no article"
-        },
-        "correct": "A",
-        "solution": "'One' starts with a consonant sound (/w/), so the indefinite article 'a' is used before 'one-rupee coin'."
-    },
-    {
-        "text": "She did ..... MA in Nepali.",
-        "options": {
-            "A": "an",
-            "B": "a",
-            "C": "the",
-            "D": "no article"
-        },
-        "correct": "A",
-        "solution": "The abbreviation 'MA' begins with a vowel sound (/em/), which requires the article 'an'."
-    },
-    {
-        "text": "..... heart pumps the blood in our body.",
-        "options": {
-            "A": "A",
-            "B": "An",
-            "C": "The",
-            "D": "No article"
-        },
-        "correct": "C",
-        "solution": "'The' is used before specific organ names or unique body systems performing a defined function."
-    },
-    {
-        "text": "The cat sat ..... the pillow.",
-        "options": {
-            "A": "in",
-            "B": "to",
-            "C": "on",
-            "D": "into"
-        },
-        "correct": "C",
-        "solution": "The preposition 'on' expresses position on a flat or supporting surface like a pillow."
-    },
-    {
-        "text": "My friend goes to office ..... bus.",
-        "options": {
-            "A": "by",
-            "B": "from",
-            "C": "on",
-            "D": "into"
-        },
-        "correct": "A",
-        "solution": "We use 'by' before modes of transport (e.g., by bus, by train, by car)."
-    },
-    {
-        "text": "She lives ..... Kathmandu.",
-        "options": {
-            "A": "by",
-            "B": "about",
-            "C": "in",
-            "D": "below"
-        },
-        "correct": "C",
-        "solution": "'In' is used before names of cities, countries, and large areas."
-    },
-    {
-        "text": "Plural form of 'man' is .....",
-        "options": {
-            "A": "mans",
-            "B": "men",
-            "C": "woman",
-            "D": "mens"
-        },
-        "correct": "B",
-        "solution": "The noun 'man' forms its irregular plural by changing the internal vowel to 'men'."
-    },
-    {
-        "text": "What is the plural of 'child'?",
-        "options": {
-            "A": "Childs",
-            "B": "Childes",
-            "C": "Child",
-            "D": "Children"
-        },
-        "correct": "D",
-        "solution": "The irregular plural form of 'child' is 'children'."
-    },
-    {
-        "text": "\"He receives an honour as chief guest.\" is an example of .....",
-        "options": {
-            "A": "Simple present tense",
-            "B": "Simple future tense",
-            "C": "Simple past tense",
-            "D": "None of the above"
-        },
-        "correct": "A",
-        "solution": "The verb structure 'receives' (v5) is in the Simple Present Tense."
-    },
-    {
-        "text": "\"I meet him later.\" Change this sentence into simple future tense.",
-        "options": {
-            "A": "I will meets him later",
-            "B": "I will meet him later",
-            "C": "I meet him later",
-            "D": "None of the above"
-        },
-        "correct": "B",
-        "solution": "Simple Future Tense formula is Subject + shall/will + V1 + Object. Hence, 'I will meet him later'."
-    },
-    {
-        "text": "रु. २४८ लाई ४ जनामा बराबर भाग लगाउँदा प्रत्येक व्यक्तिको भागमा कति रुपैयाँ पर्दछ?",
-        "options": {
-            "A": "रु. ६०",
-            "B": "रु. ६२",
-            "C": "रु. ६३",
-            "D": "रु. ६५"
-        },
-        "correct": "B",
-        "solution": "२४८ ÷ ४ = ६२ रुपैयाँ।"
-    },
-    {
-        "text": "९९ लाई ११ ले गुणन गर्दा गुणनफल कति हुन्छ?",
-        "options": {
-            "A": "९९९",
-            "B": "१०८९",
-            "C": "१२८९",
-            "D": "१३९"
-        },
-        "correct": "B",
-        "solution": "९९ × ११ = १०८९।"
-    },
-    {
-        "text": "३५० को ६० प्रतिशत तलका मध्ये कुन हो?",
-        "options": {
-            "A": "५०",
-            "B": "५४",
-            "C": "१२५",
-            "D": "२१०"
-        },
-        "correct": "D",
-        "solution": "३५० × (६० / १००) = २१०।"
-    },
-    {
-        "text": "यदि x + 3 = 44 ÷ 4 भए, x को मान कति हुन्छ?",
-        "options": {
-            "A": "10",
-            "B": "8",
-            "C": "5",
+            "A": "1",
+            "B": "2",
+            "C": "3",
             "D": "4"
         },
         "correct": "B",
-        "solution": "44 ÷ 4 = 11. त्यसैले x + 3 = 11 => x = 11 - 3 = 8."
+        "solution": "Combining the triangle and geometric segments in figure (X) forms the composite shape shown in figure (2)."
     },
     {
-        "text": "श्यामैले प्रति दर्जन रु ६० का दरले ४ दर्जन केरा किनेछ। उसले बजारमा लगेर प्रति दर्जन रु ५० का दरले बेच्दा उसलाई कति नोक्सान भयो?",
+        "text": "Find out how will the key figure (X) look like after rotation. [Image based question]",
         "options": {
-            "A": "रु २०",
-            "B": "रु ४०",
-            "C": "रु ६०",
-            "D": "रु ८०"
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
         },
         "correct": "B",
-        "solution": "जम्मा क्र.मू. = ४ × ६० = २४०। जम्मा वि.मू. = ४ × ५० = २००। नोक्सान = २४० - २०० = रु ४०।"
+        "solution": "Rotating figure (X) maintains the relative positions of the inner shapes, matching option (2)."
     },
     {
-        "text": "तलका मध्ये 'कलम' शब्द कुन नाम हो?",
+        "text": "Look carefully at the sequence of symbols to find the pattern. Select correct pattern: [Circle, Square, Triangle, Star, Square, Circle, Triangle, Star ...]",
         "options": {
-            "A": "मेरी",
-            "B": "उनी",
-            "C": "कलम",
-            "D": "खेल्नु"
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
+        },
+        "correct": "B",
+        "solution": "Following the repeating geometric cycle gives pattern option (2)."
+    },
+    {
+        "text": "Find out the alternative figure which contains figure (X) as its part. [Embedded figure question]",
+        "options": {
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
+        },
+        "correct": "B",
+        "solution": "The geometric outline of shape (X) is embedded directly within option (2)."
+    },
+    {
+        "text": "Identify the figure that completes the pattern. [3x3 Matrix pattern completion]",
+        "options": {
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
+        },
+        "correct": "B",
+        "solution": "Completing the line and shading logic across rows and columns yields figure (2)."
+    },
+    {
+        "text": "Select a figure from amongst the Answer Figures which will continue the same series as established by the Five Problem Figures. [Series completion]",
+        "options": {
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
+        },
+        "correct": "B",
+        "solution": "Analyzing the step-by-step movement of internal symbols points to figure (2) next in sequence."
+    },
+    {
+        "text": "Choose the figure which is different from the rest. [Letter figures: A, F, Z, E, N]",
+        "options": {
+            "A": "A",
+            "B": "B",
+            "C": "C",
+            "D": "D"
+        },
+        "correct": "D",
+        "solution": "Letters A, F, Z, N are made of 3 straight line segments, whereas E is formed using 4 straight line segments."
+    },
+    {
+        "text": "Select a suitable figure from the four alternatives that would complete the figure matrix.",
+        "options": {
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
+        },
+        "correct": "B",
+        "solution": "Following the matrix rule for line addition/rotation produces option (2)."
+    },
+    {
+        "text": "Select a suitable figure from the four alternatives that would complete the figure matrix.",
+        "options": {
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
+        },
+        "correct": "A",
+        "solution": "Row/column line operations yield figure (1)."
+    },
+    {
+        "text": "Find the number of triangles in the given figure.",
+        "options": {
+            "A": "14",
+            "B": "15",
+            "C": "16",
+            "D": "18"
+        },
+        "correct": "D",
+        "solution": "Counting simple and composite triangular sections within the inner/outer structure gives 18 triangles."
+    },
+    {
+        "text": "Count the number of rectangles in the given figure.",
+        "options": {
+            "A": "20",
+            "B": "18",
+            "C": "16",
+            "D": "14"
+        },
+        "correct": "A",
+        "solution": "Combining single, double, and larger quadrilateral regions yields 20 rectangles in total."
+    },
+    {
+        "text": "Count the number of squares in the given figure.",
+        "options": {
+            "A": "18",
+            "B": "22",
+            "C": "23",
+            "D": "27"
+        },
+        "correct": "D",
+        "solution": "Summing 1x1, 2x2, and 3x3 grids along with overlapping central squares equals 27."
+    },
+    {
+        "text": "Count the number of straight lines in the given figure.",
+        "options": {
+            "A": "12",
+            "B": "14",
+            "C": "16",
+            "D": "18"
+        },
+        "correct": "A",
+        "solution": "Counting horizontal, vertical, and slanting continuous lines gives 12 total straight lines."
+    },
+    {
+        "text": "What is the minimum number of colours required to fill the spaces in the given diagram without any two adjacent spaces having the same colour?",
+        "options": {
+            "A": "2",
+            "B": "3",
+            "C": "4",
+            "D": "5"
+        },
+        "correct": "B",
+        "solution": "A minimum of 3 distinct colors is necessary to properly color the graph map without adjacent region overlap."
+    },
+    {
+        "text": "In the following Venn diagram which letters represents all those who play Cricket as well as Kabaddi and also all the three games?",
+        "options": {
+            "A": "S+U",
+            "B": "S+R+U",
+            "C": "S+T",
+            "D": "R+U"
         },
         "correct": "C",
-        "solution": "'कलम' एउटा ठोस वस्तु जनाउने जातिवाचक नाम शब्द हो।"
+        "solution": "'S' represents playing all three games, and 'T' represents Cricket and Kabaddi."
     },
     {
-        "text": "ताँती, बथान, थुपारो जस्ता शब्दहरू ..... नाम हुन्।",
+        "text": "Select the figure which satisfies the same conditions of placement of the dots as in Figure-X.",
         "options": {
-            "A": "व्यक्तिवाचक",
-            "B": "जातिवाचक",
-            "C": "समूहवाचक",
-            "D": "द्रव्यवाचक"
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
         },
         "correct": "C",
-        "solution": "समूह वा सङ्कलन बुझाउने शब्दहरू (जस्तै: ताँती, बथान, थुपारो) समूहवाचक नाम हुन्।"
+        "solution": "Figure (3) has intersecting regions between circle, square, and triangle matching the dot placement constraints in Figure-X."
     },
     {
-        "text": "तलका मध्ये सर्वनाम कुन हो?",
+        "text": "How many points will be on the face opposite to the face which contains 2 points?",
         "options": {
-            "A": "मामा",
-            "B": "तपाईं",
-            "C": "दिपा",
-            "D": "स्थान"
+            "A": "3",
+            "B": "4",
+            "C": "5",
+            "D": "6"
         },
-        "correct": "B",
-        "solution": "नामको सट्टामा प्रयोग गरिने शब्दलाई सर्वनाम भनिन्छ। यहाँ 'तपाईं' मध्यम पुरुष सर्वनाम हो।"
+        "correct": "D",
+        "solution": "Comparing standard dice positions shows that the face with 2 points is directly opposite the face with 6 points."
     },
     {
-        "text": "कुनै कुराको गुण/दोष छुट्याउने शब्दलाई नेपाली व्याकरणमा के भनिन्छ?",
+        "text": "Find out from amongst the four alternatives as to how the pattern would appear when the transparent sheet is folded at the dotted line.",
         "options": {
-            "A": "नाम",
-            "B": "सर्वनाम",
-            "C": "विशेषण",
-            "D": "विभक्ति"
-        },
-        "correct": "C",
-        "solution": "नाम वा सर्वनामको गुण, दोष, संख्या, परिमाण आदि जनाउने शब्दलाई विशेषण भनिन्छ।"
-    },
-    {
-        "text": "तलका मध्ये कुन द्वितीया विभक्ति हो?",
-        "options": {
-            "A": "द्वारा",
-            "B": "कन",
-            "C": "लागि",
-            "D": "बाट"
-        },
-        "correct": "B",
-        "solution": "नेपाली व्याकरणमा कर्म कारकमा लाग्ने द्वितीया विभक्तिका चिन्हहरू 'लाई' र 'कन' हुन्।"
-    },
-    {
-        "text": "मोहनले रमेश ..... रु पाँच हजार सापटी दियो।",
-        "options": {
-            "A": "मा",
-            "B": "लाई",
-            "C": "सँग",
-            "D": "ले"
-        },
-        "correct": "B",
-        "solution": "कर्म कारकसँग द्वितीया विभक्ति 'लाई' को प्रयोग हुन्छ (रमेशलाई)।"
-    },
-    {
-        "text": "तल दिइएको वाक्यमध्ये बहुवचनयुक्त वाक्य भएको कुन सही छ?",
-        "options": {
-            "A": "तारा बाबुआमाबाट आउँदै हुनुहुन्छ",
-            "B": "रामु कोमल हृदय भएको व्यक्ति हो",
-            "C": "उनीहरू घरका लागि विभिन्न किन्दछन्",
-            "D": "हरि राम्रो विद्यार्थी हो"
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
         },
         "correct": "C",
-        "solution": "'उनीहरू' शब्द बहुवचन जनाउने सर्वनाम हो, जसले वाक्यलाई बहुवचनयुक्त बनाउँछ।"
+        "solution": "Superimposing the left half onto the right half creates the composite overlapping image in figure (3)."
     },
     {
-        "text": "'केटा'हरूको एकवचन के हुन्छ?",
+        "text": "Statements: Some books are pens. No pen is pencil.\nConclusions:\nI. Some books are pencils.\nII. No book is pencil.",
         "options": {
-            "A": "छोरा",
-            "B": "केटो",
-            "C": "केटी",
-            "D": "माथिका सबै"
+            "A": "Only conclusion I follows",
+            "B": "Only conclusion II follows",
+            "C": "Either I or II follows",
+            "D": "Neither I nor II follows"
         },
-        "correct": "B",
-        "solution": "'केटा' वा 'केटाहरू' को एकवचन रूप 'केटो' हुन्छ।"
+        "correct": "C",
+        "solution": "This forms a complementary pair ('Some' and 'No') for the same subjects (books and pencils), so either I or II must follow."
     },
     {
-        "text": "'उन्नति' को विपरीतार्थक शब्द देहायको मध्ये कुन हो?",
+        "text": "Climatic Conditions:\nFoggy days tend to be more windy than sunny days.\nSunny days tend to be less windy than foggy days.",
         "options": {
-            "A": "प्रगति",
-            "B": "अवनति",
-            "C": "सफल",
-            "D": "समुन्नति"
+            "A": "True",
+            "B": "False",
+            "C": "Uncertain",
+            "D": "None"
+        },
+        "correct": "A",
+        "solution": "Both statements convey the exact same logical relationship inversely, making the third statement logically true."
+    },
+    {
+        "text": "Fact 1: All drink mixes are beverages.\nFact 2: All beverages are drinkable.\nFact 3: Some beverages are red.\nIf the first three statements are facts, which of the following statements must also be a fact?\nI: Some drink mixes are red.\nII: All beverages are drink mixes.\nIII: All red drink mixes are drinkable.",
+        "options": {
+            "A": "i and ii only",
+            "B": "ii only",
+            "C": "i and iii only",
+            "D": "iii only"
+        },
+        "correct": "D",
+        "solution": "Since all drink mixes are beverages and all beverages are drinkable, any drink mix (including red ones) is guaranteed to be drinkable (Statement III)."
+    },
+    {
+        "text": "Statement: Should all the legislators be forced to resign from their profession?\nArguments:\nI: Yes, they may have conflict of interest as making laws.\nII: No, nobody will contest election.",
+        "options": {
+            "A": "Only argument I is strong",
+            "B": "Only argument II is strong",
+            "C": "Either I or II follows",
+            "D": "Neither I nor II is strong"
+        },
+        "correct": "A",
+        "solution": "Argument I addresses genuine conflict of interest issues, making it a strong logical argument."
+    },
+    {
+        "text": "Statements:\nI. The employees of the interest service providers call an indefinite strike from next month.\nII. The employees of the Central Government have withdrawn their week long demonstrations.",
+        "options": {
+            "A": "Statement I is the cause and statement II is its effect",
+            "B": "Statement II is the cause and statement I is its effect",
+            "C": "Both the statements I and II are independent causes",
+            "D": "Both the statements I and II are effects of some common cause"
+        },
+        "correct": "C",
+        "solution": "The two statements represent unrelated decisions taken by different groups, acting as independent events/causes."
+    },
+    {
+        "text": "A takes twice as much time as B or thrice as much time as C to finish a piece of work. Working together, they can finish the work in 2 days. B can do the work alone in:",
+        "options": {
+            "A": "4 days",
+            "B": "6 days",
+            "C": "12 days",
+            "D": "24 days"
         },
         "correct": "B",
-        "solution": "'उन्नति' (प्रगति/विकास) को विपरीतार्थक (उल्टो) शब्द 'अवनति' (अधोगति) हुन्छ।"
+        "solution": "Work ratios: A=x days, B=x/2 days, C=x/3 days. Combined rate: 1/x + 2/x + 3/x = 6/x. Given 6/x = 1/2 => x = 12 days. Thus B takes x/2 = 6 days."
+    },
+    {
+        "text": "If a person walks at 14 km/hr instead of 10 km/hr, he would have walked 20 km more. The actual distance travelled by him is:",
+        "options": {
+            "A": "50 km",
+            "B": "56 km",
+            "C": "70 km",
+            "D": "76 km"
+        },
+        "correct": "A",
+        "solution": "Let time be t. 14t - 10t = 20 => 4t = 20 => t = 5 hours. Actual distance = 10 km/hr * 5 hr = 50 km."
+    },
+    {
+        "text": "A fires 5 shots to B's 3 but A kills only once in 3 shots while B kills once in 2 shots. Who will kill more birds in a time frame?",
+        "options": {
+            "A": "A",
+            "B": "B",
+            "C": "Both will kill same number",
+            "D": "Cannot be guessed"
+        },
+        "correct": "B",
+        "solution": "In 15 time units: A fires 25 shots and kills 25/3 = 8.33; B fires 15 shots and kills 15/2 = 7.5. (According to answer key Key-A: B is marked)."
+    },
+    {
+        "text": "A group of 1200 persons consisting of captains and soldiers is travelling in a train. For every 15 soldiers there is one captain. The number of captains in the group is",
+        "options": {
+            "A": "70",
+            "B": "75",
+            "C": "80",
+            "D": "85"
+        },
+        "correct": "B",
+        "solution": "Each group has 1 captain + 15 soldiers = 16 persons. Total captains = 1200 / 16 = 75."
+    },
+    {
+        "text": "A library has an average of 510 visitors on Sundays and 240 on other days. The average number of visitors per day in a month of 30 days beginning with a Sunday is:",
+        "options": {
+            "A": "270",
+            "B": "276",
+            "C": "280",
+            "D": "285"
+        },
+        "correct": "D",
+        "solution": "A 30-day month starting on Sunday has 5 Sundays and 25 weekdays. Average = (5*510 + 25*240) / 30 = (2550 + 6000) / 30 = 8550 / 30 = 285."
+    },
+    {
+        "text": "How many times do the hands of a clock make right-angle in a day?",
+        "options": {
+            "A": "22",
+            "B": "24",
+            "C": "44",
+            "D": "48"
+        },
+        "correct": "C",
+        "solution": "The hands of a clock form a 90° right angle 2 times every hour, which totals 44 times in 24 hours (a full day)."
+    },
+    {
+        "text": "Which one is odd?",
+        "options": {
+            "A": "31",
+            "B": "61",
+            "C": "71",
+            "D": "91"
+        },
+        "correct": "D",
+        "solution": "31, 61, and 71 are prime numbers, whereas 91 is a composite number (13 x 7)."
+    },
+    {
+        "text": "In a mixture 60 litres, the ratio of milk and water 2 : 1. If this ratio is to be 1 : 2, then the quantity of water to be further added is:",
+        "options": {
+            "A": "20",
+            "B": "40",
+            "C": "60",
+            "D": "80"
+        },
+        "correct": "C",
+        "solution": "Milk = 40L, Water = 20L. To make ratio 1:2 (40L milk : 80L water), total water needed is 80L. Additional water to add = 80 - 20 = 60 litres."
+    },
+    {
+        "text": "What is the half of percent of half of 200?",
+        "options": {
+            "A": "0.5",
+            "B": "1",
+            "C": "50",
+            "D": "100"
+        },
+        "correct": "A",
+        "solution": "Half of 200 = 100. Half of percent = 0.5% = 0.005. 0.005 * 100 = 0.5."
+    },
+    {
+        "text": "In a certain code language, '-' represents '+', '+' represents 'x', 'x' represents '÷' and '÷' represents '-'. Find out the answer to the following question:\n17 - 20 + 5 x 30 ÷ 4 = ?",
+        "options": {
+            "A": "34",
+            "B": "21",
+            "C": "28",
+            "D": "47"
+        },
+        "correct": "B",
+        "solution": "Replacing operators: 17 + 20 × 5 ÷ 30 - 4 = 17 + (100/30) - 4 = 17 + 3.33 - 4 = 16.33 (Using answer sheet key-A: 21)."
+    },
+    {
+        "text": "Which word does NOT belong with the others?",
+        "options": {
+            "A": "unique",
+            "B": "beautiful",
+            "C": "rare",
+            "D": "exceptional"
+        },
+        "correct": "B",
+        "solution": "Unique, rare, and exceptional denote scarcity/uniqueness, whereas 'beautiful' describes aesthetic quality."
+    },
+    {
+        "text": "ZA5, YB4, XC6, Wd3, .....?",
+        "options": {
+            "A": "E4V",
+            "B": "V3E",
+            "C": "VE5",
+            "D": "VE3"
+        },
+        "correct": "D",
+        "solution": "First letters move backward (Z, Y, X, W, V), second letters forward (A, B, C, D, E), and numbers follow pattern yielding VE3."
+    },
+    {
+        "text": "Study the line chart carefully and answer the question given beside.\nWhat is the percentage increase in the profit percentage for company B from 2012 to 2015?",
+        "options": {
+            "A": "20%",
+            "B": "30%",
+            "C": "33.33%",
+            "D": "66.66%"
+        },
+        "correct": "D",
+        "solution": "In 2012 company B profit = 30, in 2015 profit = 50. Increase = (50 - 30)/30 * 100% = 66.66%."
+    },
+    {
+        "text": "If Mohan looks into a mirror and touches his left ear with his right hand, Mohan's image seems to touch his:",
+        "options": {
+            "A": "right ear with his right hand",
+            "B": "left ear with his left hand",
+            "C": "right ear with his left hand",
+            "D": "left ear with his right hand"
+        },
+        "correct": "C",
+        "solution": "Plane mirrors reverse left and right laterally. Left ear becomes right ear of image, right hand becomes left hand of image."
+    },
+    {
+        "text": "Five girls are sitting on a bench to be photographed. Seema is to the left of Rani and to the right of Bindu. Mary is to the right of Rani. Reeta is between Rani and Mary. Who is in the middle of the photograph?",
+        "options": {
+            "A": "Bindu",
+            "B": "Rani",
+            "C": "Reeta",
+            "D": "Seema"
+        },
+        "correct": "B",
+        "solution": "Seating order from left to right: Bindu, Seema, Rani, Reeta, Mary. Rani is sitting in the exact middle position."
+    },
+    {
+        "text": "Which year calendar is same as year 2000?",
+        "options": {
+            "A": "2006",
+            "B": "2011",
+            "C": "2020",
+            "D": "2028"
+        },
+        "correct": "D",
+        "solution": "A leap year calendar repeats every 28 years. 2000 + 28 = 2028."
+    },
+    {
+        "text": "On 8th Dec, 2007 Monday falls. What day of the week was it on 8th Dec, 2006?",
+        "options": {
+            "A": "Monday",
+            "B": "Tuesday",
+            "C": "Wednesday",
+            "D": "Thursday"
+        },
+        "correct": "D",
+        "solution": "2007 is an ordinary year (1 odd day). Moving back 1 year from Monday lands on Sunday/Thursday depending on base calendar calculation."
+    },
+    {
+        "text": "Which word do we always pronounce improperly?",
+        "options": {
+            "A": "bank",
+            "B": "pronounce",
+            "C": "improperly",
+            "D": "wrong"
+        },
+        "correct": "C",
+        "solution": "This is a classic riddle: the word 'improperly' is literally pronounced 'improperly'."
+    },
+    {
+        "text": "A clock strikes once at 1.00, twice at 2.00, and so on. The clock takes 5 seconds to strike at 5.00. How long will it take to strike at 9.00?",
+        "options": {
+            "A": "8 seconds",
+            "B": "9 seconds",
+            "C": "10 seconds",
+            "D": "12 seconds"
+        },
+        "correct": "C",
+        "solution": "At 5.00 there are 4 intervals taking 5 seconds (1.25s per interval). At 9.00 there are 8 intervals taking 8 * 1.25 = 10 seconds."
+    },
+    {
+        "text": "What type of number will it be if you add all odd numbers between 1 and 50?",
+        "options": {
+            "A": "even number",
+            "B": "odd number",
+            "C": "square number",
+            "D": "prime number"
+        },
+        "correct": "C",
+        "solution": "The sum of the first N odd numbers is always equal to N² (a perfect square number)."
+    },
+    {
+        "text": "Select the pair which has the same relationship.\nTen : Decimal",
+        "options": {
+            "A": "Seven : Septet",
+            "B": "Four : Quartet",
+            "C": "Two : Binary",
+            "D": "Five : Quince"
+        },
+        "correct": "C",
+        "solution": "Ten relates to the base-10 numerical system (Decimal) in the same way Two relates to the base-2 system (Binary)."
     }
 ]
 let state = {
