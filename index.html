@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Cache-Control Meta Tags (Forces browser to check for new version every time) -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
     <title>Sagar_Website</title>
 
     <style>
@@ -141,6 +146,7 @@
             cursor: pointer;
 
             font-size: 16px;
+            text-decoration: none;
         }
 
         .btn:hover {
@@ -428,7 +434,6 @@
 <section id="home" class="page active">
 
     <div class="hero">
-        
 
         <div class="hero-content">
 
@@ -437,7 +442,7 @@
             </h1>
 
             <p>
-                This websit helps you to give free mock test
+                This website helps you to give free mock test
             </p>
 
             <div class="buttons">
@@ -453,8 +458,8 @@
                     onclick="showPage('contact')">
                     Contact Me
                 </button>
-<a href="mocktest.html" class="btn">LOKSEWA GK MOCK TEST FOR CADET</a>
-
+                <!-- Added Cache-Busting Version Query Parameter (?v=1.0.1) -->
+                <a href="mocktest.html?v=1.0.1" class="btn">LOKSEWA GK MOCK TEST FOR CADET</a>
 
             </div>
 
@@ -466,26 +471,22 @@
     <div class="features">
 
         <h2>
-              What We Offer
+            What We Offer
         </h2>
 
+        <div class="card">
 
-            <div class="card">
-
-                <div class="icon">
-                    ⚡
-                </div>
-
-                <h3>
-                    Fast & Simple
-                </h3>
-
-                <p>
-                    Lightweight pages that is
-                    easy to use.
-                </p>
-
+            <div class="icon">
+                ⚡
             </div>
+
+            <h3>
+                Fast & Simple
+            </h3>
+
+            <p>
+                Lightweight pages that is easy to use.
+            </p>
 
         </div>
 
@@ -524,7 +525,7 @@
             Welcome to MyWebsite.
             </h2>
 
-          <p>
+            <p>
                 We believe websites should be simple,
                 attractive, responsive and easy to use.
             </p>
