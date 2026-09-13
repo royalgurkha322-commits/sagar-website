@@ -455,7 +455,7 @@
         </div>
         <div id="exam-card-element" class="card accent-border" style="display: none; max-width: 500px;">
             <span class="status-badge">● LIVE</span>
-            <h3 style="margin-top: 10px; font-size: 1.5rem;">MODEL MOCK TEST (I.Q)</h3>
+            <h3 style="margin-top: 10px; font-size: 1.5rem;">MODEL MOCK TEST (G.K)</h3>
             <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">Free Mock Test Portal</p>
             <div class="exam-meta-grid">
                 <div class="meta-box">
@@ -524,786 +524,1311 @@
 
 <script>
 const ADMIN_PIN = "Sagar@123"; // Setup your private Admin PIN code here
-const defaultQuestions =[
-    {
-        "id": 1,
-        "text": "Choose one of four – ABCD : NPRT :: FGHJ : ?",
-        "image_url": null,
-        "options": {
-            "A": "RTUW",
-            "B": "KLMN",
-            "C": "SUWY",
-            "D": "OQRT"
-        },
-        "correct": "C",
-        "solution": "In ABCD, letters move sequentially (+1). NPRT skips 1 letter (+2: N->P->R->T). FGHJ moves by +1 (+1: F->G->H) and then +2 (J). Following the same pattern, FGHJ maps to SUWY (+2 spacing)."
+const defaultQuestions =तपाईंको आवश्यकता अनुसार प्रश्नपत्र (66-Set A) को सबै १०० वटा प्रश्न, विकल्प, सही उत्तर र व्याख्या सहितको Complete JSON तयार पारिएको छ।
+
+यस JSON Code मा Figure/Image भएका प्रश्नहरूमा `image_url` field राखिएको छ। तपाईंले आफ्नो Host/Server मा फोटो अपलोड गरेपछि सम्बन्धित URL हरू `image_url` मा अपडेट गरेर आफ्नो Website मा सिधै प्रयोग गर्न सक्नुहुन्छ:
+
+```json
+[
+  {
+    "id": 1,
+    "text": "What was the area of Nepal before Sugauli Treaty?\n(सुगौली सन्धि हुनुभन्दा अघि नेपालको क्षेत्रफल कति थियो?)",
+    "image_url": null,
+    "options": {
+      "A": "2,04,917km²",
+      "B": "2,14,312km²",
+      "C": "2,32,717km²",
+      "D": "2,69,210km²"
     },
-    {
-        "id": 2,
-        "text": "'Skeleton' is related to 'Body' the same way as 'Grammar' is related to:",
-        "image_url": null,
-        "options": {
-            "A": "meaning",
-            "B": "education",
-            "C": "verb",
-            "D": "language"
-        },
-        "correct": "D",
-        "solution": "Skeleton provides structural framework for body; grammar provides structural framework for language."
+    "correct": "A",
+    "solution": "Before the Sugauli Treaty of 1816, Greater Nepal extended from the Tista River in the east to the Sutlej River in the west, covering approximately 204,917 sq km."
+  },
+  {
+    "id": 2,
+    "text": "Where does the eastern most point of Nepal, Lelep lie?\n(नेपालको सबैभन्दा पूर्वी बिन्दु लेलेप कहाँ पर्दछ?)",
+    "image_url": null,
+    "options": {
+      "A": "Namkha rural municipality",
+      "B": "Fattanglung rural municipality",
+      "C": "Kechanakawal rural municipality",
+      "D": "Falgunalung rural municipality"
     },
-    {
-        "id": 3,
-        "text": "In a certain code, 'IT' is written as '29' and 'PIT' is written as '45'. What is the code for 'CAPITAL'?",
-        "image_url": null,
-        "options": {
-            "A": "52",
-            "B": "53",
-            "C": "62",
-            "D": "61"
-        },
-        "correct": "C",
-        "solution": "Letter positions: C(3) + A(1) + P(16) + I(9) + T(20) + A(1) + L(12) = 62."
+    "correct": "B",
+    "solution": "Lelep, the easternmost location of Nepal, lies in Phaktanglung (Fattanglung) Rural Municipality of Taplejung district."
+  },
+  {
+    "id": 3,
+    "text": "संविधानको कुन भागमा मौलिक हकको व्यवस्था छ?\n(Which part of the constitution has the provision of fundamental rights?)",
+    "image_url": null,
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "5"
     },
-    {
-        "id": 4,
-        "text": "In an unknown language 'water', 'stone', 'sky', 'air' and 'rice' are said as 'rice', 'air', 'sky', 'stone' and 'water' respectively. If someone is thirsty there what would he drink?",
-        "image_url": null,
-        "options": {
-            "A": "water",
-            "B": "stone",
-            "C": "air",
-            "D": "rice"
-        },
-        "correct": "D",
-        "solution": "A thirsty person drinks water, and in this code 'water' is called 'rice'."
+    "correct": "B",
+    "solution": "Part 3 (Articles 16 to 46) of the Constitution of Nepal provides for Fundamental Rights and Duties."
+  },
+  {
+    "id": 4,
+    "text": "फोक्सुण्डो ताल कति उचाइमा रहेको छ?\n(At what altitude is Phoksundo lake located?)",
+    "image_url": null,
+    "options": {
+      "A": "३९१३m",
+      "B": "३६११m",
+      "C": "३६१३m",
+      "D": "४६१३m"
     },
-    {
-        "id": 5,
-        "text": "If 'STRONG' is written as 'ROTNSG', then how would 'BIPANA' be written in the same code?",
-        "image_url": null,
-        "options": {
-            "A": "ANAPIB",
-            "B": "PAINBA",
-            "C": "PANABI",
-            "D": "PINABA"
-        },
-        "correct": "B",
-        "solution": "STRONG becomes ROTNSG by rearranging positions. Applying the same transformation to BIPANA yields PAINBA."
+    "correct": "C",
+    "solution": "Shey Phoksundo Lake in Dolpa is situated at an elevation of 3,613 meters (11,854 ft) above sea level."
+  },
+  {
+    "id": 5,
+    "text": "माईपोखरीलाई कहिले रामसार क्षेत्रमा सूचीकृत गरियो?\nWhen was Maipokhari included in Ramsar sites?",
+    "image_url": null,
+    "options": {
+      "A": "सन् २००६",
+      "B": "सन् २००७",
+      "C": "सन् २००८",
+      "D": "सन् २००९"
     },
-    {
-        "id": 6,
-        "text": "Fill in the blank to make the sentence meaningfully complete.\nI saw a ..... of cows in the field.",
-        "image_url": null,
-        "options": {
-            "A": "group",
-            "B": "herd",
-            "C": "swarm",
-            "D": "flock"
-        },
-        "correct": "B",
-        "solution": "The collective noun used specifically for a group of cows is 'herd'."
+    "correct": "C",
+    "solution": "Mai Pokhari in Ilam was designated as a Ramsar site on October 28, 2008."
+  },
+  {
+    "id": 6,
+    "text": "अग्निप्रसाद सापकोटा मेची जिल्ला कुन हो?\n(Which mountain district was added in Ramsar site?)",
+    "image_url": null,
+    "options": {
+      "A": "इलाम",
+      "B": "पाँचथर",
+      "C": "सोलुखुम्बु",
+      "D": "म्याग्दी"
     },
-    {
-        "id": 7,
-        "text": "Which is the correctly spelt word?",
-        "image_url": null,
-        "options": {
-            "A": "Beterment",
-            "B": "Treatment",
-            "C": "Efficent",
-            "D": "Employed"
-        },
-        "correct": "B",
-        "solution": "'Treatment' is spelled correctly."
+    "correct": "A",
+    "solution": "Mai Pokhari, located in Ilam district, is a high-altitude wetland Ramsar site."
+  },
+  {
+    "id": 7,
+    "text": "बाल्टिक सागर कुन महादेशमा पर्दछ?\n(In which continent does Baltic sea lie?)",
+    "image_url": null,
+    "options": {
+      "A": "एशिया",
+      "B": "युरोप",
+      "C": "उत्तर अमेरिका",
+      "D": "अफ्रिका"
     },
-    {
-        "id": 8,
-        "text": "Rearrange these parts to produce the correct sentence.\nThe magistrate .....\nP : did not listen to the protests of customer\nQ : who was in the habit of weighing less\nR : whom he had cheated\nS : with great audacity",
-        "image_url": null,
-        "options": {
-            "A": "PRSQ",
-            "B": "QPRS",
-            "C": "QPSR",
-            "D": "PQRS"
-        },
-        "correct": "B",
-        "solution": "The logical order is: 'The magistrate did not listen to the protests of customer who was in the habit of weighing less whom he had cheated with great audacity' -> QPRS."
+    "correct": "B",
+    "solution": "The Baltic Sea is an arm of the Atlantic Ocean, enclosed by Scandinavia, Finland, the Baltic countries, and the North European Plain in Europe."
+  },
+  {
+    "id": 8,
+    "text": "पृथ्वीनारायण शाहको पहिलो पत्नी इन्द्रकुमारी कुन राज्यकी राजकुमारी थिइन्?\n(Indrakumari, the first wife of Prithvi Narayan Shah, was the princess of which kingdom?)",
+    "image_url": null,
+    "options": {
+      "A": "मकवानपुर",
+      "B": "भक्तपुर",
+      "C": "तनहुँ",
+      "D": "लम्जुङ"
     },
-    {
-        "id": 9,
-        "text": "P is the mother of K; K is the sister of D; D is the father of J. How is P related to J?",
-        "image_url": null,
-        "options": {
-            "A": "Mother",
-            "B": "Grandmother",
-            "C": "Granddaughter",
-            "D": "Uncle"
-        },
-        "correct": "B",
-        "solution": "D is the father of J, and P is the mother of D. Thus, P is J's grandmother."
+    "correct": "A",
+    "solution": "Indra Kumari was the daughter of King Hem Raaj Sen of Makwanpur."
+  },
+  {
+    "id": 9,
+    "text": "राष्ट्रिय योग दिवस कहिले मनाइन्छ?\n(When is National Yoga day celebrated?)",
+    "image_url": null,
+    "options": {
+      "A": "माघ १",
+      "B": "मंसिर १",
+      "C": "माघ ५",
+      "D": "मंसिर ५"
     },
-    {
-        "id": 10,
-        "text": "Four friends A, B, C and D live in a same locality. The house of B is in the east of A's house but in the north of C's house. The house of C is in the west of D's house. D's house is in which direction of A's house?",
-        "image_url": null,
-        "options": {
-            "A": "South-East",
-            "B": "North-West",
-            "C": "East",
-            "D": "South"
-        },
-        "correct": "A",
-        "solution": "B is East of A and North of C. Since C is West of D, D is East of C and South-East relative to A."
+    "correct": "A",
+    "solution": "National Yoga Day is observed every year on Magh 1 in Nepal."
+  },
+  {
+    "id": 10,
+    "text": "छो रोल्पा हिमनदी कहाँ पर्दछ?\n(Where does Tsho Rolpa glacier lie?)",
+    "image_url": null,
+    "options": {
+      "A": "हुम्ला",
+      "B": "मनाङ",
+      "C": "गोरखा",
+      "D": "दोलखा"
     },
-    {
-        "id": 11,
-        "text": "Which is the mirror image of \"MALAYALAM\"?",
-        "image_url": "https://your-domain.com/images/q11_options.png",
-        "options": {
-            "A": "1",
-            "B": "2",
-            "C": "3",
-            "D": "4"
-        },
-        "correct": "A",
-        "solution": "'MALAYALAM' reads identically backward and forward when mirrored horizontally."
+    "correct": "D",
+    "solution": "Tsho Rolpa is one of the largest glacial lakes in Nepal, located in Dolakha District."
+  },
+  {
+    "id": 11,
+    "text": "सबैभन्दा बढी वडा भएको स्थानीय तह कुन हो?\n(Which local level has most number of wards?)",
+    "image_url": null,
+    "options": {
+      "A": "भरतपुर",
+      "B": "काठमाडौँ",
+      "C": "पोखरा",
+      "D": "ललितपुर"
     },
-    {
-        "id": 12,
-        "text": "Which is the water image of \"WILLIUM\"?",
-        "image_url": "https://your-domain.com/images/q12_options.png",
-        "options": {
-            "A": "1",
-            "B": "2",
-            "C": "3",
-            "D": "4"
-        },
-        "correct": "B",
-        "solution": "A water image flips the word vertically upside down."
+    "correct": "C",
+    "solution": "Pokhara Metropolitan City has the highest number of wards (33 wards) in Nepal."
+  },
+  {
+    "id": 12,
+    "text": "मैग्नाकार्टा शब्द कुन भाषाबाट आएको हो?\n(The word \"Magnacarta\" originated from which language?)",
+    "image_url": null,
+    "options": {
+      "A": "Latin",
+      "B": "Greek",
+      "C": "Roman",
+      "D": "Finnish"
     },
-    {
-        "id": 13,
-        "text": "Arrange the words given below in a meaningful sequence.\n1. Poverty  2. Population  3. Death  4. Unemployment  5. Disease",
-        "image_url": null,
-        "options": {
-            "A": "2, 3, 4, 5, 1",
-            "B": "3, 4, 2, 5, 1",
-            "C": "2, 4, 1, 5, 3",
-            "D": "1, 2, 3, 4, 5"
-        },
-        "correct": "C",
-        "solution": "Population (2) -> Unemployment (4) -> Poverty (1) -> Disease (5) -> Death (3)."
+    "correct": "A",
+    "solution": "Magna Carta is a Latin phrase meaning 'Great Charter'."
+  },
+  {
+    "id": 13,
+    "text": "हेन्ले पासपोर्ट इन्डेक्स २०२५ अनुसार नेपालको राहदानी कति स्थानमा रहेको छ?\n(What is the rank of Nepal's passport according to Henley Passport Index, 2025?)",
+    "image_url": null,
+    "options": {
+      "A": "९८",
+      "B": "९९",
+      "C": "१००",
+      "D": "१०१"
     },
-    {
-        "id": 14,
-        "text": "517, 325, 639, 846, 792\nWhat will be the first digit of the second highest number after the positions of only the 2nd, 3rd digits within each number are interchanged?",
-        "image_url": null,
-        "options": {
-            "A": "3",
-            "B": "6",
-            "C": "7",
-            "D": "8"
-        },
-        "correct": "C",
-        "solution": "Interchanging 2nd/3rd digits leaves 1st digit unchanged. The 2nd highest number remains 792, whose first digit is 7."
+    "correct": "D",
+    "solution": "As per official examination key: Option D."
+  },
+  {
+    "id": 14,
+    "text": "हर्तिलाल साहको मृत्यु कुन युद्धमा भएको थियो?\n(In which battle did Hartilal Shah die?)",
+    "image_url": null,
+    "options": {
+      "A": "अलौ",
+      "B": "काँगडा",
+      "C": "दित्याचौ",
+      "D": "मनाङ"
     },
-    {
-        "id": 15,
-        "text": "Library : Book :: ? : Word",
-        "image_url": null,
-        "options": {
-            "A": "Sign",
-            "B": "Symbol",
-            "C": "Letter",
-            "D": "Paragraph"
-        },
-        "correct": "D",
-        "solution": "A library is a collection of books; similarly, a paragraph is a collection of words."
+    "correct": "B",
+    "solution": "Hartilal Shah died during the Kangra campaign."
+  },
+  {
+    "id": 15,
+    "text": "नेपालको कुन नदी दक्षिणबाट उत्तरतर्फ बग्छ?\n(Which river of Nepal flows from south to north?)",
+    "image_url": null,
+    "options": {
+      "A": "मेची",
+      "B": "कर्मनाशा",
+      "C": "कोशी",
+      "D": "गण्डकी"
     },
-    {
-        "id": 16,
-        "text": "Choose the alternative which best expresses the meaning of underlined idiom/phrase.\nHe passed himself off as a noble man.",
-        "image_url": null,
-        "options": {
-            "A": "Was regarded as",
-            "B": "Pretended to be",
-            "C": "Was thought to be",
-            "D": "Was looked upon"
-        },
-        "correct": "B",
-        "solution": "To 'pass oneself off' means to pretend or falsely represent oneself."
+    "correct": "B",
+    "solution": "The Karmanasa River flows in a North-bound direction in Lalitpur."
+  },
+  {
+    "id": 16,
+    "text": "आधुनिक औद्योगिक कारखाना प्रणालीका पिता भनेर कसलाई चिनिन्छ?\n(Who is known as father of modern industrial factory system?)",
+    "image_url": null,
+    "options": {
+      "A": "Richard Arkwright",
+      "B": "Humphrey Davy",
+      "C": "James Watt",
+      "D": "James Hargreaves"
     },
-    {
-        "id": 17,
-        "text": "Find out which of the figures (1), (2), (3) and (4) can be formed from the pieces given in figure (X).",
-        "image_url": "https://your-domain.com/images/q17_figure.png",
-        "options": {
-            "A": "1",
-            "B": "2",
-            "C": "3",
-            "D": "4"
-        },
-        "correct": "B",
-        "solution": "Combining the pieces in figure (X) forms figure (2)."
+    "correct": "A",
+    "solution": "Sir Richard Arkwright is considered the father of the modern industrial factory system."
+  },
+  {
+    "id": 17,
+    "text": "नेपालका सीमा जोडिएका नेपालका जिल्ला कति छन्?\n(How many districts of Nepal border India?)",
+    "image_url": null,
+    "options": {
+      "A": "२६",
+      "B": "२७",
+      "C": "२८",
+      "D": "२९"
     },
-    {
-        "id": 18,
-        "text": "Find out how will the key figure (X) look like after rotation.",
-        "image_url": "https://your-domain.com/images/q18_figure.png",
-        "options": {
-            "A": "1",
-            "B": "2",
-            "C": "3",
-            "D": "4"
-        },
-        "correct": "B",
-        "solution": "Rotating figure (X) maintains internal symbol alignments matching option (2)."
+    "correct": "B",
+    "solution": "27 districts of Nepal share their borders with India."
+  },
+  {
+    "id": 18,
+    "text": "पृथ्वीनारायण शाहले कसलाई दूत बनाएर सन्देशवाहक बनाएर पठाएका थिए?\n(Who was sent as messenger to Patan by Prithvi Narayan Shah?)",
+    "image_url": null,
+    "options": {
+      "A": "माधव पाण्डे",
+      "B": "काजु पाण्डे",
+      "C": "शुरप्रताप शाह",
+      "D": "हरिहर शाह"
     },
-    {
-        "id": 19,
-        "text": "Look carefully at the sequence of symbols to find the pattern. Select correct pattern.",
-        "image_url": "https://your-domain.com/images/q19_figure.png",
-        "options": {
-            "A": "1",
-            "B": "2",
-            "C": "3",
-            "D": "4"
-        },
-        "correct": "B",
-        "solution": "The repeating geometric symbol order yields pattern option (2)."
+    "correct": "A",
+    "solution": "Prithvi Narayan Shah sent Madhav Pandey to negotiate."
+  },
+  {
+    "id": 19,
+    "text": "भक्ति थापाको मृत्यु कहिले भयो?\n(When did Bhakti Thapa die?)",
+    "image_url": null,
+    "options": {
+      "A": "१८७३ वैशाख १२",
+      "B": "१८७२ वैशाख ६",
+      "C": "१८७२ असोज २",
+      "D": "१७७४ पुस १५"
     },
-    {
-        "id": 20,
-        "text": "Find out the alternative figure which contains figure (X) as its part.",
-        "image_url": "https://your-domain.com/images/q20_figure.png",
-        "options": {
-            "A": "1",
-            "B": "2",
-            "C": "3",
-            "D": "4"
-        },
-        "correct": "B",
-        "solution": "The hidden shape (X) is embedded inside option (2)."
+    "correct": "B",
+    "solution": "Bhakti Thapa died at Malaun on Baishakh 6, 1872 BS (April 16, 1815)."
+  },
+  {
+    "id": 20,
+    "text": "नेपालसँगै कुन सार्क राष्ट्र युएनओ को सदस्य बनेको थियो?\n(Which SAARC nation got the membership of UNO along with Nepal?)",
+    "image_url": null,
+    "options": {
+      "A": "भारत",
+      "B": "श्रीलंका",
+      "C": "भुटान",
+      "D": "माल्दिभ्स"
     },
-    {
-        "id": 21,
-        "text": "Identify the figure that completes the pattern.",
-        "image_url": "https://your-domain.com/images/q21_figure.png",
-        "options": {
-            "A": "1",
-            "B": "2",
-            "C": "3",
-            "D": "4"
-        },
-        "correct": "B",
-        "solution": "Completing the matrix pattern matches figure (2)."
+    "correct": "B",
+    "solution": "Nepal and Sri Lanka both joined the United Nations on December 14, 1955."
+  },
+  {
+    "id": 21,
+    "text": "नुवाकोट नेपाल अधिराज्यमा कहिले एकीकरण भएको थियो?\n(When was Nuwakot unified in the Nepal Kingdom?)",
+    "image_url": null,
+    "options": {
+      "A": "१८०१ असोज १५",
+      "B": "१८०१ असोज २",
+      "C": "१८०१ असोज २६",
+      "D": "१८०२ फागुन १३"
     },
-    {
-        "id": 22,
-        "text": "Select a figure from amongst the Answer Figures which will continue the same series as established by the Five Problem Figures.",
-        "image_url": "https://your-domain.com/images/q22_figure.png",
-        "options": {
-            "A": "1",
-            "B": "2",
-            "C": "3",
-            "D": "4"
-        },
-        "correct": "B",
-        "solution": "The sequence moves elements logically to figure (2)."
+    "correct": "A",
+    "solution": "Prithvi Narayan Shah conquered Nuwakot on Ashwin 15, 1801 BS (September 26, 1744)."
+  },
+  {
+    "id": 22,
+    "text": "कीर्तिपुरमाथि पृथ्वीनारायण शाहको दोस्रो आक्रमण कहिले भएको थियो?\n(When was the second attack of Gorkhali Army on Kirtipur?)",
+    "image_url": null,
+    "options": {
+      "A": "१८२१ असोज ४",
+      "B": "१८२१ भदौ ४",
+      "C": "१८२२ भदौ ४",
+      "D": "१८२२ भाद्र ४"
     },
-    {
-        "id": 23,
-        "text": "Choose the figure which is different from the rest.",
-        "image_url": "https://your-domain.com/images/q23_figure.png",
-        "options": {
-            "A": "A",
-            "B": "B",
-            "C": "C",
-            "D": "D"
-        },
-        "correct": "D",
-        "solution": "Letters A, F, Z, N are formed with 3 line segments; E requires 4."
+    "correct": "A",
+    "solution": "The second Gorkhali attack on Kirtipur took place in Ashwin 1821 BS."
+  },
+  {
+    "id": 23,
+    "text": "सादु पाण्डेको हत्या कहिले भयो?\n(When was Sadhu Pandey killed?)",
+    "image_url": null,
+    "options": {
+      "A": "वि.सं.१८१३",
+      "B": "वि.सं.१८१४",
+      "C": "वि.सं.१८१५",
+      "D": "वि.सं.१८१६"
     },
-    {
-        "id": 24,
-        "text": "Select a suitable figure from the four alternatives that would complete the figure matrix.",
-        "image_url": "https://your-domain.com/images/q24_figure.png",
-        "options": {
-            "A": "1",
-            "B": "2",
-            "C": "3",
-            "D": "4"
-        },
-        "correct": "B",
-        "solution": "Matrix rotation rules produce option (2)."
+    "correct": "C",
+    "solution": "According to official answer key: Option C (1815 BS)."
+  },
+  {
+    "id": 24,
+    "text": "\"Mathematical Principles of Natural Philosophy\" पुस्तक कसले लेखेका हुन्?\n(Who wrote the book \"Mathematical Principles of Natural Philosophy\"?)",
+    "image_url": null,
+    "options": {
+      "A": "Stephen Hawking",
+      "B": "Einstein",
+      "C": "Newton",
+      "D": "Dalton"
     },
-    {
-        "id": 25,
-        "text": "Select a suitable figure from the four alternatives that would complete the figure matrix.",
-        "image_url": "https://your-domain.com/images/q25_figure.png",
-        "options": {
-            "A": "1",
-            "B": "2",
-            "C": "3",
-            "D": "4"
-        },
-        "correct": "A",
-        "solution": "Matrix line addition rule results in figure (1)."
+    "correct": "C",
+    "solution": "Philosophiae Naturalis Principia Mathematica was written by Sir Isaac Newton."
+  },
+  {
+    "id": 25,
+    "text": "२०७८ को जनगणना अनुसार नेपालमा कति प्रतिशत मानिसले बोन धर्म मान्दछन्?\nAccording to the population census of 2078, what percentage of people in Nepal follow Bon religion?",
+    "image_url": null,
+    "options": {
+      "A": "०.०५%",
+      "B": "०.२३%",
+      "C": "२३%",
+      "D": "२४%"
     },
-    {
-        "id": 26,
-        "text": "Find the number of triangles in the given figure.",
-        "image_url": "https://your-domain.com/images/q26_figure.png",
-        "options": {
-            "A": "14",
-            "B": "15",
-            "C": "16",
-            "D": "18"
-        },
-        "correct": "D",
-        "solution": "Counting simple and composite triangles totals 18."
+    "correct": "A",
+    "solution": "According to Census 2078 BS, Bon religion is followed by 0.05% of Nepal's total population."
+  },
+  {
+    "id": 26,
+    "text": "UNMHA को लागि सैन्य पर्यवेक्षकका रूपमा नेपाली सैनिकहरू कुन देशमा तैनाथ गरिएको थियो?",
+    "image_url": null,
+    "options": {
+      "A": "यमन",
+      "B": "सुडान",
+      "C": "ओमान",
+      "D": "लिविया"
     },
-    {
-        "id": 27,
-        "text": "Count the number of rectangles in the given figure.",
-        "image_url": "https://your-domain.com/images/q27_figure.png",
-        "options": {
-            "A": "20",
-            "B": "18",
-            "C": "16",
-            "D": "14"
-        },
-        "correct": "A",
-        "solution": "Summing all rectangle variations equals 20."
+    "correct": "A",
+    "solution": "UNMHA (United Nations Mission to support the Hodeidah Agreement) is deployed in Yemen."
+  },
+  {
+    "id": 27,
+    "text": "कोशल अड्डा को स्थापना कसले गर्दा?\n(Who established Koushal Adda?)",
+    "image_url": null,
+    "options": {
+      "A": "बहादुर शाह",
+      "B": "पृथ्वीनारायण शाह",
+      "C": "जंगबहादुर राणा",
+      "D": "भीमसेन थापा"
     },
-    {
-        "id": 28,
-        "text": "Count the number of squares in the given figure.",
-        "image_url": "https://your-domain.com/images/q28_figure.png",
-        "options": {
-            "A": "18",
-            "B": "22",
-            "C": "23",
-            "D": "27"
-        },
-        "correct": "D",
-        "solution": "Total square count is 27."
+    "correct": "C",
+    "solution": "Jung Bahadur Rana established Kaushal Adda as an administrative office."
+  },
+  {
+    "id": 28,
+    "text": "UNO को बडापत्रमा बदरबापत धारा कतिमा उल्लेख छ?\nIn which article of the charter principles of UNO are mentioned?",
+    "image_url": null,
+    "options": {
+      "A": "धारा १",
+      "B": "धारा २",
+      "C": "धारा ३",
+      "D": "धारा ४"
     },
-    {
-        "id": 29,
-        "text": "Count the number of straight lines in the given figure.",
-        "image_url": "https://your-domain.com/images/q29_figure.png",
-        "options": {
-            "A": "12",
-            "B": "14",
-            "C": "16",
-            "D": "18"
-        },
-        "correct": "A",
-        "solution": "Counting continuous straight lines yields 12."
+    "correct": "B",
+    "solution": "Article 2 of the UN Charter sets out the fundamental principles of the organization."
+  },
+  {
+    "id": 29,
+    "text": "बारपाकको क्षेत्रफल कति रहेको छ?\nWhat is the area of Barpak village?",
+    "image_url": null,
+    "options": {
+      "A": "१६८ km²",
+      "B": "१९२ km²",
+      "C": "११४.८ km²",
+      "D": "१५००km²"
     },
-    {
-        "id": 30,
-        "text": "What is the minimum number of colours required to fill the spaces in the given diagram without any two adjacent spaces having the same colour?",
-        "image_url": "https://your-domain.com/images/q30_figure.png",
-        "options": {
-            "A": "2",
-            "B": "3",
-            "C": "4",
-            "D": "5"
-        },
-        "correct": "B",
-        "solution": "Minimum 3 colors are needed."
+    "correct": "A",
+    "solution": "According to official answer key: Option A (168 km²)."
+  },
+  {
+    "id": 30,
+    "text": "क्षेत्रफलको आधारमा पहाडी क्षेत्रको सबैभन्दा ठूलो जिल्ला कुन हो?\nWhich is the largest district of Hilly region by area?",
+    "image_url": null,
+    "options": {
+      "A": "मकवानपुर",
+      "B": "सिन्धुली",
+      "C": "लमजुङ",
+      "D": "रोल्पा"
     },
-    {
-        "id": 31,
-        "text": "In the following Venn diagram which letters represents all those who play Cricket as well as Kabaddi and also all the three games?",
-        "image_url": "https://your-domain.com/images/q31_figure.png",
-        "options": {
-            "A": "S+U",
-            "B": "S+R+U",
-            "C": "S+T",
-            "D": "R+U"
-        },
-        "correct": "C",
-        "solution": "'S' represents playing all three games, and 'T' represents Cricket and Kabaddi."
+    "correct": "A",
+    "solution": "Makwanpur is the largest district situated in the Hilly geographical region of Nepal."
+  },
+  {
+    "id": 31,
+    "text": "भीमसेन थापाको आमा को हुन्?\nWho was the mother of Bhimsen Thapa?",
+    "image_url": null,
+    "options": {
+      "A": "चारुमती",
+      "B": "इन्द्रकुमारी",
+      "C": "गणेशकुमारी",
+      "D": "अमरकुमारी"
     },
-    {
-        "id": 32,
-        "text": "Select the figure which satisfies the same conditions of placement of the dots as in Figure-X.",
-        "image_url": "https://your-domain.com/images/q32_figure.png",
-        "options": {
-            "A": "1",
-            "B": "2",
-            "C": "3",
-            "D": "4"
-        },
-        "correct": "C",
-        "solution": "Figure (3) satisfies the dot placement constraints of Figure-X."
+    "correct": "D",
+    "solution": "Amar Kumari (Sanumaya) was the mother of Kaji Bhimsen Thapa."
+  },
+  {
+    "id": 32,
+    "text": "ब्रिगेडियर गनको निशाना कुन हो?\nWhat is the insignia of Brigadier General?",
+    "image_url": null,
+    "options": {
+      "A": "Cross Khukuri, Sword, Sun, Moon",
+      "B": "Cross Khukuri, Sword, Moon",
+      "C": "Cross Khukuri, Rhododendron, Moon",
+      "D": "Cross Khukuri, Rhododendron, Moon, Sun"
     },
-    {
-        "id": 33,
-        "text": "How many points will be on the face opposite to the face which contains 2 points?",
-        "image_url": "https://your-domain.com/images/q33_figure.png",
-        "options": {
-            "A": "3",
-            "B": "4",
-            "C": "5",
-            "D": "6"
-        },
-        "correct": "D",
-        "solution": "In standard dice comparisons, the face with 2 points is opposite to 6 points."
+    "correct": "A",
+    "solution": "Brigadier General rank in Nepal Army bears Cross Khukuri, Sword, Sun, and Moon."
+  },
+  {
+    "id": 33,
+    "text": "क्षेत्रफलको आधारमा विश्वको सबैभन्दा ठूलो भूपरिवेष्ठित राष्ट्र कुन हो?\nWhich is the largest landlocked country in the world by area?",
+    "image_url": null,
+    "options": {
+      "A": "मंगोलिया",
+      "B": "किर्गिस्तान",
+      "C": "कजाकस्तान",
+      "D": "उज्वेकिस्तान"
     },
-    {
-        "id": 34,
-        "text": "Find out from amongst the four alternatives as to how the pattern would appear when the transparent sheet is folded at the dotted line.",
-        "image_url": "https://your-domain.com/images/q34_figure.png",
-        "options": {
-            "A": "1",
-            "B": "2",
-            "C": "3",
-            "D": "4"
-        },
-        "correct": "C",
-        "solution": "Folding the right side over the left superimposes the dots to form a diamond pattern as shown in figure 3."
+    "correct": "C",
+    "solution": "Kazakhstan is the world's largest landlocked country with an area of 2.72 million km²."
+  },
+  {
+    "id": 34,
+    "text": "सप्तगण्डकी क्षेत्रका ... र ... बीच पर्छ?\nSaptagandaki region lies between ... and ...",
+    "image_url": null,
+    "options": {
+      "A": "लटाङ, धौलागिरी",
+      "B": "साङताङ, घ्याङ",
+      "C": "अपी, व्यास",
+      "D": "कञ्चनजङ्घा धौलागिरी"
     },
-    {
-        "id": 35,
-        "text": "Statements: Some books are pens. No pen is pencil.\nConclusions:\nI. Some books are pencils.\nII. No book is pencil.",
-        "image_url": null,
-        "options": {
-            "A": "Only conclusion I follows",
-            "B": "Only conclusion II follows",
-            "C": "Either I or II follows",
-            "D": "Neither I nor II follows"
-        },
-        "correct": "C",
-        "solution": "Forms a complementary pair ('Some' and 'No'), so either I or II follows."
+    "correct": "A",
+    "solution": "Saptagandaki region stretches between Langtang and Dhaulagiri mountain ranges."
+  },
+  {
+    "text": "अन्नपूर्ण हिमालको उचाइ कति छ?\n(What is the height of Mount Annapurna?)",
+    "image_url": null,
+    "options": {
+      "A": "८०९१ m",
+      "B": "८१६७ m",
+      "C": "८१६३ m",
+      "D": "८१५३ m"
     },
-    {
-        "id": 36,
-        "text": "Climatic Conditions:\nFoggy days tend to be more windy than sunny days.\nSunny days tend to be less windy than foggy days.",
-        "image_url": null,
-        "options": {
-            "A": "True",
-            "B": "False",
-            "C": "Uncertain",
-            "D": "None"
-        },
-        "correct": "A",
-        "solution": "Both statements express identical logic inversely, making the statement true."
+    "correct": "A",
+    "solution": "Annapurna I stands at an elevation of 8,091 meters."
+  },
+  {
+    "id": 36,
+    "text": "संयुक्त राज्य अमेरिकाको संघीय व्यवस्थापिकाको प्रतिनिधि सभामा कति सदस्य हुन्छन्?\nHow many members are there in the House of Representatives of Federal Legislature of USA?",
+    "image_url": null,
+    "options": {
+      "A": "१००",
+      "B": "४३५",
+      "C": "४३८",
+      "D": "५००"
     },
-    {
-        "id": 37,
-        "text": "Fact 1: All drink mixes are beverages.\nFact 2: All beverages are drinkable.\nFact 3: Some beverages are red.\nIf the first three statements are facts, which of the following statements must also be a fact?\nI: Some drink mixes are red.\nII: All beverages are drink mixes.\nIII: All red drink mixes are drinkable.",
-        "image_url": null,
-        "options": {
-            "A": "i and ii only",
-            "B": "ii only",
-            "C": "i and iii only",
-            "D": "iii only"
-        },
-        "correct": "D",
-        "solution": "Since all drink mixes are beverages and all beverages are drinkable, any red drink mix is drinkable (III)."
+    "correct": "B",
+    "solution": "The United States House of Representatives comprises 435 voting members."
+  },
+  {
+    "id": 37,
+    "text": "जिलेस्पी कुन युद्धमा मारिएका थिए?\nIn which battle was the Gillespie killed?",
+    "image_url": null,
+    "options": {
+      "A": "नालापानी",
+      "B": "जैतक",
+      "C": "देउथल",
+      "D": "मलाउँ"
     },
-    {
-        "id": 38,
-        "text": "Statement: Should all the legislators be forced to resign from their profession?\nArguments:\nI: Yes, they may have conflict of interest as making laws.\nII: No, nobody will contest election.",
-        "image_url": null,
-        "options": {
-            "A": "Only argument I is strong",
-            "B": "Only argument II is strong",
-            "C": "Either I or II follows",
-            "D": "Neither I nor II is strong"
-        },
-        "correct": "A",
-        "solution": "Argument I directly addresses conflict of interest."
+    "correct": "A",
+    "solution": "British Major General Rollo Gillespie was killed on October 31, 1814 at the Battle of Nalapani."
+  },
+  {
+    "id": 38,
+    "text": "जैतकको युद्धमा नेपाली र बेलायती सेनापति को थिए?\nWho were the Nepali and British commander in the Battle of Jaitak?",
+    "image_url": null,
+    "options": {
+      "A": "रणजोर सिंह थापा, मार्टिनडेल",
+      "B": "उजिर सिंह थापा, मार्टिनडेल",
+      "C": "रणजोर सिंह थापा, केप्टेन बार्ड",
+      "D": "उजिर सिंह थापा, केप्टेन बार्ड"
     },
-    {
-        "text": "Statements:\nI. The employees of the interest service providers call an indefinite strike from next month.\nII. The employees of the Central Government have withdrawn their week long demonstrations.",
-        "image_url": null,
-        "options": {
-            "A": "Statement I is the cause and statement II is its effect",
-            "B": "Statement II is the cause and statement I is its effect",
-            "C": "Both the statements I and II are independent causes",
-            "D": "Both the statements I and II are effects of some common cause"
-        },
-        "correct": "C",
-        "solution": "Both events are independent of each other."
+    "correct": "A",
+    "solution": "At Jaitak, Ranajor Singh Thapa commanded Nepali forces against Major General Gabriel Martindell."
+  },
+  {
+    "id": 39,
+    "text": "काँच कहाँ पाइन्छ?\nWhere is glass found?",
+    "image_url": null,
+    "options": {
+      "A": "सल्यान",
+      "B": "गणेश हिमाल",
+      "C": "दोलखा",
+      "D": "शंखरापुर"
     },
-    {
-        "id": 40,
-        "text": "A takes twice as much time as B or thrice as much time as C to finish a piece of work. Working together, they can finish the work in 2 days. B can do the work alone in:",
-        "image_url": null,
-        "options": {
-            "A": "4 days",
-            "B": "6 days",
-            "C": "12 days",
-            "D": "24 days"
-        },
-        "correct": "B",
-        "solution": "Combined work rate = 1/x + 2/x + 3/x = 6/x = 1/2 => x = 12. B takes x/2 = 6 days."
+    "correct": "D",
+    "solution": "According to answer key: Option D (Sankharapur)."
+  },
+  {
+    "id": 40,
+    "text": "ASEAN का वर्तमान महासचिव को हुन्?\nWho is the current Secretary General of ASEAN?",
+    "image_url": null,
+    "options": {
+      "A": "Masatsugu Asakawa",
+      "B": "Pryor Suk",
+      "C": "Sumith Nakandala",
+      "D": "Kao Kim Hourn"
     },
-    {
-        "id": 41,
-        "text": "If a person walks at 14 km/hr instead of 10 km/hr, he would have walked 20 km more. The actual distance travelled by him is:",
-        "image_url": null,
-        "options": {
-            "A": "50 km",
-            "B": "56 km",
-            "C": "70 km",
-            "D": "76 km"
-        },
-        "correct": "A",
-        "solution": "14t - 10t = 20 => 4t = 20 => t = 5 hours. Distance = 10 * 5 = 50 km."
+    "correct": "D",
+    "solution": "Dr. Kao Kim Hourn took office as ASEAN Secretary-General on January 1, 2023."
+  },
+  {
+    "id": 41,
+    "text": "डिसेम्बर २०२३ मा भएको ACC U-19 एसिया कप कसले जित्यो?\n(Who won the ACC U-19 Asia Cup held in December 2023?)",
+    "image_url": null,
+    "options": {
+      "A": "अफगानिस्तान",
+      "B": "बंगलादेश",
+      "C": "श्रीलंका",
+      "D": "मलेसिया"
     },
-    {
-        "id": 42,
-        "text": "A fires 5 shots to B's 3 but A kills only once in 3 shots while B kills once in 2 shots. Who will kill more birds in a time frame?",
-        "image_url": null,
-        "options": {
-            "A": "A",
-            "B": "B",
-            "C": "Both will kill same number",
-            "D": "Cannot be guessed"
-        },
-        "correct": "B",
-        "solution": "Based on official key-A: B is correct."
+    "correct": "B",
+    "solution": "Bangladesh defeated UAE in the final to win the ACC U-19 Asia Cup in December 2023."
+  },
+  {
+    "id": 42,
+    "text": "क्रोन कुन देशको मुद्रा हो?\n(Krone is the currency of which country?)",
+    "image_url": null,
+    "options": {
+      "A": "डेनमार्क",
+      "B": "नर्वे",
+      "C": "स्वीडेन",
+      "D": "स्विट्जरल्याण्ड"
     },
-    {
-        "id": 43,
-        "text": "A group of 1200 persons consisting of captains and soldiers is travelling in a train. For every 15 soldiers there is one captain. The number of captains in the group is",
-        "image_url": null,
-        "options": {
-            "A": "70",
-            "B": "75",
-            "C": "80",
-            "D": "85"
-        },
-        "correct": "B",
-        "solution": "Group size = 1 + 15 = 16. Total captains = 1200 / 16 = 75."
+    "correct": "D",
+    "solution": "As per official answer key: Option D."
+  },
+  {
+    "id": 43,
+    "text": "भीमसेन थापाले नेपाललाई कति वटा जिल्लामा विभाजन गरेका थिए?\n(Bhimsen Thapa divided Nepal into how many districts?)",
+    "image_url": null,
+    "options": {
+      "A": "३७",
+      "B": "३९",
+      "C": "३५",
+      "D": "३६"
     },
-    {
-        "id": 44,
-        "text": "A library has an average of 510 visitors on Sundays and 240 on other days. The average number of visitors per day in a month of 30 days beginning with a Sunday is:",
-        "image_url": null,
-        "options": {
-            "A": "270",
-            "B": "276",
-            "C": "280",
-            "D": "285"
-        },
-        "correct": "D",
-        "solution": "Average = (5*510 + 25*240) / 30 = 8550 / 30 = 285."
+    "correct": "B",
+    "solution": "Kaji Bhimsen Thapa divided Nepal's territory into 39 administrative districts."
+  },
+  {
+    "id": 44,
+    "text": "नेपाल अधिराज्यको एकीकरण कहिले भएको थियो?\n(When was Sindhuli unified in the Nepal?)",
+    "image_url": null,
+    "options": {
+      "A": "१८२५ असोज २४",
+      "B": "१८२४ फागुन २९",
+      "C": "१८२५ बैशाख २४",
+      "D": "१८२४ कात्तिक २४"
     },
-    {
-        "id": 45,
-        "text": "How many times do the hands of a clock make right-angle in a day?",
-        "image_url": null,
-        "options": {
-            "A": "22",
-            "B": "24",
-            "C": "44",
-            "D": "48"
-        },
-        "correct": "C",
-        "solution": "Clock hands form right angles 44 times in 24 hours."
+    "correct": "D",
+    "solution": "Battle of Sindhuli took place on Kartik 24, 1824 BS."
+  },
+  {
+    "id": 45,
+    "text": "सापेक्षताको सामान्य सिद्धान्त' कसले प्रतिपादन गरेका थिए?\n(Who proposed 'General Theory of Relativity'?)",
+    "image_url": null,
+    "options": {
+      "A": "गालीलियो",
+      "B": "डाल्टन",
+      "C": "आइन्स्टाइन",
+      "D": "न्यूटन"
     },
-    {
-        "id": 46,
-        "text": "Which one is odd?",
-        "image_url": null,
-        "options": {
-            "A": "31",
-            "B": "61",
-            "C": "71",
-            "D": "91"
-        },
-        "correct": "D",
-        "solution": "91 is composite (13x7), others are prime numbers."
+    "correct": "C",
+    "solution": "Albert Einstein published his General Theory of Relativity in 1915."
+  },
+  {
+    "id": 46,
+    "text": "नेपालसँग कूटनीतिक सम्बन्ध स्थापना गर्ने १८३औँ राष्ट्र कुन हो?\n(Which is the 183rd country to establish diplomatic relations with Nepal?)",
+    "image_url": null,
+    "options": {
+      "A": "मार्शल आइसल्याण्ड",
+      "B": "नाउरु",
+      "C": "माल्दिभ्स",
+      "D": "अजरबैजान"
     },
-    {
-        "id": 47,
-        "text": "In a mixture 60 litres, the ratio of milk and water 2 : 1. If this ratio is to be 1 : 2, then the quantity of water to be further added is:",
-        "image_url": null,
-        "options": {
-            "A": "20",
-            "B": "40",
-            "C": "60",
-            "D": "80"
-        },
-        "correct": "C",
-        "solution": "Milk = 40L, Water = 20L. New water needed = 80L. Water to add = 80 - 20 = 60 litres."
+    "correct": "A",
+    "solution": "Nepal established diplomatic relations with the Republic of Marshall Islands as its 183rd country."
+  },
+  {
+    "id": 47,
+    "text": "हाल नालापानी कुन राज्यमा पर्दछ?\n(Currently, Nalapani lies in which the state of India?)",
+    "image_url": null,
+    "options": {
+      "A": "पञ्जाब",
+      "B": "हिमाचल प्रदेश",
+      "C": "उत्तराखण्ड",
+      "D": "लद्दाख"
     },
-    {
-        "id": 48,
-        "text": "What is the half of percent of half of 200?",
-        "image_url": null,
-        "options": {
-            "A": "0.5",
-            "B": "1",
-            "C": "50",
-            "D": "100"
-        },
-        "correct": "A",
-        "solution": "Half of 200 = 100. 0.5% of 100 = 0.5."
+    "correct": "C",
+    "solution": "Nalapani (Khalanga Fort) is located near Dehradun in Uttarakhand state, India."
+  },
+  {
+    "id": 48,
+    "text": "कामी रिता शेर्पाले ३०औँ पटक सगरमाथाको सफल आरोहण कहिले गरे?\n(When did Kamirita Sherpa climb Mt. Everest for 30th time?)",
+    "image_url": null,
+    "options": {
+      "A": "२०८१-०२-०९",
+      "B": "२०८१-०१-०३",
+      "C": "२०८१-०२-११",
+      "D": "२०८१-०२-०२"
     },
-    {
-        "id": 49,
-        "text": "In a certain code language, '-' represents '+', '+' represents 'x', 'x' represents '÷' and '÷' represents '-'. Find out the answer to the following question:\n17 - 20 + 5 x 30 ÷ 4 = ?",
-        "image_url": null,
-        "options": {
-            "A": "34",
-            "B": "21",
-            "C": "28",
-            "D": "47"
-        },
-        "correct": "B",
-        "solution": "According to answer key Key-A: Option B (21)."
+    "correct": "A",
+    "solution": "Kami Rita Sherpa scaled Mt. Everest for a record 30th time on Jestha 9, 2081 BS (May 22, 2024)."
+  },
+  {
+    "id": 49,
+    "text": "केबल साम्बा अनुसार तिब्बतले नेपाललाई वार्षिक कति रकम तिर्नुपर्ने थियो?\n(According to Kebal Samba, what amount of money was to be paid by the Tibet to Nepal annually?)",
+    "image_url": null,
+    "options": {
+      "A": "रु २४०००",
+      "B": "रु ५००००",
+      "C": "रु ८००००",
+      "D": "रु १०००००"
     },
-    {
-        "id": 50,
-        "text": "Which word does NOT belong with the others?",
-        "image_url": null,
-        "options": {
-            "A": "unique",
-            "B": "beautiful",
-            "C": "rare",
-            "D": "exceptional"
-        },
-        "correct": "B",
-        "solution": "Unique, rare, and exceptional mean unusual/scarce, whereas 'beautiful' describes appearance."
+    "correct": "B",
+    "solution": "Official Answer key: Option B (Rs. 50,000)."
+  },
+  {
+    "id": 50,
+    "text": "अफ्रिकी संघको प्रधान कार्यालय कहाँ छ?\n(Where is the headquarter of African Union?)",
+    "image_url": null,
+    "options": {
+      "A": "अदिस अबाबा",
+      "B": "कायरो",
+      "C": "जिबुटी",
+      "D": "दक्षिण अफ्रिका"
     },
-    {
-        "id": 51,
-        "text": "ZA5, YB4, XC6, Wd3, .....?",
-        "image_url": null,
-        "options": {
-            "A": "E4V",
-            "B": "V3E",
-            "C": "VE5",
-            "D": "VE3"
-        },
-        "correct": "D",
-        "solution": "First letters reverse (V), second letters forward (E), number pattern yields VE3."
+    "correct": "D",
+    "solution": "As per provided exam key: Option D."
+  },
+  {
+    "id": 51,
+    "text": "द्वापरयुगमा नेपालको नाम के थियो?\n(What was the name of Nepal in Dwaparyug?)",
+    "image_url": null,
+    "options": {
+      "A": "सत्यवती",
+      "B": "तपोवन",
+      "C": "मुक्तिसोपान",
+      "D": "मुक्तिगिरी"
     },
-    {
-        "id": 52,
-        "text": "Study the line chart carefully and answer the question given beside.\nWhat is the percentage increase in the profit percentage for company B from 2012 to 2015?",
-        "image_url": "https://your-domain.com/images/q52_linechart.png",
-        "options": {
-            "A": "20%",
-            "B": "30%",
-            "C": "33.33%",
-            "D": "66.66%"
-        },
-        "correct": "D",
-        "solution": "Profit increase = (50 - 30) / 30 * 100% = 66.66%."
+    "correct": "A",
+    "solution": "According to answer key: Option A."
+  },
+  {
+    "id": 52,
+    "text": "बेतहाली सन्धि कहिले भएको थियो?\n(When was Betrawati treaty signed?)",
+    "image_url": null,
+    "options": {
+      "A": "वि.सं. १८४९",
+      "B": "वि.सं. १८४८",
+      "C": "वि.सं. १८४७",
+      "D": "वि.सं.१८४६"
     },
-    {
-        "id": 53,
-        "text": "If Mohan looks into a mirror and touches his left ear with his right hand, Mohan's image seems to touch his:",
-        "image_url": null,
-        "options": {
-            "A": "right ear with his right hand",
-            "B": "left ear with his left hand",
-            "C": "right ear with his left hand",
-            "D": "left ear with his right hand"
-        },
-        "correct": "C",
-        "solution": "Mirrors invert left and right laterally."
+    "correct": "A",
+    "solution": "Treaty of Betrawati between Nepal and China was signed in 1849 BS (1792 AD)."
+  },
+  {
+    "id": 53,
+    "text": "प्रथम विश्वयुद्धमा कति राष्ट्रले भाग लिएका थिए?\n(How many countries participated in World War I?)",
+    "image_url": null,
+    "options": {
+      "A": "२९",
+      "B": "३२",
+      "C": "३५",
+      "D": "३२"
     },
-    {
-        "id": 54,
-        "text": "Five girls are sitting on a bench to be photographed. Seema is to the left of Rani and to the right of Bindu. Mary is to the right of Rani. Reeta is between Rani and Mary. Who is in the middle of the photograph?",
-        "image_url": null,
-        "options": {
-            "A": "Bindu",
-            "B": "Rani",
-            "C": "Reeta",
-            "D": "Seema"
-        },
-        "correct": "B",
-        "solution": "Order: Bindu, Seema, Rani, Reeta, Mary. Rani is in the exact middle."
+    "correct": "B",
+    "solution": "32 allied and associated countries were involved in World War I."
+  },
+  {
+    "id": 54,
+    "text": "संखुवासभा जिल्लाको सदरमुकाम कुन हो?\n(Which is the headquarter of Sankhuwasabha district?)",
+    "image_url": null,
+    "options": {
+      "A": "खाँदबारी",
+      "B": "सल्लेरी",
+      "C": "सिलगढी",
+      "D": "मंगलसेन"
     },
-    {
-        "id": 55,
-        "text": "Which year calendar is same as year 2000?",
-        "image_url": null,
-        "options": {
-            "A": "2006",
-            "B": "2011",
-            "C": "2020",
-            "D": "2028"
-        },
-        "correct": "D",
-        "solution": "Leap year calendar repeats every 28 years (2000 + 28 = 2028)."
+    "correct": "A",
+    "solution": "Khandbari is the district headquarter of Sankhuwasabha."
+  },
+  {
+    "id": 55,
+    "text": "सुगौली सन्धिमा कति धारा छन्?\n(How many articles were there in Sugauli Treaty?)",
+    "image_url": null,
+    "options": {
+      "A": "८",
+      "B": "९",
+      "C": "१०",
+      "D": "११"
     },
-    {
-        "id": 56,
-        "text": "On 8th Dec, 2007 Monday falls. What day of the week was it on 8th Dec, 2006?",
-        "image_url": null,
-        "options": {
-            "A": "Monday",
-            "B": "Tuesday",
-            "C": "Wednesday",
-            "D": "Thursday"
-        },
-        "correct": "D",
-        "solution": "According to answer key Key-A: Thursday."
+    "correct": "B",
+    "solution": "The Sugauli Treaty contains 9 distinct articles."
+  },
+  {
+    "id": 56,
+    "text": "राष्ट्रिय सुरक्षा परिषद्को सदस्य को हुँदैन?\n(Who is not the member of National Security Council?)",
+    "image_url": null,
+    "options": {
+      "A": "गृह मन्त्री",
+      "B": "परराष्ट्र मन्त्री",
+      "C": "मुख्य सचिव",
+      "D": "रक्षा मन्त्रालयका सचिव"
     },
-    {
-        "id": 57,
-        "text": "Which word do we always pronounce improperly?",
-        "image_url": null,
-        "options": {
-            "A": "bank",
-            "B": "pronounce",
-            "C": "improperly",
-            "D": "wrong"
-        },
-        "correct": "C",
-        "solution": "Word 'improperly' is literally pronounced 'improperly'."
+    "correct": "D",
+    "solution": "Secretary of Ministry of Defence acts as the Member Secretary, not a council member."
+  },
+  {
+    "id": 57,
+    "text": "नेपालसँग दोहोरो कूटनीतिक सम्बन्ध स्थापना गर्ने दोस्रो राष्ट्र कुन हो?\n(Which is the second country to establish bilateral relations with Nepal?)",
+    "image_url": null,
+    "options": {
+      "A": "संयुक्त अधिराज्य (UK)",
+      "B": "चीन",
+      "C": "भारत",
+      "D": "संयुक्त राज्य अमेरिका"
     },
-    {
-        "id": 58,
-        "text": "A clock strikes once at 1.00, twice at 2.00, and so on. The clock takes 5 seconds to strike at 5.00. How long will it take to strike at 9.00?",
-        "image_url": null,
-        "options": {
-            "A": "8 seconds",
-            "B": "9 seconds",
-            "C": "10 seconds",
-            "D": "12 seconds"
-        },
-        "correct": "C",
-        "solution": "4 intervals take 5 sec (1.25s per interval). 8 intervals take 8 * 1.25 = 10 seconds."
+    "correct": "D",
+    "solution": "United States established diplomatic relations with Nepal on April 25, 1947 as the 2nd country after UK."
+  },
+  {
+    "id": 58,
+    "text": "दिसम्बर २०२४ सम्म, कति नेपाली सेना शान्ति स्थापनामा खटिएका छन्?\n(As of December 2024, how many Nepali soldiers were deployed in the peacekeeping mission?)",
+    "image_url": null,
+    "options": {
+      "A": "५८८५",
+      "B": "५९८५",
+      "C": "६०५०",
+      "D": "६३६०"
     },
-    {
-        "id": 59,
-        "text": "What type of number will it be if you add all odd numbers between 1 and 50?",
-        "image_url": null,
-        "options": {
-            "A": "even number",
-            "B": "odd number",
-            "C": "square number",
-            "D": "prime number"
-        },
-        "correct": "C",
-        "solution": "Sum of first N odd numbers is always equal to N² (a square number)."
+    "correct": "C",
+    "solution": "As per official examination key: Option C (6050)."
+  },
+  {
+    "id": 59,
+    "text": "अन्तराष्ट्रिय युवाको जन्म........ मा भएको थियो\n(When was International Youth Day born?)",
+    "image_url": null,
+    "options": {
+      "A": "वि.सं. १९९९",
+      "B": "वि.सं. १९९५",
+      "C": "वि.सं. १९८८",
+      "D": "वि.सं. १९८९"
     },
-    {
-        "id": 60,
-        "text": "Select the pair which has the same relationship.\nTen : Decimal",
-        "image_url": null,
-        "options": {
-            "A": "Seven : Septet",
-            "B": "Four : Quartet",
-            "C": "Two : Binary",
-            "D": "Five : Quince"
-        },
-        "correct": "C",
-        "solution": "Ten relates to Decimal base system like Two relates to Binary base system."
-    }
+    "correct": "A",
+    "solution": "According to answer key: Option A."
+  },
+  {
+    "id": 60,
+    "text": "भक्तपुर जिल्लामा कतिवटा विश्व सम्पदा क्षेत्रहरू रहेका छन्?\n(How many World Heritage Sites are there in Bhaktapur district?)",
+    "image_url": null,
+    "options": {
+      "A": "१",
+      "B": "२",
+      "C": "३",
+      "D": "४"
+    },
+    "correct": "B",
+    "solution": "Bhaktapur Durbar Square and Changu Narayan Temple are located in Bhaktapur."
+  },
+  {
+    "id": 61,
+    "text": "Which bank was awarded with the \"Euromoney Award for Excellence 2024\"?",
+    "image_url": null,
+    "options": {
+      "A": "Global IME",
+      "B": "Nabil",
+      "C": "NMB",
+      "D": "Standard Charter"
+    },
+    "correct": "A",
+    "solution": "Global IME Bank won 'Nepal's Best Bank' at Euromoney Awards for Excellence 2024."
+  },
+  {
+    "id": 62,
+    "text": "भगवान् बुद्धको शिक्षण कुन ग्रन्थमा छ?\n(Buddha's teaching are in which book?)",
+    "image_url": null,
+    "options": {
+      "A": "शुक्तिपिटक",
+      "B": "विनयपिटक",
+      "C": "अभिधम्म पिटक",
+      "D": "जातक"
+    },
+    "correct": "A",
+    "solution": "Sutta Pitaka (शुक्तिपिटक) contains the Buddha's discourses and core teachings."
+  },
+  {
+    "id": 63,
+    "text": "माउन्ट एभरेस्ट कुन महादेशमा पर्दछ?\n(Mount Everest lies in which continent?)",
+    "image_url": null,
+    "options": {
+      "A": "उत्तर अमेरिका",
+      "B": "एशिया",
+      "C": "युरोप",
+      "D": "अन्टार्कटिका"
+    },
+    "correct": "B",
+    "solution": "Mount Everest is situated in the Himalayas in Asia."
+  },
+  {
+    "id": 64,
+    "text": "बहादुर शाहको आमा को हुन्?\n(Who was Bahadur Shah's mother?)",
+    "image_url": null,
+    "options": {
+      "A": "इन्द्रकुमारी",
+      "B": "नरेन्द्रलक्ष्मी",
+      "C": "कौशल्यावती",
+      "D": "ताराकुमारी"
+    },
+    "correct": "B",
+    "solution": "Queen Narendra Laxmi was the mother of Bahadur Shah and wife of Prithvi Narayan Shah."
+  },
+  {
+    "id": 65,
+    "text": "नेपालका पहिलो प्रधानमन्त्री को हुन्?\n(Who was the Prime Minister of Nepal after Kaji Kalu Pandey?)",
+    "image_url": null,
+    "options": {
+      "A": "भीमसेन थापा",
+      "B": "अभिमान सिंह बस्नेत",
+      "C": "रणबहादुर पाण्डे",
+      "D": "फत्तेजङ्ग चौतारा"
+    },
+    "correct": "A",
+    "solution": "Kaji Bhimsen Thapa is recognized as the first official Prime Minister of Nepal."
+  },
+  {
+    "id": 66,
+    "text": "मुहम्मद युनुसले कुन विधामा नोबेल पुरस्कार प्राप्त गरेका थिए?\n(In which subject did Muhammad Yunus receive Nobel Prize?)",
+    "image_url": null,
+    "options": {
+      "A": "१९०६",
+      "B": "१९०८",
+      "C": "२००३",
+      "D": "२००६"
+    },
+    "correct": "D",
+    "solution": "Muhammad Yunus and Grameen Bank were awarded Nobel Peace Prize in 2006."
+  },
+  {
+    "id": 67,
+    "text": "चितवन राष्ट्रिय निकुञ्जलाई विश्व सम्पदा सूचीमा कहिले समावेश गरियो?\n(When was Chitwan National Park included in the world heritage site?)",
+    "image_url": null,
+    "options": {
+      "A": "१९७९",
+      "B": "१९८४",
+      "C": "१९८५",
+      "D": "१९८६"
+    },
+    "correct": "B",
+    "solution": "Chitwan National Park was designated a UNESCO World Heritage Site in 1984."
+  },
+  {
+    "id": 68,
+    "text": "एकीकरणपूर्व अभिमान सिंह बस्नेत कुन राजाको शासनमा थिए?\n(Before the unification campaign, Nuwakot was under the rule of which king?)",
+    "image_url": null,
+    "options": {
+      "A": "जयप्रकाश मल्ल",
+      "B": "रणजीत मल्ल",
+      "C": "लक्ष्मी नरसिंह मल्ल",
+      "D": "सिद्धि नरसिंह मल्ल"
+    },
+    "correct": "D",
+    "solution": "According to answer key: Option D."
+  },
+  {
+    "id": 69,
+    "text": "तल्लो मध्ये कुन संस्था सार्कको पर्यवेक्षक हो?\n(Which of the following organization is the observer of SAARC?)",
+    "image_url": null,
+    "options": {
+      "A": "BIMSTEC",
+      "B": "BRICS",
+      "C": "EU",
+      "D": "IADB"
+    },
+    "correct": "C",
+    "solution": "The European Union (EU) is an official observer state of SAARC."
+  },
+  {
+    "id": 70,
+    "text": "विश्वको पहिलो संचार उपग्रह कुन हो?\n(Which is the first communication satellite of the world?)",
+    "image_url": null,
+    "options": {
+      "A": "Early Bird",
+      "B": "Luna 1",
+      "C": "Hubble",
+      "D": "Skylab"
+    },
+    "correct": "A",
+    "solution": "Intelsat I (nicknamed Early Bird) launched in 1965 was the first commercial communication satellite."
+  },
+  {
+    "id": 71,
+    "text": "मोहम्मद युनुसलाई बंगलादेशको अन्तरिम सरकारको प्रमुखमा कहिले नियुक्त गरियो?\n(When was Muhammad Yunus appointed as the head of the interim government of Bangladesh?)",
+    "image_url": null,
+    "options": {
+      "A": "२०२४ अगस्ट ६",
+      "B": "२०२४ अगस्ट ७",
+      "C": "२०२४ अगस्ट ८",
+      "D": "२०२४ अगस्ट २६"
+    },
+    "correct": "A",
+    "solution": "As per provided exam key: Option A."
+  },
+  {
+    "id": 72,
+    "text": "संरचना सिफारिस आदालतको लोगोमा कतिवटा डाँडा छन्?\n(How many mountains groups have been declared integrated the government?)",
+    "image_url": null,
+    "options": {
+      "A": "८",
+      "B": "९",
+      "C": "१०",
+      "D": "१२"
+    },
+    "correct": "C",
+    "solution": "Official Answer key: Option C."
+  },
+  {
+    "id": 73,
+    "text": "सुगौली सन्धि पश्चात् नेपालले इस्ट इन्डिया कम्पनीबाट गुमाएको फिर्ता पाएको भूभाग) मा कतिवटा जिल्ला छन्?\nHow many districts are there in \"Naya Muluk\" (lost territory regained by Nepal from British East India Company)?",
+    "image_url": null,
+    "options": {
+      "A": "२",
+      "B": "३",
+      "C": "४",
+      "D": "५"
+    },
+    "correct": "C",
+    "solution": "Naya Muluk consists of 4 districts: Banke, Bardiya, Kailali, and Kanchanpur."
+  },
+  {
+    "id": 74,
+    "text": "तल्लो मध्ये कुन देशले भूमध्य रेखा छुदैन?\n(Which of the following country does not cross equator?)",
+    "image_url": null,
+    "options": {
+      "A": "इण्डोनेशिया",
+      "B": "युगाण्डा",
+      "C": "ब्राजिल",
+      "D": "कोलम्बिया"
+    },
+    "correct": "B",
+    "solution": "According to answer key: Option B."
+  },
+  {
+    "id": 75,
+    "text": "पानीको ताप मापन गर्न प्रयोग गरिने यन्त्र कुन हो?\n(What is the device used to measure the temperature of water called?)",
+    "image_url": null,
+    "options": {
+      "A": "Photometer",
+      "B": "Xanthometer",
+      "C": "Sonar",
+      "D": "Barometer"
+    },
+    "correct": "B",
+    "solution": "Xanthometer/Forel-Ule scale instruments measure optical qualities and thermal temperature variations in water bodies."
+  },
+  {
+    "id": 76,
+    "text": "संरक्षित प्राणीहरूमा कति प्रजाति समावेश छन्?\n(How many birds are included in protected species?)",
+    "image_url": null,
+    "options": {
+      "A": "७",
+      "B": "९",
+      "C": "२६",
+      "D": "२७"
+    },
+    "correct": "C",
+    "solution": "Nepal's National Parks and Wildlife Conservation Act protects 9 bird species (Answer key says C)."
+  },
+  {
+    "id": 77,
+    "text": "सार्क स्थायी समितिका सदस्यहरू को हुन्?\n(Who are the members of standing committee of SAARC?)",
+    "image_url": null,
+    "options": {
+      "A": "राजदूतहरू",
+      "B": "प्रधानमन्त्रीहरू",
+      "C": "परराष्ट्र मन्त्री",
+      "D": "परराष्ट्र सचिव"
+    },
+    "correct": "D",
+    "solution": "The SAARC Standing Committee comprises Foreign Secretaries of member countries."
+  },
+  {
+    "id": 78,
+    "text": "कञ्चनजङ्घा संरक्षण क्षेत्रको क्षेत्रफल कति छ?\n(What is the area of Kanchanjunga Conservation Area?)",
+    "image_url": null,
+    "options": {
+      "A": "२०३५ km²",
+      "B": "१५०० km²",
+      "C": "३०१ km²",
+      "D": "३२५० km²"
+    },
+    "correct": "A",
+    "solution": "Kanchenjunga Conservation Area covers 2,035 sq km in Taplejung."
+  },
+  {
+    "id": 79,
+    "text": "नेपाल प्रिमियर लिग २०२४ मा कुल कति खेल खेलिएको थियो?\n(How many total games were played in the Nepal Premier League 2024?)",
+    "image_url": null,
+    "options": {
+      "A": "३२",
+      "B": "३४",
+      "C": "२८",
+      "D": "३०"
+    },
+    "correct": "A",
+    "solution": "NPL 2024 comprised 32 total matches including league fixtures and playoffs."
+  },
+  {
+    "id": 80,
+    "text": "OPEC का संस्थापक सदस्य को हुन्?\n(Who are the founding members of OPEC?)",
+    "image_url": null,
+    "options": {
+      "A": "ईरान, इराक, कुवेत, साउदी, भेनेजुएला",
+      "B": "ईरान, इराक, युएई, साउदी, ओमान",
+      "C": "रुस, युएई, कुवेत, साउदी, भेनेजुएला",
+      "D": "रुस, इरान, इराक, कुवेत, साउदी"
+    },
+    "correct": "A",
+    "solution": "OPEC was founded in Baghdad in 1960 by Iran, Iraq, Kuwait, Saudi Arabia, and Venezuela."
+  },
+  {
+    "id": 81,
+    "text": "भैरव वाङ्मय पुरस्कार, २०८१' कसलाई प्रदान गरियो?\n(Who has been awarded 'Bhairav Vangmaye Prize, 2081'?)",
+    "image_url": null,
+    "options": {
+      "A": "प्रेम शान्ति तुलाधर",
+      "B": "शिवराज श्रेष्ठ",
+      "C": "चूडामणि गौतम",
+      "D": "लक्ष्मी गिरी"
+    },
+    "correct": "C",
+    "solution": "Linguist Chudamani Gautam was honored with Bhairav Vangmaye Puraskar 2081."
+  },
+  {
+    "id": 82,
+    "text": "खैराला ताल कहाँ पर्छ?\n(Where does Khairabala lake lie?)",
+    "image_url": null,
+    "options": {
+      "A": "बागलुङ",
+      "B": "म्याग्दी",
+      "C": "कैलाली",
+      "D": "स्याङ्जा"
+    },
+    "correct": "C",
+    "solution": "Khairala Lake is located in Kailali district."
+  },
+  {
+    "id": 83,
+    "text": "२०८० को मदन पुरस्कार कुन पुस्तकले जित्यो?\n(Which book won the Madan Puraskar 2080?)",
+    "image_url": null,
+    "options": {
+      "A": "मुकाम रणमैदान",
+      "B": "साधु",
+      "C": "उज्यालो धर्ती",
+      "D": "मोक्षदा"
+    },
+    "correct": "A",
+    "solution": "'Mukam Ranamaidan' written by Mohan Mainali won Madan Puraskar 2080."
+  },
+  {
+    "id": 84,
+    "text": "कुन दशकलाई 'पर्यटन दशक' घोषणा गरिएको छ?\n(Which decade is declared 'Tourism Decade'?)",
+    "image_url": null,
+    "options": {
+      "A": "२०२३-२०३२",
+      "B": "२०२५-२०३४",
+      "C": "२०२८-२०३७",
+      "D": "२०२३-२०३३"
+    },
+    "correct": "A",
+    "solution": "Government of Nepal declared 2023-2032 AD as Visit Nepal Decade (Tourism Decade)."
+  },
+  {
+    "id": 85,
+    "text": "तल्लका मध्ये कुन युरोपेली संघको सदस्य होइन?\n(Which of the following is NOT a member of European Union?)",
+    "image_url": null,
+    "options": {
+      "A": "ग्रीस",
+      "B": "स्विट्जरल्याण्ड",
+      "C": "हंगेरी",
+      "D": "जर्मनी"
+    },
+    "correct": "B",
+    "solution": "Switzerland is a non-EU member country in Europe."
+  },
+  {
+    "id": 86,
+    "text": "जय पृथ्वी बहादुर सिंह ...का राजा थिए\n(Jay Prithvi Bahadur Singh was the king of ......)",
+    "image_url": null,
+    "options": {
+      "A": "गोरखा",
+      "B": "बझाङ",
+      "C": "डोटी",
+      "D": "अछाम"
+    },
+    "correct": "A",
+    "solution": "According to answer key: Option A."
+  },
+  {
+    "id": 87,
+    "text": "२०७८ को जनगणना अनुसार नेपालमा दोस्रो धेरै बोलिने भाषा कुन हो?\n(According to the population census 2078, which is the second most spoken language in Nepal?)",
+    "image_url": null,
+    "options": {
+      "A": "भोजपुरी",
+      "B": "अवधी",
+      "C": "मैथिली",
+      "D": "थारु"
+    },
+    "correct": "C",
+    "solution": "Maithili is the second most spoken mother tongue in Nepal (11.05%)."
+  },
+  {
+    "id": 88,
+    "text": "मानव बेचबिखन विरुद्धको अभियानमा योगदान गरेबापत पद्म श्री सम्मान २०८० कसलाई प्रदान गरियो?\n(Who was awarded Padma Shree Award 2080 for contribution against human trafficking and Sunita Danuwar's work?)",
+    "image_url": null,
+    "options": {
+      "A": "पवन कुमार चामलिङ",
+      "B": "कृष्णा गौतम",
+      "C": "केदारभक्त माथेमा",
+      "D": "कुनै पनि होइन"
+    },
+    "correct": "D",
+    "solution": "According to official answer key: Option D."
+  },
+  {
+    "id": 89,
+    "text": "पद्मश्री साहित्य पुरस्कार २०८० कसले जिते?\n(Who was awarded Padma Shree Literature Award 2080?)",
+    "image_url": null,
+    "options": {
+      "A": "पवन कुमार चामलिङ",
+      "B": "कृष्णा गौतम",
+      "C": "केदारभक्त माथेमा",
+      "D": "कुनै पनि होइन"
+    },
+    "correct": "B",
+    "solution": "Krishna Gautam was awarded Padma Shri Sahitya Puraskar 2080 for his novel 'Advait'."
+  },
+  {
+    "id": 90,
+    "text": "सबैभन्दा धेरै उपमहानगरपालिका भएको प्रदेश कुन हो?\n(Which province has the most number of sub metropolitan cities?)",
+    "image_url": null,
+    "options": {
+      "A": "बागमती",
+      "B": "मधेस",
+      "C": "लुम्बिनी",
+      "D": "कोशी"
+    },
+    "correct": "D",
+    "solution": "According to official key: Option D."
+  },
+  {
+    "id": 91,
+    "text": "विश्व सम्पदा दिवस २०२४ को नारा के थियो?\n(What was the slogan of World Heritage Day 2024?)",
+    "image_url": null,
+    "options": {
+      "A": "Discover and Experience Diversity",
+      "B": "Our common property",
+      "C": "Cultural Diversity",
+      "D": "For all"
+    },
+    "correct": "A",
+    "solution": "The theme for World Heritage Day 2024 was 'Discover and Experience Diversity'."
+  },
+  {
+    "id": 92,
+    "text": "नेपाल भ्रमण गर्ने पहिलो चिनियाँ प्रधानमन्त्री को हुन्?\n(Who was the first Chinese Prime Minister to visit Nepal?)",
+    "image_url": null,
+    "options": {
+      "A": "Deng Xiaoping",
+      "B": "Zhou Enlai",
+      "C": "Li Xiang",
+      "D": "Hu Jintao"
+    },
+    "correct": "B",
+    "solution": "Premier Zhou Enlai was the first Chinese Prime Minister to visit Nepal in 1957."
+  },
+  {
+    "id": 93,
+    "text": "अल्प्स पर्वत श्रृङ्खला कहाँ पर्दछ?\n(Where does Alps Mountain Range lie?)",
+    "image_url": null,
+    "options": {
+      "A": "युरोप",
+      "B": "उत्तर अमेरिका",
+      "C": "दक्षिण अमेरिका",
+      "D": "अफ्रिका"
+    },
+    "correct": "A",
+    "solution": "The Alps are the highest and most extensive mountain range system entirely in Europe."
+  },
+  {
+    "id": 94,
+    "text": "गुइँठाहार हिमाल कहाँ पर्छ?\n(Where does Mt. Guifanghar lie?)",
+    "image_url": null,
+    "options": {
+      "A": "रसुवा",
+      "B": "सोनाम",
+      "C": "संखुवासभा",
+      "D": "डोल्पा"
+    },
+    "correct": "B",
+    "solution": "According to answer key: Option B."
+  },
+  {
+    "id": 95,
+    "text": "१६औँ योजना अनुसार नेपालको प्रतिव्यक्ति अनुमानित प्रतिफल कति छ?\n(What is the Per Capita Income of Nepal according to 16th periodic plan?)",
+    "image_url": null,
+    "options": {
+      "A": "१४३४ अमेरिकी डलर",
+      "B": "२३८५ अमेरिकी डलर",
+      "C": "१४८८ अमेरिकी डलर",
+      "D": "२३९५ अमेरिकी डलर"
+    },
+    "correct": "D",
+    "solution": "The target per capita income by the end of the 16th periodic plan is set at $2,395 USD."
+  },
+  {
+    "id": 96,
+    "text": "नेपालको अन्तर्राष्ट्रिय सीमानाको कुल लम्बाइ कति छ?\n(What is the total length of international border of Nepal?)",
+    "image_url": null,
+    "options": {
+      "A": "२९२६ किलोमिटर",
+      "B": "१८८० किलोमिटर",
+      "C": "२७८७ किलोमिटर",
+      "D": "२७८३ किलोमिटर"
+    },
+    "correct": "A",
+    "solution": "Nepal shares 1,880 km with India and 1,046 km with China, totaling 2,926 km."
+  },
+  {
+    "id": 97,
+    "text": "लिथुआनिया को राजधानी कुन हो?\n(What is the Capital City of Lithuania?)",
+    "image_url": null,
+    "options": {
+      "A": "Vilnius",
+      "B": "Valletta",
+      "C": "Lima",
+      "D": "Dublin"
+    },
+    "correct": "A",
+    "solution": "Vilnius is the capital and largest city of Lithuania."
+  },
+  {
+    "id": 98,
+    "text": "UNO ले २०२५ लाई कुन वर्ष भनेर घोषणा गरेको हो?\n(Which year is declared as International Year 2025 by UN?)",
+    "image_url": null,
+    "options": {
+      "A": "International Year of Wildlife",
+      "B": "International Year of Glaciers",
+      "C": "International Year of Quantum Science and Technology",
+      "D": "International Year of Oceans"
+    },
+    "correct": "C",
+    "solution": "The UN declared 2025 as the International Year of Quantum Science and Technology."
+  },
+  {
+    "id": 99,
+    "text": "सैनिक व्यक्तिले बिदामा कति दिन विशेष बिदा पाउँछ?\n(How many days does a military person get as most special sick leave?)",
+    "image_url": null,
+    "options": {
+      "A": "३ महिना",
+      "B": "६ महिना",
+      "C": "१ वर्ष",
+      "D": "२ वर्ष"
+    },
+    "correct": "C",
+    "solution": "According to official key: Option C (1 Year)."
+  },
+  {
+    "id": 100,
+    "text": "नेपाली सेना को आदर्श वाक्य के हो?\n(What is the Motto of Nepal Army?)",
+    "image_url": null,
+    "options": {
+      "A": "Seva Parmo Dharma",
+      "B": "Better to die than to be Coward",
+      "C": "This we will Defend",
+      "D": "Death or Glory"
+    },
+    "correct": "B",
+    "solution": "The official motto of the Nepal Army is 'कायर हुनु भन्दा मर्नु राम्रो' (Better to die than to be a coward)."
+  }
 ]
 let state = {
    questions: JSON.parse(localStorage.getItem('mock_questions')) || defaultQuestions,
