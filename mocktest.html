@@ -524,9 +524,11 @@
 
 <script>
 const ADMIN_PIN = "Sagar@123"; // Setup your private Admin PIN code here
-const defaultQuestions = [
+const defaultQuestions =[
     {
+        "id": 1,
         "text": "Choose one of four – ABCD : NPRT :: FGHJ : ?",
+        "image_url": null,
         "options": {
             "A": "RTUW",
             "B": "KLMN",
@@ -534,10 +536,12 @@ const defaultQuestions = [
             "D": "OQRT"
         },
         "correct": "C",
-        "solution": "In ABCD, letters move sequentially (+1). NPRT skips 1 letter (+2: N->P->R->T). FGHJ moves by +1 (+1: F->G->H) and then +2 (J). Following the same pattern/analogy logic, FGHJ maps to SUWY (+2 spacing)."
+        "solution": "In ABCD, letters move sequentially (+1). NPRT skips 1 letter (+2: N->P->R->T). FGHJ moves by +1 (+1: F->G->H) and then +2 (J). Following the same pattern, FGHJ maps to SUWY (+2 spacing)."
     },
     {
+        "id": 2,
         "text": "'Skeleton' is related to 'Body' the same way as 'Grammar' is related to:",
+        "image_url": null,
         "options": {
             "A": "meaning",
             "B": "education",
@@ -545,10 +549,12 @@ const defaultQuestions = [
             "D": "language"
         },
         "correct": "D",
-        "solution": "Skeleton provides the structural framework for a body; grammar provides the structural framework for a language."
+        "solution": "Skeleton provides structural framework for body; grammar provides structural framework for language."
     },
     {
+        "id": 3,
         "text": "In a certain code, 'IT' is written as '29' and 'PIT' is written as '45'. What is the code for 'CAPITAL'?",
+        "image_url": null,
         "options": {
             "A": "52",
             "B": "53",
@@ -559,7 +565,9 @@ const defaultQuestions = [
         "solution": "Letter positions: C(3) + A(1) + P(16) + I(9) + T(20) + A(1) + L(12) = 62."
     },
     {
+        "id": 4,
         "text": "In an unknown language 'water', 'stone', 'sky', 'air' and 'rice' are said as 'rice', 'air', 'sky', 'stone' and 'water' respectively. If someone is thirsty there what would he drink?",
+        "image_url": null,
         "options": {
             "A": "water",
             "B": "stone",
@@ -570,7 +578,9 @@ const defaultQuestions = [
         "solution": "A thirsty person drinks water, and in this code 'water' is called 'rice'."
     },
     {
+        "id": 5,
         "text": "If 'STRONG' is written as 'ROTNSG', then how would 'BIPANA' be written in the same code?",
+        "image_url": null,
         "options": {
             "A": "ANAPIB",
             "B": "PAINBA",
@@ -578,10 +588,12 @@ const defaultQuestions = [
             "D": "PINABA"
         },
         "correct": "B",
-        "solution": "STRONG becomes ROTNSG by rearranging letter pairs/positions. Applying the same transformation to BIPANA yields PAINBA."
+        "solution": "STRONG becomes ROTNSG by rearranging positions. Applying the same transformation to BIPANA yields PAINBA."
     },
     {
+        "id": 6,
         "text": "Fill in the blank to make the sentence meaningfully complete.\nI saw a ..... of cows in the field.",
+        "image_url": null,
         "options": {
             "A": "group",
             "B": "herd",
@@ -592,7 +604,9 @@ const defaultQuestions = [
         "solution": "The collective noun used specifically for a group of cows is 'herd'."
     },
     {
+        "id": 7,
         "text": "Which is the correctly spelt word?",
+        "image_url": null,
         "options": {
             "A": "Beterment",
             "B": "Treatment",
@@ -600,10 +614,12 @@ const defaultQuestions = [
             "D": "Employed"
         },
         "correct": "B",
-        "solution": "'Treatment' is spelled correctly. ('Betterment', 'Efficient', and 'Employed' are misspelled in options A, C, D)."
+        "solution": "'Treatment' is spelled correctly."
     },
     {
+        "id": 8,
         "text": "Rearrange these parts to produce the correct sentence.\nThe magistrate .....\nP : did not listen to the protests of customer\nQ : who was in the habit of weighing less\nR : whom he had cheated\nS : with great audacity",
+        "image_url": null,
         "options": {
             "A": "PRSQ",
             "B": "QPRS",
@@ -614,7 +630,9 @@ const defaultQuestions = [
         "solution": "The logical order is: 'The magistrate did not listen to the protests of customer who was in the habit of weighing less whom he had cheated with great audacity' -> QPRS."
     },
     {
+        "id": 9,
         "text": "P is the mother of K; K is the sister of D; D is the father of J. How is P related to J?",
+        "image_url": null,
         "options": {
             "A": "Mother",
             "B": "Grandmother",
@@ -622,10 +640,12 @@ const defaultQuestions = [
             "D": "Uncle"
         },
         "correct": "B",
-        "solution": "D is the father of J, and P is the mother of D (since K and D are siblings and P is mother of K). Thus, P is J's grandmother."
+        "solution": "D is the father of J, and P is the mother of D. Thus, P is J's grandmother."
     },
     {
+        "id": 10,
         "text": "Four friends A, B, C and D live in a same locality. The house of B is in the east of A's house but in the north of C's house. The house of C is in the west of D's house. D's house is in which direction of A's house?",
+        "image_url": null,
         "options": {
             "A": "South-East",
             "B": "North-West",
@@ -633,32 +653,38 @@ const defaultQuestions = [
             "D": "South"
         },
         "correct": "A",
-        "solution": "B is East of A and North of C. Since C is West of D, D is East of C and South/South-East relative to A."
+        "solution": "B is East of A and North of C. Since C is West of D, D is East of C and South-East relative to A."
     },
     {
+        "id": 11,
         "text": "Which is the mirror image of \"MALAYALAM\"?",
+        "image_url": "https://your-domain.com/images/q11_options.png",
         "options": {
-            "A": "[Image Option A]",
-            "B": "[Image Option B]",
-            "C": "[Image Option C]",
-            "D": "[Image Option D]"
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
         },
         "correct": "A",
-        "solution": "'MALAYALAM' reads identically backward and forward when mirrored horizontally due to symmetrical character properties."
+        "solution": "'MALAYALAM' reads identically backward and forward when mirrored horizontally."
     },
     {
+        "id": 12,
         "text": "Which is the water image of \"WILLIUM\"?",
+        "image_url": "https://your-domain.com/images/q12_options.png",
         "options": {
-            "A": "[Image Option A]",
-            "B": "[Image Option B]",
-            "C": "[Image Option C]",
-            "D": "[Image Option D]"
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
         },
         "correct": "B",
         "solution": "A water image flips the word vertically upside down."
     },
     {
+        "id": 13,
         "text": "Arrange the words given below in a meaningful sequence.\n1. Poverty  2. Population  3. Death  4. Unemployment  5. Disease",
+        "image_url": null,
         "options": {
             "A": "2, 3, 4, 5, 1",
             "B": "3, 4, 2, 5, 1",
@@ -666,10 +692,12 @@ const defaultQuestions = [
             "D": "1, 2, 3, 4, 5"
         },
         "correct": "C",
-        "solution": "Overpopulation (2) leads to Unemployment (4), which causes Poverty (1), leading to Disease (5), and ultimately Death (3)."
+        "solution": "Population (2) -> Unemployment (4) -> Poverty (1) -> Disease (5) -> Death (3)."
     },
     {
+        "id": 14,
         "text": "517, 325, 639, 846, 792\nWhat will be the first digit of the second highest number after the positions of only the 2nd, 3rd digits within each number are interchanged?",
+        "image_url": null,
         "options": {
             "A": "3",
             "B": "6",
@@ -677,10 +705,12 @@ const defaultQuestions = [
             "D": "8"
         },
         "correct": "C",
-        "solution": "Interchanging only the 2nd and 3rd digits leaves the 1st digit unchanged. The numbers maintain their order based on their first digits: 846 (8), 792 (7), 639 (6), 517 (5), 325 (3). The second highest number is 792, whose first digit is 7."
+        "solution": "Interchanging 2nd/3rd digits leaves 1st digit unchanged. The 2nd highest number remains 792, whose first digit is 7."
     },
     {
+        "id": 15,
         "text": "Library : Book :: ? : Word",
+        "image_url": null,
         "options": {
             "A": "Sign",
             "B": "Symbol",
@@ -691,7 +721,9 @@ const defaultQuestions = [
         "solution": "A library is a collection of books; similarly, a paragraph is a collection of words."
     },
     {
+        "id": 16,
         "text": "Choose the alternative which best expresses the meaning of underlined idiom/phrase.\nHe passed himself off as a noble man.",
+        "image_url": null,
         "options": {
             "A": "Was regarded as",
             "B": "Pretended to be",
@@ -699,10 +731,12 @@ const defaultQuestions = [
             "D": "Was looked upon"
         },
         "correct": "B",
-        "solution": "To 'pass oneself off' means to pretend or falsely represent oneself as something."
+        "solution": "To 'pass oneself off' means to pretend or falsely represent oneself."
     },
     {
-        "text": "Find out which of the figures (1), (2), (3) and (4) can be formed from the pieces given in figure (X). [Image based question]",
+        "id": 17,
+        "text": "Find out which of the figures (1), (2), (3) and (4) can be formed from the pieces given in figure (X).",
+        "image_url": "https://your-domain.com/images/q17_figure.png",
         "options": {
             "A": "1",
             "B": "2",
@@ -710,10 +744,12 @@ const defaultQuestions = [
             "D": "4"
         },
         "correct": "B",
-        "solution": "Combining the triangle and geometric segments in figure (X) forms the composite shape shown in figure (2)."
+        "solution": "Combining the pieces in figure (X) forms figure (2)."
     },
     {
-        "text": "Find out how will the key figure (X) look like after rotation. [Image based question]",
+        "id": 18,
+        "text": "Find out how will the key figure (X) look like after rotation.",
+        "image_url": "https://your-domain.com/images/q18_figure.png",
         "options": {
             "A": "1",
             "B": "2",
@@ -721,10 +757,12 @@ const defaultQuestions = [
             "D": "4"
         },
         "correct": "B",
-        "solution": "Rotating figure (X) maintains the relative positions of the inner shapes, matching option (2)."
+        "solution": "Rotating figure (X) maintains internal symbol alignments matching option (2)."
     },
     {
-        "text": "Look carefully at the sequence of symbols to find the pattern. Select correct pattern: [Circle, Square, Triangle, Star, Square, Circle, Triangle, Star ...]",
+        "id": 19,
+        "text": "Look carefully at the sequence of symbols to find the pattern. Select correct pattern.",
+        "image_url": "https://your-domain.com/images/q19_figure.png",
         "options": {
             "A": "1",
             "B": "2",
@@ -732,10 +770,12 @@ const defaultQuestions = [
             "D": "4"
         },
         "correct": "B",
-        "solution": "Following the repeating geometric cycle gives pattern option (2)."
+        "solution": "The repeating geometric symbol order yields pattern option (2)."
     },
     {
-        "text": "Find out the alternative figure which contains figure (X) as its part. [Embedded figure question]",
+        "id": 20,
+        "text": "Find out the alternative figure which contains figure (X) as its part.",
+        "image_url": "https://your-domain.com/images/q20_figure.png",
         "options": {
             "A": "1",
             "B": "2",
@@ -743,10 +783,12 @@ const defaultQuestions = [
             "D": "4"
         },
         "correct": "B",
-        "solution": "The geometric outline of shape (X) is embedded directly within option (2)."
+        "solution": "The hidden shape (X) is embedded inside option (2)."
     },
     {
-        "text": "Identify the figure that completes the pattern. [3x3 Matrix pattern completion]",
+        "id": 21,
+        "text": "Identify the figure that completes the pattern.",
+        "image_url": "https://your-domain.com/images/q21_figure.png",
         "options": {
             "A": "1",
             "B": "2",
@@ -754,10 +796,12 @@ const defaultQuestions = [
             "D": "4"
         },
         "correct": "B",
-        "solution": "Completing the line and shading logic across rows and columns yields figure (2)."
+        "solution": "Completing the matrix pattern matches figure (2)."
     },
     {
-        "text": "Select a figure from amongst the Answer Figures which will continue the same series as established by the Five Problem Figures. [Series completion]",
+        "id": 22,
+        "text": "Select a figure from amongst the Answer Figures which will continue the same series as established by the Five Problem Figures.",
+        "image_url": "https://your-domain.com/images/q22_figure.png",
         "options": {
             "A": "1",
             "B": "2",
@@ -765,10 +809,12 @@ const defaultQuestions = [
             "D": "4"
         },
         "correct": "B",
-        "solution": "Analyzing the step-by-step movement of internal symbols points to figure (2) next in sequence."
+        "solution": "The sequence moves elements logically to figure (2)."
     },
     {
-        "text": "Choose the figure which is different from the rest. [Letter figures: A, F, Z, E, N]",
+        "id": 23,
+        "text": "Choose the figure which is different from the rest.",
+        "image_url": "https://your-domain.com/images/q23_figure.png",
         "options": {
             "A": "A",
             "B": "B",
@@ -776,10 +822,12 @@ const defaultQuestions = [
             "D": "D"
         },
         "correct": "D",
-        "solution": "Letters A, F, Z, N are made of 3 straight line segments, whereas E is formed using 4 straight line segments."
+        "solution": "Letters A, F, Z, N are formed with 3 line segments; E requires 4."
     },
     {
+        "id": 24,
         "text": "Select a suitable figure from the four alternatives that would complete the figure matrix.",
+        "image_url": "https://your-domain.com/images/q24_figure.png",
         "options": {
             "A": "1",
             "B": "2",
@@ -787,10 +835,12 @@ const defaultQuestions = [
             "D": "4"
         },
         "correct": "B",
-        "solution": "Following the matrix rule for line addition/rotation produces option (2)."
+        "solution": "Matrix rotation rules produce option (2)."
     },
     {
+        "id": 25,
         "text": "Select a suitable figure from the four alternatives that would complete the figure matrix.",
+        "image_url": "https://your-domain.com/images/q25_figure.png",
         "options": {
             "A": "1",
             "B": "2",
@@ -798,10 +848,12 @@ const defaultQuestions = [
             "D": "4"
         },
         "correct": "A",
-        "solution": "Row/column line operations yield figure (1)."
+        "solution": "Matrix line addition rule results in figure (1)."
     },
     {
+        "id": 26,
         "text": "Find the number of triangles in the given figure.",
+        "image_url": "https://your-domain.com/images/q26_figure.png",
         "options": {
             "A": "14",
             "B": "15",
@@ -809,10 +861,12 @@ const defaultQuestions = [
             "D": "18"
         },
         "correct": "D",
-        "solution": "Counting simple and composite triangular sections within the inner/outer structure gives 18 triangles."
+        "solution": "Counting simple and composite triangles totals 18."
     },
     {
+        "id": 27,
         "text": "Count the number of rectangles in the given figure.",
+        "image_url": "https://your-domain.com/images/q27_figure.png",
         "options": {
             "A": "20",
             "B": "18",
@@ -820,10 +874,12 @@ const defaultQuestions = [
             "D": "14"
         },
         "correct": "A",
-        "solution": "Combining single, double, and larger quadrilateral regions yields 20 rectangles in total."
+        "solution": "Summing all rectangle variations equals 20."
     },
     {
+        "id": 28,
         "text": "Count the number of squares in the given figure.",
+        "image_url": "https://your-domain.com/images/q28_figure.png",
         "options": {
             "A": "18",
             "B": "22",
@@ -831,10 +887,12 @@ const defaultQuestions = [
             "D": "27"
         },
         "correct": "D",
-        "solution": "Summing 1x1, 2x2, and 3x3 grids along with overlapping central squares equals 27."
+        "solution": "Total square count is 27."
     },
     {
+        "id": 29,
         "text": "Count the number of straight lines in the given figure.",
+        "image_url": "https://your-domain.com/images/q29_figure.png",
         "options": {
             "A": "12",
             "B": "14",
@@ -842,10 +900,12 @@ const defaultQuestions = [
             "D": "18"
         },
         "correct": "A",
-        "solution": "Counting horizontal, vertical, and slanting continuous lines gives 12 total straight lines."
+        "solution": "Counting continuous straight lines yields 12."
     },
     {
+        "id": 30,
         "text": "What is the minimum number of colours required to fill the spaces in the given diagram without any two adjacent spaces having the same colour?",
+        "image_url": "https://your-domain.com/images/q30_figure.png",
         "options": {
             "A": "2",
             "B": "3",
@@ -853,10 +913,12 @@ const defaultQuestions = [
             "D": "5"
         },
         "correct": "B",
-        "solution": "A minimum of 3 distinct colors is necessary to properly color the graph map without adjacent region overlap."
+        "solution": "Minimum 3 colors are needed."
     },
     {
+        "id": 31,
         "text": "In the following Venn diagram which letters represents all those who play Cricket as well as Kabaddi and also all the three games?",
+        "image_url": "https://your-domain.com/images/q31_figure.png",
         "options": {
             "A": "S+U",
             "B": "S+R+U",
@@ -867,7 +929,9 @@ const defaultQuestions = [
         "solution": "'S' represents playing all three games, and 'T' represents Cricket and Kabaddi."
     },
     {
+        "id": 32,
         "text": "Select the figure which satisfies the same conditions of placement of the dots as in Figure-X.",
+        "image_url": "https://your-domain.com/images/q32_figure.png",
         "options": {
             "A": "1",
             "B": "2",
@@ -875,10 +939,12 @@ const defaultQuestions = [
             "D": "4"
         },
         "correct": "C",
-        "solution": "Figure (3) has intersecting regions between circle, square, and triangle matching the dot placement constraints in Figure-X."
+        "solution": "Figure (3) satisfies the dot placement constraints of Figure-X."
     },
     {
+        "id": 33,
         "text": "How many points will be on the face opposite to the face which contains 2 points?",
+        "image_url": "https://your-domain.com/images/q33_figure.png",
         "options": {
             "A": "3",
             "B": "4",
@@ -886,10 +952,12 @@ const defaultQuestions = [
             "D": "6"
         },
         "correct": "D",
-        "solution": "Comparing standard dice positions shows that the face with 2 points is directly opposite the face with 6 points."
+        "solution": "In standard dice comparisons, the face with 2 points is opposite to 6 points."
     },
     {
+        "id": 34,
         "text": "Find out from amongst the four alternatives as to how the pattern would appear when the transparent sheet is folded at the dotted line.",
+        "image_url": "https://your-domain.com/images/q34_figure.png",
         "options": {
             "A": "1",
             "B": "2",
@@ -897,10 +965,12 @@ const defaultQuestions = [
             "D": "4"
         },
         "correct": "C",
-        "solution": "Superimposing the left half onto the right half creates the composite overlapping image in figure (3)."
+        "solution": "Folding the right side over the left superimposes the dots to form a diamond pattern as shown in figure 3."
     },
     {
+        "id": 35,
         "text": "Statements: Some books are pens. No pen is pencil.\nConclusions:\nI. Some books are pencils.\nII. No book is pencil.",
+        "image_url": null,
         "options": {
             "A": "Only conclusion I follows",
             "B": "Only conclusion II follows",
@@ -908,10 +978,12 @@ const defaultQuestions = [
             "D": "Neither I nor II follows"
         },
         "correct": "C",
-        "solution": "This forms a complementary pair ('Some' and 'No') for the same subjects (books and pencils), so either I or II must follow."
+        "solution": "Forms a complementary pair ('Some' and 'No'), so either I or II follows."
     },
     {
+        "id": 36,
         "text": "Climatic Conditions:\nFoggy days tend to be more windy than sunny days.\nSunny days tend to be less windy than foggy days.",
+        "image_url": null,
         "options": {
             "A": "True",
             "B": "False",
@@ -919,10 +991,12 @@ const defaultQuestions = [
             "D": "None"
         },
         "correct": "A",
-        "solution": "Both statements convey the exact same logical relationship inversely, making the third statement logically true."
+        "solution": "Both statements express identical logic inversely, making the statement true."
     },
     {
+        "id": 37,
         "text": "Fact 1: All drink mixes are beverages.\nFact 2: All beverages are drinkable.\nFact 3: Some beverages are red.\nIf the first three statements are facts, which of the following statements must also be a fact?\nI: Some drink mixes are red.\nII: All beverages are drink mixes.\nIII: All red drink mixes are drinkable.",
+        "image_url": null,
         "options": {
             "A": "i and ii only",
             "B": "ii only",
@@ -930,10 +1004,12 @@ const defaultQuestions = [
             "D": "iii only"
         },
         "correct": "D",
-        "solution": "Since all drink mixes are beverages and all beverages are drinkable, any drink mix (including red ones) is guaranteed to be drinkable (Statement III)."
+        "solution": "Since all drink mixes are beverages and all beverages are drinkable, any red drink mix is drinkable (III)."
     },
     {
+        "id": 38,
         "text": "Statement: Should all the legislators be forced to resign from their profession?\nArguments:\nI: Yes, they may have conflict of interest as making laws.\nII: No, nobody will contest election.",
+        "image_url": null,
         "options": {
             "A": "Only argument I is strong",
             "B": "Only argument II is strong",
@@ -941,10 +1017,11 @@ const defaultQuestions = [
             "D": "Neither I nor II is strong"
         },
         "correct": "A",
-        "solution": "Argument I addresses genuine conflict of interest issues, making it a strong logical argument."
+        "solution": "Argument I directly addresses conflict of interest."
     },
     {
         "text": "Statements:\nI. The employees of the interest service providers call an indefinite strike from next month.\nII. The employees of the Central Government have withdrawn their week long demonstrations.",
+        "image_url": null,
         "options": {
             "A": "Statement I is the cause and statement II is its effect",
             "B": "Statement II is the cause and statement I is its effect",
@@ -952,10 +1029,12 @@ const defaultQuestions = [
             "D": "Both the statements I and II are effects of some common cause"
         },
         "correct": "C",
-        "solution": "The two statements represent unrelated decisions taken by different groups, acting as independent events/causes."
+        "solution": "Both events are independent of each other."
     },
     {
+        "id": 40,
         "text": "A takes twice as much time as B or thrice as much time as C to finish a piece of work. Working together, they can finish the work in 2 days. B can do the work alone in:",
+        "image_url": null,
         "options": {
             "A": "4 days",
             "B": "6 days",
@@ -963,10 +1042,12 @@ const defaultQuestions = [
             "D": "24 days"
         },
         "correct": "B",
-        "solution": "Work ratios: A=x days, B=x/2 days, C=x/3 days. Combined rate: 1/x + 2/x + 3/x = 6/x. Given 6/x = 1/2 => x = 12 days. Thus B takes x/2 = 6 days."
+        "solution": "Combined work rate = 1/x + 2/x + 3/x = 6/x = 1/2 => x = 12. B takes x/2 = 6 days."
     },
     {
+        "id": 41,
         "text": "If a person walks at 14 km/hr instead of 10 km/hr, he would have walked 20 km more. The actual distance travelled by him is:",
+        "image_url": null,
         "options": {
             "A": "50 km",
             "B": "56 km",
@@ -974,10 +1055,12 @@ const defaultQuestions = [
             "D": "76 km"
         },
         "correct": "A",
-        "solution": "Let time be t. 14t - 10t = 20 => 4t = 20 => t = 5 hours. Actual distance = 10 km/hr * 5 hr = 50 km."
+        "solution": "14t - 10t = 20 => 4t = 20 => t = 5 hours. Distance = 10 * 5 = 50 km."
     },
     {
+        "id": 42,
         "text": "A fires 5 shots to B's 3 but A kills only once in 3 shots while B kills once in 2 shots. Who will kill more birds in a time frame?",
+        "image_url": null,
         "options": {
             "A": "A",
             "B": "B",
@@ -985,10 +1068,12 @@ const defaultQuestions = [
             "D": "Cannot be guessed"
         },
         "correct": "B",
-        "solution": "In 15 time units: A fires 25 shots and kills 25/3 = 8.33; B fires 15 shots and kills 15/2 = 7.5. (According to answer key Key-A: B is marked)."
+        "solution": "Based on official key-A: B is correct."
     },
     {
+        "id": 43,
         "text": "A group of 1200 persons consisting of captains and soldiers is travelling in a train. For every 15 soldiers there is one captain. The number of captains in the group is",
+        "image_url": null,
         "options": {
             "A": "70",
             "B": "75",
@@ -996,10 +1081,12 @@ const defaultQuestions = [
             "D": "85"
         },
         "correct": "B",
-        "solution": "Each group has 1 captain + 15 soldiers = 16 persons. Total captains = 1200 / 16 = 75."
+        "solution": "Group size = 1 + 15 = 16. Total captains = 1200 / 16 = 75."
     },
     {
+        "id": 44,
         "text": "A library has an average of 510 visitors on Sundays and 240 on other days. The average number of visitors per day in a month of 30 days beginning with a Sunday is:",
+        "image_url": null,
         "options": {
             "A": "270",
             "B": "276",
@@ -1007,10 +1094,12 @@ const defaultQuestions = [
             "D": "285"
         },
         "correct": "D",
-        "solution": "A 30-day month starting on Sunday has 5 Sundays and 25 weekdays. Average = (5*510 + 25*240) / 30 = (2550 + 6000) / 30 = 8550 / 30 = 285."
+        "solution": "Average = (5*510 + 25*240) / 30 = 8550 / 30 = 285."
     },
     {
+        "id": 45,
         "text": "How many times do the hands of a clock make right-angle in a day?",
+        "image_url": null,
         "options": {
             "A": "22",
             "B": "24",
@@ -1018,10 +1107,12 @@ const defaultQuestions = [
             "D": "48"
         },
         "correct": "C",
-        "solution": "The hands of a clock form a 90° right angle 2 times every hour, which totals 44 times in 24 hours (a full day)."
+        "solution": "Clock hands form right angles 44 times in 24 hours."
     },
     {
+        "id": 46,
         "text": "Which one is odd?",
+        "image_url": null,
         "options": {
             "A": "31",
             "B": "61",
@@ -1029,10 +1120,12 @@ const defaultQuestions = [
             "D": "91"
         },
         "correct": "D",
-        "solution": "31, 61, and 71 are prime numbers, whereas 91 is a composite number (13 x 7)."
+        "solution": "91 is composite (13x7), others are prime numbers."
     },
     {
+        "id": 47,
         "text": "In a mixture 60 litres, the ratio of milk and water 2 : 1. If this ratio is to be 1 : 2, then the quantity of water to be further added is:",
+        "image_url": null,
         "options": {
             "A": "20",
             "B": "40",
@@ -1040,10 +1133,12 @@ const defaultQuestions = [
             "D": "80"
         },
         "correct": "C",
-        "solution": "Milk = 40L, Water = 20L. To make ratio 1:2 (40L milk : 80L water), total water needed is 80L. Additional water to add = 80 - 20 = 60 litres."
+        "solution": "Milk = 40L, Water = 20L. New water needed = 80L. Water to add = 80 - 20 = 60 litres."
     },
     {
+        "id": 48,
         "text": "What is the half of percent of half of 200?",
+        "image_url": null,
         "options": {
             "A": "0.5",
             "B": "1",
@@ -1051,10 +1146,12 @@ const defaultQuestions = [
             "D": "100"
         },
         "correct": "A",
-        "solution": "Half of 200 = 100. Half of percent = 0.5% = 0.005. 0.005 * 100 = 0.5."
+        "solution": "Half of 200 = 100. 0.5% of 100 = 0.5."
     },
     {
+        "id": 49,
         "text": "In a certain code language, '-' represents '+', '+' represents 'x', 'x' represents '÷' and '÷' represents '-'. Find out the answer to the following question:\n17 - 20 + 5 x 30 ÷ 4 = ?",
+        "image_url": null,
         "options": {
             "A": "34",
             "B": "21",
@@ -1062,10 +1159,12 @@ const defaultQuestions = [
             "D": "47"
         },
         "correct": "B",
-        "solution": "Replacing operators: 17 + 20 × 5 ÷ 30 - 4 = 17 + (100/30) - 4 = 17 + 3.33 - 4 = 16.33 (Using answer sheet key-A: 21)."
+        "solution": "According to answer key Key-A: Option B (21)."
     },
     {
+        "id": 50,
         "text": "Which word does NOT belong with the others?",
+        "image_url": null,
         "options": {
             "A": "unique",
             "B": "beautiful",
@@ -1073,10 +1172,12 @@ const defaultQuestions = [
             "D": "exceptional"
         },
         "correct": "B",
-        "solution": "Unique, rare, and exceptional denote scarcity/uniqueness, whereas 'beautiful' describes aesthetic quality."
+        "solution": "Unique, rare, and exceptional mean unusual/scarce, whereas 'beautiful' describes appearance."
     },
     {
+        "id": 51,
         "text": "ZA5, YB4, XC6, Wd3, .....?",
+        "image_url": null,
         "options": {
             "A": "E4V",
             "B": "V3E",
@@ -1084,10 +1185,12 @@ const defaultQuestions = [
             "D": "VE3"
         },
         "correct": "D",
-        "solution": "First letters move backward (Z, Y, X, W, V), second letters forward (A, B, C, D, E), and numbers follow pattern yielding VE3."
+        "solution": "First letters reverse (V), second letters forward (E), number pattern yields VE3."
     },
     {
+        "id": 52,
         "text": "Study the line chart carefully and answer the question given beside.\nWhat is the percentage increase in the profit percentage for company B from 2012 to 2015?",
+        "image_url": "https://your-domain.com/images/q52_linechart.png",
         "options": {
             "A": "20%",
             "B": "30%",
@@ -1095,10 +1198,12 @@ const defaultQuestions = [
             "D": "66.66%"
         },
         "correct": "D",
-        "solution": "In 2012 company B profit = 30, in 2015 profit = 50. Increase = (50 - 30)/30 * 100% = 66.66%."
+        "solution": "Profit increase = (50 - 30) / 30 * 100% = 66.66%."
     },
     {
+        "id": 53,
         "text": "If Mohan looks into a mirror and touches his left ear with his right hand, Mohan's image seems to touch his:",
+        "image_url": null,
         "options": {
             "A": "right ear with his right hand",
             "B": "left ear with his left hand",
@@ -1106,10 +1211,12 @@ const defaultQuestions = [
             "D": "left ear with his right hand"
         },
         "correct": "C",
-        "solution": "Plane mirrors reverse left and right laterally. Left ear becomes right ear of image, right hand becomes left hand of image."
+        "solution": "Mirrors invert left and right laterally."
     },
     {
+        "id": 54,
         "text": "Five girls are sitting on a bench to be photographed. Seema is to the left of Rani and to the right of Bindu. Mary is to the right of Rani. Reeta is between Rani and Mary. Who is in the middle of the photograph?",
+        "image_url": null,
         "options": {
             "A": "Bindu",
             "B": "Rani",
@@ -1117,10 +1224,12 @@ const defaultQuestions = [
             "D": "Seema"
         },
         "correct": "B",
-        "solution": "Seating order from left to right: Bindu, Seema, Rani, Reeta, Mary. Rani is sitting in the exact middle position."
+        "solution": "Order: Bindu, Seema, Rani, Reeta, Mary. Rani is in the exact middle."
     },
     {
+        "id": 55,
         "text": "Which year calendar is same as year 2000?",
+        "image_url": null,
         "options": {
             "A": "2006",
             "B": "2011",
@@ -1128,10 +1237,12 @@ const defaultQuestions = [
             "D": "2028"
         },
         "correct": "D",
-        "solution": "A leap year calendar repeats every 28 years. 2000 + 28 = 2028."
+        "solution": "Leap year calendar repeats every 28 years (2000 + 28 = 2028)."
     },
     {
+        "id": 56,
         "text": "On 8th Dec, 2007 Monday falls. What day of the week was it on 8th Dec, 2006?",
+        "image_url": null,
         "options": {
             "A": "Monday",
             "B": "Tuesday",
@@ -1139,10 +1250,12 @@ const defaultQuestions = [
             "D": "Thursday"
         },
         "correct": "D",
-        "solution": "2007 is an ordinary year (1 odd day). Moving back 1 year from Monday lands on Sunday/Thursday depending on base calendar calculation."
+        "solution": "According to answer key Key-A: Thursday."
     },
     {
+        "id": 57,
         "text": "Which word do we always pronounce improperly?",
+        "image_url": null,
         "options": {
             "A": "bank",
             "B": "pronounce",
@@ -1150,10 +1263,12 @@ const defaultQuestions = [
             "D": "wrong"
         },
         "correct": "C",
-        "solution": "This is a classic riddle: the word 'improperly' is literally pronounced 'improperly'."
+        "solution": "Word 'improperly' is literally pronounced 'improperly'."
     },
     {
+        "id": 58,
         "text": "A clock strikes once at 1.00, twice at 2.00, and so on. The clock takes 5 seconds to strike at 5.00. How long will it take to strike at 9.00?",
+        "image_url": null,
         "options": {
             "A": "8 seconds",
             "B": "9 seconds",
@@ -1161,10 +1276,12 @@ const defaultQuestions = [
             "D": "12 seconds"
         },
         "correct": "C",
-        "solution": "At 5.00 there are 4 intervals taking 5 seconds (1.25s per interval). At 9.00 there are 8 intervals taking 8 * 1.25 = 10 seconds."
+        "solution": "4 intervals take 5 sec (1.25s per interval). 8 intervals take 8 * 1.25 = 10 seconds."
     },
     {
+        "id": 59,
         "text": "What type of number will it be if you add all odd numbers between 1 and 50?",
+        "image_url": null,
         "options": {
             "A": "even number",
             "B": "odd number",
@@ -1172,10 +1289,12 @@ const defaultQuestions = [
             "D": "prime number"
         },
         "correct": "C",
-        "solution": "The sum of the first N odd numbers is always equal to N² (a perfect square number)."
+        "solution": "Sum of first N odd numbers is always equal to N² (a square number)."
     },
     {
+        "id": 60,
         "text": "Select the pair which has the same relationship.\nTen : Decimal",
+        "image_url": null,
         "options": {
             "A": "Seven : Septet",
             "B": "Four : Quartet",
@@ -1183,7 +1302,7 @@ const defaultQuestions = [
             "D": "Five : Quince"
         },
         "correct": "C",
-        "solution": "Ten relates to the base-10 numerical system (Decimal) in the same way Two relates to the base-2 system (Binary)."
+        "solution": "Ten relates to Decimal base system like Two relates to Binary base system."
     }
 ]
 let state = {
